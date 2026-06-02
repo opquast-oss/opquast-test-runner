@@ -2381,8 +2381,8 @@ var regFunction = new RegExp("([^\\s:{}&|]*)\\(", "i"),
             });
 
             return Q.promised(Array).apply(null, promises).then(function(res) {
-                var _res = res.filter(function(v) v !== null);
-                return _res.some(function(v) v === false) ? false :_res;
+                var _res = res.filter(function(v) { return v !== null; });
+                return _res.some(function(v) { return v === false; }) ? false :_res;
             });
         } catch(err) {
             logger.error("htmlFavicon", err);
@@ -6978,8 +6978,8 @@ var regFunction = new RegExp("([^\\s:{}&|]*)\\(", "i"),
             });
 
             return Q.promised(Array).apply(null, promises).then(function(res) {
-                var _res = res.filter(function(v) v !== null);
-                return _res.some(function(v) v === false) ? false :_res;
+                var _res = res.filter(function(v) { return v !== null; });
+                return _res.some(function(v) { return v === false; }) ? false :_res;
             });
         } catch(err) {
             // Error Logging

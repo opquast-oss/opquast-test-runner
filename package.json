@@ -1,19 +1,54 @@
 {
-    "name": "opquast-tests",
-    "title": "Opquast Test Framework",
-    "description": "Core of the Opquast analyser that checks rules (tests) onto a web pages",
-    "author": "Temesis SAS (http://www.temesis.com/)",
-    "contributors": [
-        "Fabrice Bonny <fabrice.bonny@temesis.com>",
-        "Mickael Hoareau <mickael.hoareau@temesis.com>",
-        "Olivier Meunier <olivier.meunier@temesis.com>",
-        "Samuel Martin <samuel.martin@temesis.com>",
-        "Laurent Jouanneau <laurent@innophi.com>"
-    ],
-    "version": "1.8.2",
-    "license": "MPL-2.0",
-    "engines": {
-      "firefox": ">=40"
+  "name": "@opquast/test-runner",
+  "version": "2.0.0-alpha.1",
+  "description": "Opquast test engine — evaluates web quality rules against a DOM and sidecar data",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     },
-    "multiprocess" : true
+    "./rules": {
+      "types": "./dist/rules.d.ts",
+      "import": "./dist/rules.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "data"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "check": "tsc --noEmit",
+    "test": "node --test"
+  },
+  "author": "Temesis SAS (https://www.temesis.com/)",
+  "contributors": [
+    "Fabrice Bonny <fabrice.bonny@temesis.com>",
+    "Mickael Hoareau <mickael.hoareau@temesis.com>",
+    "Olivier Meunier <olivier.meunier@temesis.com>",
+    "Samuel Martin <samuel.martin@temesis.com>",
+    "Laurent Jouanneau <laurent@innophi.com>"
+  ],
+  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/opquast/test-runner.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "opquast",
+    "web-quality",
+    "accessibility",
+    "audit",
+    "testing"
+  ],
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
+  }
 }
