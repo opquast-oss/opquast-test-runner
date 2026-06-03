@@ -11,7 +11,14 @@
     "./rules": {
       "types": "./dist/rules.d.ts",
       "import": "./dist/rules.js"
+    },
+    "./rulesets": {
+      "types": "./dist/rulesets.d.ts",
+      "import": "./dist/rulesets.js"
     }
+  },
+  "publishConfig": {
+    "@opquast:registry": "https://gitlab.com/api/v4/projects/opquast%2Ftest-runner/packages/npm/"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
