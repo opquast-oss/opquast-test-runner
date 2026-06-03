@@ -8,10 +8,20 @@
  * ```ts
  * import { createEngine } from '@opquast/test-runner';
  *
- * const engine = createEngine({ jQuery, logger, services });
+ * // After loading legacy libs (jquery, oqs-utils, cssParser, oqs-validator, oqs-tests)
+ * const engine = createEngine({ jQuery: window.jQuery });
  * const results = await engine.analyze({ document, sidecar, rules, rulesets, criteria });
  * ```
  */
+
+import {
+  loadEngineFromGlobals,
+  prepareAnalysis,
+  buildEventsFromDom,
+  buildSyntheticResource,
+  type LoadedEngine,
+} from './loader.js';
+import { type CreateContextOptions, type XhrResponseData } from './context.js';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -49,11 +59,20 @@ export interface Sidecar {
 }
 
 export interface AnalyzeOptions {
+  /** DOM document to analyze. */
   document: Document;
-  sidecar: Sidecar;
+  /** Pre-built sidecar data. If not provided, will be built from document. */
+  sidecar?: Partial<Sidecar>;
+  /** Rules definitions (rules.json). */
   rules: Record<string, string>;
+  /** Rulesets definitions (rulesets.json subset). */
   rulesets: Record<string, unknown>;
-  criteria: string[];
+  /** Criterion IDs to evaluate. Defaults to all keys in rulesets. */
+  criteria?: string[];
+  /** Event reconstruction mode: 'full' | 'inline' | 'none'. Default: 'inline'. */
+  eventsMode?: 'full' | 'inline' | 'none';
+  /** Pre-fetched HTTP responses for XHR shim. */
+  responses?: Record<string, XhrResponseData>;
 }
 
 export interface TestResult {
@@ -77,72 +96,117 @@ export interface CreateEngineOptions {
 }
 
 export interface Engine {
+  /**
+   * Analyze a document against the specified rules and criteria.
+   *
+   * @returns Array of test results with id, result status, and details.
+   */
   analyze(options: AnalyzeOptions): Promise<TestResult[]>;
+
+  /**
+   * Access to the underlying loaded engine (for advanced use).
+   */
+  readonly loaded: LoadedEngine;
 }
 
 // ---------------------------------------------------------------------------
-// No-op defaults
-// ---------------------------------------------------------------------------
-
-const noopLogger: Logger = {
-  log() {},
-  warn() {},
-  error() {},
-};
-
-const noopServices: Required<Services> = {
-  xhr: async () => ({ status: 0, data: '', getHeader: () => null }),
-  dnsResolve: async () => null,
-};
-
-// ---------------------------------------------------------------------------
-// Engine factory (M2 will implement the full decoupling)
+// Engine factory
 // ---------------------------------------------------------------------------
 
 /**
  * Create an Opquast test engine instance.
  *
- * The engine is stateless — each `analyze()` call is independent.
- * Dependencies (jQuery, logger, services) are captured at creation time.
+ * **Prerequisites**: The legacy engine libraries must be loaded before calling this:
+ * - jquery-1.9.1.min.js
+ * - oqs-utils.js
+ * - cssParser.js
+ * - oqs-validator.js
+ * - oqs-tests.js
+ *
+ * These define global functions (analyze, synthesize_results, $.extractPageInfo)
+ * that this factory wires together with the provided dependencies.
  *
  * @example
  * ```ts
+ * // In browser after loading engine scripts:
  * const engine = createEngine({ jQuery: window.jQuery });
- * const results = await engine.analyze({ document, sidecar, rules, rulesets, criteria });
+ *
+ * const results = await engine.analyze({
+ *   document: window.document,
+ *   rules: rulesJson,
+ *   rulesets: rulesetsSubset,
+ * });
  * ```
  */
 export function createEngine(options: CreateEngineOptions): Engine {
-  const { jQuery, logger = noopLogger, services = {}, config = {} } = options;
+  const { jQuery, logger, services, config } = options;
 
   if (!jQuery) {
     throw new Error('@opquast/test-runner: jQuery is required');
   }
 
-  const _services: Required<Services> = {
-    xhr: services.xhr ?? noopServices.xhr,
-    dnsResolve: services.dnsResolve ?? noopServices.dnsResolve,
-  };
+  // Load engine from globals and wire up context
+  const contextOptions: CreateContextOptions = { logger, services, config };
+  const loaded = loadEngineFromGlobals(jQuery, contextOptions);
 
   return {
-    async analyze(_options: AnalyzeOptions): Promise<TestResult[]> {
-      // M2 TODO: Implement the full decoupling.
-      // For now, this is a placeholder that will be wired to the legacy engine.
-      //
-      // The implementation will:
-      // 1. Set up the module-scoped context (sidecar, logger, services, Q shim)
-      // 2. Load the legacy libs (oqs-utils, oqs-validator, oqs-tests)
-      // 3. Call window.analyze() or the equivalent entry point
-      // 4. Return synthesized results
-      //
-      // This preserves the "engine + sidecar" abstraction already proven in the extension.
-      void jQuery;
-      void logger;
-      void _services;
-      void config;
+    loaded,
 
-      throw new Error(
-        '@opquast/test-runner: analyze() not yet implemented — see M2 in engine-modernization-plan.md',
-      );
+    async analyze(opts: AnalyzeOptions): Promise<TestResult[]> {
+      const {
+        document,
+        rules,
+        rulesets,
+        criteria = Object.keys(rulesets),
+        eventsMode = 'inline',
+        responses = {},
+      } = opts;
+
+      // Update XHR shim with provided responses
+      if (Object.keys(responses).length > 0) {
+        const g = globalThis as Record<string, unknown>;
+        const { createXhrShim } = await import('./context.js');
+        g.XHR = createXhrShim(responses);
+      }
+
+      // Build or merge sidecar
+      const $ = jQuery as { extractPageInfo?: () => Record<string, unknown> };
+      const pageInfo = $.extractPageInfo?.() ?? {};
+      const plainText = new XMLSerializer().serializeToString(document);
+      const events = opts.sidecar?.events ?? buildEventsFromDom(document, eventsMode);
+      const resources =
+        opts.sidecar?.resources && opts.sidecar.resources.length > 0
+          ? opts.sidecar.resources
+          : [buildSyntheticResource(document, document.location!)];
+
+      const sidecar: Sidecar = {
+        events,
+        resources,
+        pageInfo: opts.sidecar?.pageInfo ?? pageInfo,
+        plainText: opts.sidecar?.plainText ?? plainText,
+      };
+
+      // Subset rulesets to requested criteria
+      const criteriaSet: Record<string, unknown> = {};
+      for (const id of criteria) {
+        if (id in rulesets) criteriaSet[id] = rulesets[id];
+      }
+
+      // Prepare context and run analysis
+      prepareAnalysis(loaded.context, sidecar, rules, criteriaSet);
+
+      const rawResults = await loaded.analyze(criteriaSet);
+      const synthesized = loaded.synthesize_results(rawResults);
+
+      // Normalize output
+      return (synthesized as TestResult[]).map((r) => ({
+        id: String(r.id),
+        result: r.result,
+        results_list: r.results_list,
+        comment: r.comment,
+        details: r.details,
+        time: r.time,
+      }));
     },
   };
 }
@@ -153,3 +217,7 @@ export function createEngine(options: CreateEngineOptions): Engine {
 
 export { default as rules } from './rules.js';
 export { default as rulesets } from './rulesets.js';
+export type { XhrResponseData } from './context.js';
+
+// Utilities for consumers
+export { buildEventsFromDom, buildSyntheticResource } from './loader.js';
