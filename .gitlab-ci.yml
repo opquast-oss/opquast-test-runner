@@ -50,3 +50,12 @@ build:
     paths:
       - dist/
     expire_in: 1 week
+
+corpus:
+  stage: check
+  script:
+    # The golden corpus is derived from test/fixtures/, never hand-maintained. Only its digest is
+    # committed (the full manifest is 4 MB, in a 5 MiB repository). This job fails if the fixture
+    # tree drifts from the committed digest, so a fixture added, emptied or removed is a reviewed
+    # change rather than a silent one.
+    - node test/golden/lib/sources.mjs --verify

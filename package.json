@@ -29,6 +29,7 @@
   "scripts": {
     "build": "tsup",
     "check": "tsc --noEmit",
+    "corpus": "node test/golden/lib/sources.mjs",
     "test": "node --test",
     "prepublishOnly": "npm run check && npm run build"
   },

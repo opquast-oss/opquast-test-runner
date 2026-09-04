@@ -1,0 +1,74 @@
+{
+  "generatedBy": "test/golden/lib/sources.mjs --digest",
+  "excluded": {
+    "zombies": "criterion definitions removed from every ruleset file — nothing to evaluate"
+  },
+  "total": 8467,
+  "sha256": "80b472a77e367d16b147bf02124efa9a51fb9b1469a3f8442ad2f4deea230de3",
+  "corpora": {
+    "rules": {
+      "tier": "S2",
+      "criteria": 939,
+      "cases": 2388,
+      "withExpectation": 2388,
+      "withOverrides": 81,
+      "withHeaders": 3
+    },
+    "sets": {
+      "tier": "S3",
+      "criteria": 1189,
+      "cases": 3757,
+      "withExpectation": 3757,
+      "withOverrides": 217,
+      "withHeaders": 15
+    },
+    "rules-debug": {
+      "tier": "S4",
+      "criteria": 2,
+      "cases": 4,
+      "withExpectation": 4,
+      "withOverrides": 0,
+      "withHeaders": 0
+    },
+    "rules-stock": {
+      "tier": "S4",
+      "criteria": 23,
+      "cases": 55,
+      "withExpectation": 55,
+      "withOverrides": 0,
+      "withHeaders": 0
+    },
+    "sets-debug": {
+      "tier": "S4",
+      "criteria": 30,
+      "cases": 121,
+      "withExpectation": 121,
+      "withOverrides": 2,
+      "withHeaders": 0
+    },
+    "sets-stock": {
+      "tier": "S4",
+      "criteria": 628,
+      "cases": 2081,
+      "withExpectation": 2081,
+      "withOverrides": 130,
+      "withHeaders": 10
+    },
+    "rules-impossible": {
+      "tier": "S4",
+      "criteria": 8,
+      "cases": 18,
+      "withExpectation": 0,
+      "withOverrides": 2,
+      "withHeaders": 0
+    },
+    "sets-impossible": {
+      "tier": "S4",
+      "criteria": 19,
+      "cases": 43,
+      "withExpectation": 0,
+      "withOverrides": 0,
+      "withHeaders": 0
+    }
+  }
+}
