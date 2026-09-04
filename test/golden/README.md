@@ -34,6 +34,43 @@ sudo npx playwright install-deps chromium
 CI uses `mcr.microsoft.com/playwright`, which carries them; that is the main reason the
 authoritative baseline is produced there and not on a workstation.
 
+## The gate
+
+```bash
+node test/golden/check.mjs --tier S1            # compares to baseline/S1
+```
+
+Exit 0 when nothing regressed, 1 when something did, 2 when the run could not complete — a browser
+that dies mid-tier is not a green run with fewer cases.
+
+The gate has **no opinion on whether a verdict is right**. It says only that the engine started
+answering something else. Correctness against the fixtures' hand-written expectations is a
+separate, non-blocking pass; merging the two would make the gate re-litigate the referential every
+time it turned red.
+
+Its central distinction is between a verdict that moved on unchanged inputs — a regression — and
+one that moved because a fixture, a ruleset or the referential moved, which is not. That is what
+the `in` hash is for, and it is why the hash covers the inputs and never the engine: hashing the
+lib digests there would classify every engine edit as "inputs changed" and the gate would report a
+regression exactly never, green by construction.
+
+### Proving the gate actually catches something
+
+A gate nobody has seen fail is a decoration. Verified end to end, on the full pilot:
+
+```bash
+node test/golden/record.mjs --tier S1 --out .golden-out/base
+node test/golden/check.mjs  --tier S1 --baseline .golden-out/base   # ✓ identical to the baseline
+node test/golden/.golden-out/break-engine.mjs                       # flips one rule's regex
+node test/golden/check.mjs  --tier S1 --baseline .golden-out/base   # ✗ 1 regression
+git checkout -- data/lib/oqs-tests.js
+node test/golden/check.mjs  --tier S1 --baseline .golden-out/base   # ✓ identical again
+```
+
+The red run reported exactly one regression out of 297 cases —
+`rules/JS_POPUP/true/1.html#JS_POPUP`, `verdict c → nc` — with no false positives, and named the
+cause above it: of the five engine libs, only `oqs-tests.js`'s digest had moved.
+
 ## Tiers
 
 | tier | content | cases |
