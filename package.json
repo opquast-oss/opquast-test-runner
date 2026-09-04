@@ -29,7 +29,8 @@
   "scripts": {
     "build": "tsup",
     "check": "tsc --noEmit",
-    "test": "node --test"
+    "test": "node --test",
+    "prepublishOnly": "npm run check && npm run build"
   },
   "author": "Temesis SAS (https://www.temesis.com/)",
   "contributors": [
