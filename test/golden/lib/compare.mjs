@@ -23,6 +23,7 @@ export function compare(baseline, current, { baselineEnv = {}, currentEnv = {} }
   const c = new Map(current.map((r) => [r.k, r]));
 
   const regressions = [];
+  const errored = [];
   const inputChanged = [];
   const expectationChanged = [];
   const added = [];
@@ -32,6 +33,13 @@ export function compare(baseline, current, { baselineEnv = {}, currentEnv = {} }
     const base = b.get(key);
     if (!base) {
       added.push(key);
+      continue;
+    }
+    // A case that threw is a regression, full stop — checked BEFORE the input hash, because a
+    // thrown case has no meaningful input hash and would otherwise be filed under "inputs changed"
+    // and dismissed. That hole once let a run in which all 297 cases threw report "no regression".
+    if (cur.r === 'ERROR' && base.r !== 'ERROR') {
+      errored.push({ key, from: base.r });
       continue;
     }
     if (base.in !== cur.in) {
@@ -71,12 +79,13 @@ export function compare(baseline, current, { baselineEnv = {}, currentEnv = {} }
 
   return {
     regressions,
+    errored,
     inputChanged,
     expectationChanged,
     added,
     removed,
     envDrift,
-    ok: regressions.length === 0 && removed.length === 0,
+    ok: regressions.length === 0 && removed.length === 0 && errored.length === 0,
   };
 }
 
@@ -86,7 +95,7 @@ export function compare(baseline, current, { baselineEnv = {}, currentEnv = {} }
  */
 export function formatReport(result, { baselineDetails = new Map(), currentDetails = new Map() } = {}) {
   const out = [];
-  const { regressions, inputChanged, expectationChanged, added, removed, envDrift } = result;
+  const { regressions, errored, inputChanged, expectationChanged, added, removed, envDrift } = result;
 
   if (envDrift.length) {
     out.push(`environment differs from the baseline (${envDrift.length} field(s)):`);
@@ -111,6 +120,13 @@ export function formatReport(result, { baselineDetails = new Map(), currentDetai
       if (bd && cd) for (const line of detailDiff(bd, cd)) out.push(`      ${line}`);
     }
     if (regressions.length > 40) out.push(`  … and ${regressions.length - 40} more`);
+    out.push('');
+  }
+
+  if (errored?.length) {
+    out.push(`✗ ${errored.length} case(s) threw where the baseline had a verdict:`);
+    for (const e of errored.slice(0, 20)) out.push(`  ${e.key}   was ${e.from}`);
+    if (errored.length > 20) out.push(`  … and ${errored.length - 20} more`);
     out.push('');
   }
 

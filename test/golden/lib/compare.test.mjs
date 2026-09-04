@@ -88,3 +88,30 @@ test('the report shows what moved inside the details', () => {
   assert.match(text, /- \{"tag":"p"\}/);
   assert.match(text, /\+ \{"tag":"div"\}/);
 });
+
+test('a case that threw fails the gate, even though its input hash is meaningless', () => {
+  // The hole this closes: a thrown case is recorded with in:'error', so the input-hash branch
+  // filed it under "inputs changed" and dismissed it. A run in which all 297 cases threw once
+  // reported "✓ no regression".
+  const r = compare([rec()], [rec({ r: 'ERROR', rl: null, d: 'x', in: 'error' })]);
+  assert.equal(r.ok, false);
+  assert.equal(r.errored.length, 1);
+  assert.equal(r.errored[0].from, 'c');
+  assert.equal(r.inputChanged.length, 0, 'an exception must not be filed as an input change');
+  assert.match(formatReport(r), /threw where the baseline had a verdict/);
+});
+
+test('a whole run of exceptions cannot report success', () => {
+  const keys = ['a', 'b', 'c'].map((k) => `rules/${k}#${k}`);
+  const base = keys.map((k) => rec({ k }));
+  const now = keys.map((k) => rec({ k, r: 'ERROR', in: 'error' }));
+  const r = compare(base, now);
+  assert.equal(r.ok, false);
+  assert.equal(r.errored.length, 3);
+});
+
+test('a case that already threw in the baseline is not re-reported', () => {
+  const r = compare([rec({ r: 'ERROR', in: 'error' })], [rec({ r: 'ERROR', in: 'error' })]);
+  assert.equal(r.ok, true);
+  assert.equal(r.errored.length, 0);
+});

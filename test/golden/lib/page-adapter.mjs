@@ -270,21 +270,25 @@ export async function runCase(
   { libs, har, resources, plainText, rules, criteria, buildRun = legacyRun },
 ) {
   const session = await openWorld(page, world);
-  const byName = Object.fromEntries(libs.map((l) => [l.name, l.source]));
-  const evalLib = (name) => evaluate(session, byName[name]);
 
-  await evalLib('jquery');
-  if (byName['jquery-migrate']) await evalLib('jquery-migrate');
+  // Evaluate whatever the adapter supplied, IN ITS ORDER. An earlier version walked a hard-coded
+  // list of names, which silently skipped any lib an adapter added — the modern bundle loaded as
+  // far as the harness was concerned and then failed with "OpquastTestRunner is not defined".
+  const isJquery = (l) => l.name === 'jquery' || l.name === 'jquery-migrate';
+  for (const lib of libs.filter(isJquery)) await evaluate(session, lib.source);
+
+  // The globals go between jQuery and the rest: the XHR shim absolutises through $.URL().
   await evaluate(session, globalsSource(har));
-  await evalLib('oqs-utils');
 
-  // pageInfo is captured here, before the validator and the tests are loaded — the legacy order.
-  const pageInfo = await evaluate(session, 'JSON.parse(JSON.stringify($.extractPageInfo()))');
-
-  await evalLib('cssParser');
-  await evalLib('oqs-validator');
-  await evalLib('oqs-tests');
-  if (byName['overlay']) await evalLib('overlay');
+  let pageInfo = {};
+  for (const lib of libs.filter((l) => !isJquery(l))) {
+    await evaluate(session, lib.source);
+    // Captured right after oqs-utils defines it, before the validator and the tests load — the
+    // legacy order, which is not incidental.
+    if (lib.name === 'oqs-utils') {
+      pageInfo = await evaluate(session, 'JSON.parse(JSON.stringify($.extractPageInfo()))');
+    }
+  }
 
   const results = await evaluate(
     session,

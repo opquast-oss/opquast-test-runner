@@ -69,9 +69,17 @@ console.log(
   formatReport(result, { baselineDetails: baseline.details, currentDetails: run.details }),
 );
 
+// A run full of exceptions is not a passing run. The classification above already turns each
+// thrown case into a regression; this prints the reason once, since 300 identical stack traces
+// say less than one.
 if (failures.length) {
-  console.log(`\n${failures.length} case(s) threw during this run:`);
-  for (const f of failures.slice(0, 10)) console.log(`  ${f.key}: ${f.error}`);
+  console.log(`\n${failures.length} case(s) threw during this run. First few:`);
+  for (const f of failures.slice(0, 5)) console.log(`  ${f.key}: ${f.error}`);
+  const distinct = [...new Set(failures.map((f) => f.error.split('\n')[0]))];
+  if (distinct.length < failures.length) {
+    console.log(`  ${distinct.length} distinct message(s):`);
+    for (const d of distinct.slice(0, 5)) console.log(`    ${d}`);
+  }
 }
 
 if (!result.ok) {
