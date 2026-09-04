@@ -30,7 +30,7 @@
     "build": "tsup",
     "check": "tsc --noEmit",
     "corpus": "node test/golden/lib/sources.mjs",
-    "test": "node --test",
+    "test": "node --test \"test/golden/**/*.test.mjs\"",
     "prepublishOnly": "npm run check && npm run build"
   },
   "author": "Temesis SAS (https://www.temesis.com/)",

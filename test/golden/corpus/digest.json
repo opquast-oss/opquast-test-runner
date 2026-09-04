@@ -4,7 +4,7 @@
     "zombies": "criterion definitions removed from every ruleset file — nothing to evaluate"
   },
   "total": 8467,
-  "sha256": "80b472a77e367d16b147bf02124efa9a51fb9b1469a3f8442ad2f4deea230de3",
+  "sha256": "c19980796fc7e81bf24a3ef863d23fdcc270493adc0b781e7804c8b85aa14731",
   "corpora": {
     "rules": {
       "tier": "S2",

@@ -124,15 +124,16 @@ function dirsIn(dir) {
  * har.mjs turns them into HAR entries; they never reach the network.
  */
 function overridesFor(dir, page) {
-  const merged = {};
-  let found = false;
-  for (const name of ['_all.json', `${basename(page, '.html')}.json`]) {
+  const read = (name) => {
     const p = join(dir, name);
-    if (!existsSync(p)) continue;
-    found = true;
-    Object.assign(merged, JSON.parse(readFileSync(p, 'utf8')));
-  }
-  return found ? merged : null;
+    return existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) : null;
+  };
+  const all = read('_all.json');
+  const pageJson = read(`${basename(page, '.html')}.json`);
+  // Kept apart, not merged: the legacy rewrites the "*" key onto the page's own path for
+  // _all.json only. Merging here would silently change the meaning of the two fixtures that put
+  // "*" in a <page>.json. See har.mjs::getHarObject.
+  return all || pageJson ? { all, page: pageJson } : null;
 }
 
 /** Response headers the local server must replay verbatim — this is where the charset lives. */
