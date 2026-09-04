@@ -31,6 +31,7 @@
     "check": "tsc --noEmit",
     "corpus": "node test/golden/lib/sources.mjs",
     "golden:record": "node test/golden/record.mjs",
+    "golden:check": "node test/golden/check.mjs",
     "test": "node --test \"test/golden/**/*.test.mjs\"",
     "prepublishOnly": "npm run check && npm run build"
   },
