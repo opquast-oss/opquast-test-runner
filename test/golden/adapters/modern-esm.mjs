@@ -47,35 +47,25 @@ export function loadLibs({ jquery } = {}) {
 }
 
 /**
- * Translate the fabricated HAR into the `responses` map createEngine expects.
+ * The run expression: build the engine, hand it the same inputs, normalise the output.
  *
- * Necessary, not decorative: loadEngineFromGlobals() **overwrites** `globalThis.XHR` with its own
- * shim, which is inert by default. Without this the HAR-backed XHR installed for the legacy path
- * would be silently discarded and every rule that reads an HTTP resource would see status 0.
+ * `services.xhr` is handed the XHR the harness already installed for the legacy path — captured
+ * before createEngine() replaces the global — so the modern engine gets exactly the legacy
+ * capability: HAR entries first, a real same-origin request otherwise, absolutised through
+ * $.URL() and cached per GET. Reimplementing a lookalike here would make any difference between
+ * the two adapters unattributable.
  *
- * `content_type` is left null to match the legacy `entryToResponse`, which also returned null and
- * let the engine read the type through getHeader(). Compensating for that here would be
- * pre-emptively hiding a difference the golden exists to reveal.
+ * `responses` is deliberately NOT passed: the HAR lookup already lives inside that XHR, and
+ * passing both would mean two shims answering the same question.
  */
-export function responsesFromHar(har) {
-  const out = {};
-  for (const entry of har.entries || []) {
-    out[entry._url] = {
-      status: entry.response.status,
-      statusText: entry.response.statusText,
-      headers: entry.response.headers || [],
-      content_type: null,
-      data: entry.response.content?.text ?? '',
-    };
-  }
-  return out;
-}
-
-/** The run expression: build the engine, hand it the same sidecar, normalise the output. */
-export function modernRun({ har, resources, pageInfo, plainText, rules, criteria }) {
+export function modernRun({ resources, pageInfo, plainText, rules, criteria }) {
   return `(async function () {
     const g = globalThis;
-    const engine = OpquastTestRunner.createEngine({ jQuery: g.jQuery || g.$ });
+    const legacyXhr = g.XHR;
+    const engine = OpquastTestRunner.createEngine({
+      jQuery: g.jQuery || g.$,
+      services: { xhr: (url) => legacyXhr.get(url) },
+    });
     const results = await engine.analyze({
       document: g.document,
       sidecar: {
@@ -87,7 +77,6 @@ export function modernRun({ har, resources, pageInfo, plainText, rules, criteria
       rules: ${JSON.stringify(rules)},
       rulesets: ${JSON.stringify(criteria)},
       criteria: ${JSON.stringify(Object.keys(criteria))},
-      responses: ${JSON.stringify(responsesFromHar(har))},
     });
     return JSON.parse(JSON.stringify(results));
   })()`;

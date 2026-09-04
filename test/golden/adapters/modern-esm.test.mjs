@@ -1,49 +1,37 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { responsesFromHar } from './modern-esm.mjs';
-import { getHarObject } from '../lib/har.mjs';
+import { modernRun } from './modern-esm.mjs';
 
-const WIN = {
-  url: 'http://127.0.0.1:9010/index.html',
-  contentType: 'text/html',
-  characterSet: 'UTF-8',
-  referrer: '',
+const args = {
+  resources: [{ uri: 'http://fixture/x.html' }],
+  pageInfo: { lang: 'fr' },
+  plainText: '<html></html>',
+  rules: { FOO: 'xpath@html://p' },
+  criteria: { FOO: { FOO: { ontrue: { result: 'c' } } } },
 };
 
-test('every HAR entry becomes a response the modern shim can serve', () => {
-  const har = getHarObject(WIN, '<html></html>', {
-    all: { '/anime.gif': { status: 404, statusText: 'NOT FOUND' } },
-    page: null,
-  });
-  const r = responsesFromHar(har);
-  assert.deepEqual(Object.keys(r).sort(), [
-    'http://127.0.0.1:9010/anime.gif',
-    'http://127.0.0.1:9010/index.html',
-  ]);
-  assert.equal(r['http://127.0.0.1:9010/index.html'].data, '<html></html>');
-  assert.equal(r['http://127.0.0.1:9010/anime.gif'].status, 404);
+test('the modern engine is handed the harness XHR, captured before it is replaced', () => {
+  // The reason this matters: createEngineContext used to ignore services.xhr entirely, and
+  // createXhrShim answers `status: 0, data: ''` for any URL it was not pre-handed. Stylesheets
+  // came back blank and 75 CSS verdicts flipped from c to nc.
+  const src = modernRun(args);
+  assert.match(src, /const legacyXhr = g\.XHR;/);
+  assert.match(src, /services: \{ xhr: \(url\) => legacyXhr\.get\(url\) \}/);
+  assert.ok(src.indexOf('const legacyXhr') < src.indexOf('createEngine'), 'capture must precede createEngine');
 });
 
-test('content_type stays null, as the legacy entryToResponse returned it', () => {
-  // Filling it in here would hide a difference the golden exists to reveal: the legacy path left
-  // it null and let the engine read the type through getHeader().
-  const har = getHarObject(WIN, '<html></html>', null);
-  assert.equal(responsesFromHar(har)['http://127.0.0.1:9010/index.html'].content_type, null);
+test('responses is not passed — one shim answering, not two', () => {
+  assert.doesNotMatch(modernRun(args), /responses:/);
 });
 
-test('headers survive as the array getHeader() expects', () => {
-  const har = getHarObject(WIN, '<html></html>', {
-    all: null,
-    page: { '/index.html': { headers: [{ name: 'Content-Type', value: 'text/html' }] } },
-  });
-  const r = responsesFromHar(har)['http://127.0.0.1:9010/index.html'];
-  assert.deepEqual(r.headers, [{ name: 'Content-Type', value: 'text/html' }]);
+test('the same sidecar the legacy path builds is passed through', () => {
+  const src = modernRun(args);
+  assert.match(src, /events: g\.extractEvents\(\)/);
+  assert.match(src, /"uri":"http:\/\/fixture\/x\.html"/);
+  assert.match(src, /"lang":"fr"/);
+  assert.match(src, /plainText: "<html><\/html>"/);
 });
 
-test('an entry with no body yields an empty string, not undefined', () => {
-  const har = getHarObject(WIN, '<html></html>', {
-    all: { '/missing.js': { status: 404 } },
-    page: null,
-  });
-  assert.equal(responsesFromHar(har)['http://127.0.0.1:9010/missing.js'].data, '');
+test('criteria are named explicitly rather than left to default over the rulesets', () => {
+  assert.match(modernRun(args), /criteria: \["FOO"\]/);
 });
