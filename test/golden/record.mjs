@@ -27,7 +27,12 @@ function arg(name, fallback) {
 }
 
 const TIER = arg('tier', 'S1');
-const WORLD = arg('world', 'main');
+// The baseline is anchored on the world production runs. The extension injects the engine with
+// browser.scripting.executeScript and no `world` option, i.e. ISOLATED — so that is what the net
+// has to guard. The main world is recorded alongside as a comparison, not as the reference: it
+// agrees with the legacy add-on's Cu.Sandbox and therefore reads "more correct", but guarding a
+// behaviour nobody ships would make the gate green while production drifts. See DTOOLS-003.
+const WORLD = arg('world', 'isolated');
 const JQUERY = arg('jquery', undefined);
 const LIMIT = Number(arg('limit', '0')) || 0;
 const OFFSET = Number(arg('offset', '0')) || 0;

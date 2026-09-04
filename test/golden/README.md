@@ -10,10 +10,10 @@ precondition of M3, not an extra.
 npm install
 npx playwright install chromium
 
-node test/golden/record.mjs --tier S1 --world main --out .golden-out/run1
+node test/golden/record.mjs --tier S1 --out .golden-out/run1
 ```
 
-Flags: `--tier S1|S2|S3|S4`, `--world main|isolated`, `--jquery <path>`, `--offset N`, `--limit N`,
+Flags: `--tier S1|S2|S3|S4`, `--world isolated|main` (isolated is the default — see below), `--jquery <path>`, `--offset N`, `--limit N`,
 `--out <dir>` (relative to `test/golden/`, default a gitignored scratch directory).
 `GOLDEN_NO_EVENT_SHIM=1` disables the DOM0 handler instrumentation.
 
@@ -76,7 +76,13 @@ page, so it behaved like the main world. The extension injects the engine with
 rules silently under-detects in production, and the extension's own harnesses cannot see it because
 they run in the main world.
 
-Tracked separately: it is an extension defect, not an engine one.
+Tracked separately as DTOOLS-003: it is an extension defect, not an engine one.
+
+**The baseline is anchored on the isolated world**, which is why it is the default. The net's job
+is to guard what actually ships, not what ought to. The main world is recorded alongside as a
+comparison — it agrees with the legacy add-on and therefore reads "more correct", but anchoring
+there would leave the gate green while production drifted. When DTOOLS-003 is fixed, the anchor
+moves and the baseline is regenerated: a deliberate, reviewed change, visible in its diff.
 
 ## What the baseline stores
 
