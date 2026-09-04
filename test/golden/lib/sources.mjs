@@ -229,6 +229,50 @@ export function findOrphans(cases) {
 }
 
 /**
+ * The pilot tier: every rule that is NOT plain DOM matching.
+ *
+ * Measured over data/rules.json (949 rules): 733 are `xpath@html` and 89 are `oqs@html`. The
+ * remaining 127 are the ones that read stylesheets, scripts, HTTP resources, syndication feeds,
+ * robots.txt, the doctype, open data, or run deferred — i.e. everything that depends on the HAR,
+ * the XHR shim, or the sidecar. 118 of them have fixtures, giving 297 cases.
+ *
+ * Starting with the hard set rather than a random sample is the point: the 822 DOM-only rules are
+ * the most deterministic by construction, so proving them stable proves little. If the 127 hold
+ * still across two runs, the rest follow a fortiori.
+ */
+export function pilotRuleIds() {
+  const rules = JSON.parse(readFileSync(join(REPO, 'data/rules.json'), 'utf8'));
+  return new Set(
+    Object.entries(rules)
+      .filter(
+        ([, expr]) =>
+          typeof expr === 'string' &&
+          !expr.startsWith('xpath@html') &&
+          !expr.startsWith('oqs@html'),
+      )
+      .map(([id]) => id),
+  );
+}
+
+/** Select the cases of a roll-out tier. S1 is the pilot; S2/S3 are the blocking net; S4 is all. */
+export function selectTier(tier) {
+  switch (tier) {
+    case 'S1': {
+      const pilot = pilotRuleIds();
+      return enumerate('rules').filter((c) => pilot.has(c.criteria[0]));
+    }
+    case 'S2':
+      return enumerate('rules');
+    case 'S3':
+      return enumerate('sets');
+    case 'S4':
+      return enumerateAll();
+    default:
+      throw new Error(`unknown tier: ${tier} (S1, S2, S3, S4)`);
+  }
+}
+
+/**
  * Canonical serialisation of the whole corpus. Deterministic: the enumeration walks sorted
  * directory listings, so the same tree always yields the same bytes — which is what makes the
  * digest below meaningful.

@@ -30,6 +30,7 @@
     "build": "tsup",
     "check": "tsc --noEmit",
     "corpus": "node test/golden/lib/sources.mjs",
+    "golden:record": "node test/golden/record.mjs",
     "test": "node --test \"test/golden/**/*.test.mjs\"",
     "prepublishOnly": "npm run check && npm run build"
   },
@@ -57,6 +58,7 @@
     "testing"
   ],
   "devDependencies": {
+    "playwright": "^1.60.0",
     "tsup": "^8.0.0",
     "typescript": "^5.4.0"
   }
