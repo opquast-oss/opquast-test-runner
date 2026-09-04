@@ -40,6 +40,7 @@ if (!WORLDS.includes(WORLD)) {
 const { records, env, failures, died, requested } = await runTier({
   tier: TIER,
   world: WORLD,
+  adapter: arg('adapter', 'legacy'),
   jquery: arg('jquery', undefined),
   limit: Number(arg('limit', '0')) || 0,
   offset: Number(arg('offset', '0')) || 0,

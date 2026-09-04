@@ -10,13 +10,24 @@ import { createHash } from 'node:crypto';
 import { REPO, selectTier, loadRulesets } from './sources.mjs';
 import { startServer } from './serve.mjs';
 import { getHarObject, har2res } from './har.mjs';
-import { runCase, EVENT_SHIM } from './page-adapter.mjs';
+import { runCase, EVENT_SHIM, legacyRun } from './page-adapter.mjs';
 import { normalizeCase, inputHash } from './normalize.mjs';
-import { loadLibs } from '../adapters/legacy-globals.mjs';
+import * as legacyAdapter from '../adapters/legacy-globals.mjs';
+import * as modernAdapter from '../adapters/modern-esm.mjs';
+
+/**
+ * The engine under test. Both adapters are handed identical fixtures, HAR and criteria, so the
+ * engine is the only thing that differs between two runs of the same tier.
+ */
+const ADAPTERS = {
+  legacy: { mod: legacyAdapter, buildRun: legacyRun },
+  modern: { mod: modernAdapter, buildRun: (args) => modernAdapter.modernRun(args) },
+};
 
 export async function runTier({
   tier = 'S1',
   world = 'isolated',
+  adapter = 'legacy',
   jquery,
   limit = 0,
   offset = 0,
@@ -24,7 +35,9 @@ export async function runTier({
 } = {}) {
   const { chromium } = await import('playwright');
 
-  const libs = loadLibs({ jquery });
+  const chosen = ADAPTERS[adapter];
+  if (!chosen) throw new Error(`unknown adapter: ${adapter} (${Object.keys(ADAPTERS).join(', ')})`);
+  const libs = chosen.mod.loadLibs({ jquery });
   const rulesRaw = readFileSync(join(REPO, 'data/rules.json'));
   const rules = JSON.parse(rulesRaw.toString('utf8'));
   const rulesSha = createHash('sha256').update(rulesRaw).digest('hex').slice(0, 16);
@@ -109,6 +122,7 @@ export async function runTier({
         plainText: source,
         rules,
         criteria,
+        buildRun: chosen.buildRun,
       });
 
       record = normalizeCase({
@@ -139,7 +153,7 @@ export async function runTier({
     world,
     cases: records.length,
     failures: failures.length,
-    adapter: 'legacy-globals',
+    adapter,
     node: process.version,
     platform: `${process.platform}-${process.arch}`,
     playwright: JSON.parse(readFileSync(join(REPO, 'node_modules/playwright/package.json'), 'utf8'))

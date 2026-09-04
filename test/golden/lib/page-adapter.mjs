@@ -264,7 +264,11 @@ function globalsSource(har) {
  * The page must already be navigated; the isolated world is per-document, so `openWorld` has to
  * come after the navigation.
  */
-export async function runCase(page, world, { libs, har, resources, plainText, rules, criteria }) {
+export async function runCase(
+  page,
+  world,
+  { libs, har, resources, plainText, rules, criteria, buildRun = legacyRun },
+) {
   const session = await openWorld(page, world);
   const byName = Object.fromEntries(libs.map((l) => [l.name, l.source]));
   const evalLib = (name) => evaluate(session, byName[name]);
@@ -282,7 +286,23 @@ export async function runCase(page, world, { libs, har, resources, plainText, ru
   await evalLib('oqs-tests');
   if (byName['overlay']) await evalLib('overlay');
 
-  const run = `(function () {
+  const results = await evaluate(
+    session,
+    buildRun({ har, resources, pageInfo, plainText, rules, criteria }),
+    { awaitPromise: true },
+  );
+  await session.cdp.detach().catch(() => {});
+  return { results, pageInfo };
+}
+
+/**
+ * The legacy run: set the globals the engine reads, then analyze.
+ *
+ * This is the frame-script's `run` step, verbatim in effect — the sidecar assembled from the HAR,
+ * the rules and criteria placed as globals, and analyze() piped into synthesize_results().
+ */
+export function legacyRun({ resources, pageInfo, plainText, rules, criteria }) {
+  return `(function () {
     const g = globalThis;
     g.sidecar = {
       resources: ${JSON.stringify(resources)},
@@ -296,8 +316,4 @@ export async function runCase(page, world, { libs, har, resources, plainText, ru
       .then((r) => synthesize_results(r))
       .then((r) => JSON.parse(JSON.stringify(r)));
   })()`;
-
-  const results = await evaluate(session, run, { awaitPromise: true });
-  await session.cdp.detach().catch(() => {});
-  return { results, pageInfo };
 }
