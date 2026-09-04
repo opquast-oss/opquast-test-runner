@@ -1,0 +1,52 @@
+# CI du moteur Opquast (@opquast/test-runner).
+#
+# Premier pipeline de ce dépôt. Volontairement minimal : il établit un socle vert avant que le
+# filet golden-master (M3) ne vienne s'y greffer — voir docs/engine-modernization-plan.md §5 dans
+# le dépôt opquast-devtools.
+#
+# Les jobs golden viendront dans un stage `golden`, sur l'image officielle Playwright (le tag de
+# l'image épingle la version de Chromium, ce qui conditionne la reproductibilité des baselines).
+
+stages:
+  - check
+  - build
+
+default:
+  image: node:22-bookworm-slim
+  interruptible: true
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  before_script:
+    - npm ci --cache .npm --prefer-offline --no-audit --no-fund
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH
+
+lint:
+  stage: check
+  script:
+    # Types de l'API publique (src/). tsconfig exclut data/ et test/.
+    - npx tsc --noEmit
+    # Les libs du moteur sont chargées telles quelles comme scripts de page : une erreur de
+    # syntaxe ne se verrait qu'à l'exécution, dans le navigateur. C'est ce garde-fou qui a
+    # rattrapé les expression closures SpiderMonkey corrigées en M1.
+    - node --check data/lib/cssParser.js
+    - node --check data/lib/jquery-1.9.1.min.js
+    - node --check data/lib/oqs-tests.js
+    - node --check data/lib/oqs-utils.js
+    - node --check data/lib/oqs-validator.js
+
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
