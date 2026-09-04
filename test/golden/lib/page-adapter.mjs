@@ -41,28 +41,34 @@ export const WORLDS = ['main', 'isolated'];
  */
 export const EVENT_SHIM = `(() => {
   const ATTR = 'data-oqs-ev';
-  const proto = Element.prototype;
+  // The accessor must be replaced ON THE PROTOTYPE THAT OWNS IT. In Blink the on* handlers come
+  // from the GlobalEventHandlers mixin, installed on HTMLElement.prototype — not on
+  // Element.prototype. Reading the descriptor from HTMLElement.prototype but defining on
+  // Element.prototype (the first version of this shim) leaves HTMLElement.prototype's own accessor
+  // in front of it in the chain, so the wrapper never fires for a single HTML element: a shim that
+  // looks installed and records nothing.
+  const owners = [Element.prototype, HTMLElement.prototype, window.SVGElement && SVGElement.prototype].filter(Boolean);
   const names = Object.getOwnPropertyNames(window).filter((n) => /^on[a-z]+$/.test(n));
   for (const name of names) {
     const type = name.slice(2);
-    const desc =
-      Object.getOwnPropertyDescriptor(proto, name) ||
-      Object.getOwnPropertyDescriptor(HTMLElement.prototype, name);
-    if (!desc || !desc.set) continue;
-    Object.defineProperty(proto, name, {
-      configurable: true,
-      enumerable: desc.enumerable,
-      get: desc.get,
-      set(v) {
-        try {
-          if (v !== null && v !== undefined) {
-            const seen = (this.getAttribute(ATTR) || '').split(',').filter(Boolean);
-            if (!seen.includes(type)) this.setAttribute(ATTR, seen.concat(type).join(','));
-          }
-        } catch {}
-        return desc.set.call(this, v);
-      },
-    });
+    for (const owner of owners) {
+      const desc = Object.getOwnPropertyDescriptor(owner, name);
+      if (!desc || !desc.set) continue;
+      Object.defineProperty(owner, name, {
+        configurable: true,
+        enumerable: desc.enumerable,
+        get: desc.get,
+        set(v) {
+          try {
+            if (v !== null && v !== undefined) {
+              const seen = (this.getAttribute(ATTR) || '').split(',').filter(Boolean);
+              if (!seen.includes(type)) this.setAttribute(ATTR, seen.concat(type).join(','));
+            }
+          } catch {}
+          return desc.set.call(this, v);
+        },
+      });
+    }
   }
 })();`;
 

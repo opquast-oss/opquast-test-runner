@@ -30,6 +30,7 @@ const TIER = arg('tier', 'S1');
 const WORLD = arg('world', 'main');
 const JQUERY = arg('jquery', undefined);
 const LIMIT = Number(arg('limit', '0')) || 0;
+const OFFSET = Number(arg('offset', '0')) || 0;
 // Default output is a scratch directory, not baseline/: while we are measuring, a run is an
 // experiment. The authoritative baseline is written deliberately, with --out baseline/<tier>.
 const OUT = join(REPO, 'test/golden', arg('out', `.golden-out/${TIER}-${WORLD}`));
@@ -46,13 +47,20 @@ const { chromium } = await import('playwright').catch(() => {
 
 const libs = loadLibs({ jquery: JQUERY });
 const rules = JSON.parse(readFileSync(join(REPO, 'data/rules.json'), 'utf8'));
-let cases = selectTier(TIER);
+let cases = selectTier(TIER).slice(OFFSET);
 if (LIMIT) cases = cases.slice(0, LIMIT);
 
 console.error(`${TIER}/${WORLD}: ${cases.length} cases, jQuery ${libs[0].path}`);
 
 const server = await startServer();
-const browser = await chromium.launch({ args: ['--no-sandbox'] });
+// --disable-dev-shm-usage is not optional in a container: Docker gives /dev/shm 64 MB by default,
+// Chromium puts its renderer buffers there, and a few pages in the BROWSER dies — not the page —
+// with "Target page, context or browser has been closed". The flag moves those buffers to /tmp.
+// Harmless elsewhere, so it stays unconditional rather than becoming a thing to remember about one
+// machine.
+const browser = await chromium.launch({
+  args: ['--no-sandbox', '--disable-dev-shm-usage'],
+});
 const context = await browser.newContext();
 
 // Cut the network. 257 fixtures reference an external host (w3.org DTDs, googleapis, macromedia);
@@ -67,14 +75,22 @@ await context.route('**/*', (route) => {
   }
   return host === '127.0.0.1' ? route.continue() : route.abort();
 });
-await context.addInitScript(EVENT_SHIM);
+// GOLDEN_NO_EVENT_SHIM=1 skips the DOM0 handler instrumentation. It rewrites ~100 accessors on
+// the element prototypes, which makes it the first thing to rule out when the browser dies rather
+// than the page. Without it, sidecar.events only sees inline on* attributes.
+if (!process.env.GOLDEN_NO_EVENT_SHIM) await context.addInitScript(EVENT_SHIM);
+else console.error('  (event shim disabled)');
 
 const rulesetCache = new Map();
 const records = [];
 const failures = [];
 
 for (const [i, c] of cases.entries()) {
-  if (i % 50 === 0) console.error(`  ${i}/${cases.length}`);
+  if (i % 25 === 0) console.error(`  ${i}/${cases.length}`);
+  if (browser.isConnected() === false) {
+    console.error(`\nbrowser died before ${c.key} (${i}/${cases.length})`);
+    break;
+  }
   const dir = join(REPO, c.dir);
   server.setRoot(dir);
 
@@ -87,7 +103,13 @@ for (const [i, c] of cases.entries()) {
   // the verdict of the two rules that read it.
   const source = readFileSync(join(dir, c.page), 'latin1');
 
-  const page = await context.newPage();
+  let page;
+  try {
+    page = await context.newPage();
+  } catch (e) {
+    console.error(`\nbrowser died opening ${c.key} (${i}/${cases.length}): ${e.message}`);
+    break;
+  }
   let record;
   try {
     await page.goto(server.url(c.page), { waitUntil: 'domcontentloaded', timeout: 30000 });
@@ -115,7 +137,7 @@ for (const [i, c] of cases.entries()) {
       key: c.key,
       results,
       expectation: c.expectation,
-      inputHash: inputHash(payload),
+      inputHash: inputHash(payload, server.origin),
       origin: server.origin,
     });
   } catch (e) {

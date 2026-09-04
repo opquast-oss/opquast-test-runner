@@ -71,9 +71,15 @@ export function normalizeCase({ key, results, expectation, inputHash, origin }) 
   };
 }
 
-/** Stable serialisation of a payload, for the `in` hash that guards against silent input drift. */
-export function inputHash(payload) {
-  return createHash('sha256').update(canonical(scrub(payload, null))).digest('hex').slice(0, 16);
+/**
+ * Stable serialisation of a payload, for the `in` hash that guards against silent input drift.
+ *
+ * `origin` MUST be passed: the payload carries the HAR, whose URLs embed the fixture server's
+ * randomly-bound port. Without scrubbing it, every run produces a different hash and the guard
+ * fires on every case — which is exactly what the first pilot run did.
+ */
+export function inputHash(payload, origin) {
+  return createHash('sha256').update(canonical(scrub(payload, origin))).digest('hex').slice(0, 16);
 }
 
 /** JSONL, one record per line, sorted by key so a shard is diffable. */
