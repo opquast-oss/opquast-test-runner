@@ -1,0 +1,7 @@
+{
+  "_why": "Cases the harness cannot measure. Each entry states the reason; none is a silent skip. A quarantined case is still enumerated by --stats and counted in the digest, so it cannot be forgotten.",
+  "cases": {
+    "rules/META_REFRESH_WO_DELAY/true/1.html#META_REFRESH_WO_DELAY": "zero-delay <meta refresh>: Blink tears down the execution context as soon as it begins navigating, before any analysis can run. Aborting the request at the network layer is too late, and Chromium has no equivalent of the accessibility.blockautorefresh preference the legacy harness set for exactly this. Observed to wedge a run intermittently (41 min of wall clock for 47 s of CPU, orphaned renderers).",
+    "rules/META_REFRESH_WO_DELAY/true/2.html#META_REFRESH_WO_DELAY": "same: <meta http-equiv=refresh content=0> reloading the page onto itself."
+  }
+}

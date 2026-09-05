@@ -85,6 +85,19 @@ export const EXCLUDED = {
   zombies: 'criterion definitions removed from every ruleset file — nothing to evaluate',
 };
 
+/**
+ * Cases the harness cannot measure, each with its reason.
+ *
+ * Quarantine is not a skip list. An entry is a statement that the measurement is impossible here
+ * and why — so it can be revisited, and so the count is visible rather than a silent hole in the
+ * corpus. It feeds the digest, so adding or removing one is a reviewed change.
+ */
+export const QUARANTINE = (() => {
+  const p = join(HERE, '../corpus/quarantine.json');
+  if (!existsSync(p)) return {};
+  return JSON.parse(readFileSync(p, 'utf8')).cases ?? {};
+})();
+
 const X_RESULTS = /<meta\s+http-equiv=["']X-results["']\s+content=["']([^"']+)["']/i;
 
 /** Parse `C:0,NC:1,NA:0,I:0` into `{ C: 0, NC: 1, NA: 0, I: 0 }`, keeping only the stated keys. */
@@ -171,9 +184,11 @@ export function enumerate(name) {
             if (value) expectation = { kind: 'xresults', value };
           }
         }
+        const key = `${name}/${id}/${branch ? `${branch}/` : ''}${page}#${id}`;
+        if (key in QUARANTINE) continue;
         cases.push({
           corpus: name,
-          key: `${name}/${id}/${branch ? `${branch}/` : ''}${page}#${id}`,
+          key,
           dir: dir.slice(REPO.length + 1),
           page,
           criteria: [id],
@@ -281,6 +296,7 @@ export function manifest() {
   return JSON.stringify({
     generatedBy: 'test/golden/lib/sources.mjs',
     excluded: EXCLUDED,
+    quarantined: Object.keys(QUARANTINE).sort(),
     cases: enumerateAll(),
   });
 }
@@ -309,6 +325,7 @@ export function digest() {
   return {
     generatedBy: 'test/golden/lib/sources.mjs --digest',
     excluded: EXCLUDED,
+    quarantined: Object.keys(QUARANTINE).sort(),
     total: Object.values(perCorpus).reduce((n, c) => n + c.cases, 0),
     sha256: createHash('sha256').update(manifest()).digest('hex'),
     corpora: perCorpus,

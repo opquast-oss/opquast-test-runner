@@ -1,0 +1,17 @@
+{"k":"rules/LABEL/false/index.html#LABEL","details":[]}
+{"k":"rules/LABEL/true/1.html#LABEL","details":[]}
+{"k":"rules/LABEL_EQUALS_TO_ANOTHER_LABEL_IN_FIELDSET/false/index.html#LABEL_EQUALS_TO_ANOTHER_LABEL_IN_FIELDSET","details":[]}
+{"k":"rules/LABEL_EQUALS_TO_ANOTHER_LABEL_IN_FIELDSET/true/1.html#LABEL_EQUALS_TO_ANOTHER_LABEL_IN_FIELDSET","details":[]}
+{"k":"rules/LABEL_WO_FOR_ATTR/false/index.html#LABEL_WO_FOR_ATTR","details":[]}
+{"k":"rules/LABEL_WO_FOR_ATTR/true/1.html#LABEL_WO_FOR_ATTR","details":[]}
+{"k":"rules/LABEL_W_FOR_ATTR/false/index.html#LABEL_W_FOR_ATTR","details":[]}
+{"k":"rules/LABEL_W_FOR_ATTR/true/1.html#LABEL_W_FOR_ATTR","details":[]}
+{"k":"rules/LABEL_W_FOR_ATTR_EMPTY/false/index.html#LABEL_W_FOR_ATTR_EMPTY","details":[]}
+{"k":"rules/LABEL_W_FOR_ATTR_EMPTY/true/1.html#LABEL_W_FOR_ATTR_EMPTY","details":[]}
+{"k":"rules/LABEL_W_FOR_ATTR_UNKNOWN/false/index.html#LABEL_W_FOR_ATTR_UNKNOWN","details":[]}
+{"k":"rules/LABEL_W_FOR_ATTR_UNKNOWN/true/1.html#LABEL_W_FOR_ATTR_UNKNOWN","details":[]}
+{"k":"rules/LABEL_W_FOR_ATTR_UNKNOWN/true/2.html#LABEL_W_FOR_ATTR_UNKNOWN","details":[]}
+{"k":"rules/LANG_ATTR/false/index.html#LANG_ATTR","details":[]}
+{"k":"rules/LANG_ATTR/true/1.html#LANG_ATTR","details":[]}
+{"k":"rules/LANG_W_INVALID_VALUE/false/index.html#LANG_W_INVALID_VALUE","details":[]}
+{"k":"rules/LANG_W_INVALID_VALUE/true/1.html#LANG_W_INVALID_VALUE","details":[]}

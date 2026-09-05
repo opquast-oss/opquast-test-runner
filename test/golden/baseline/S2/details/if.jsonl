@@ -1,0 +1,16 @@
+{"k":"rules/IFRAME/false/index.html#IFRAME","details":[]}
+{"k":"rules/IFRAME/true/1.html#IFRAME","details":[]}
+{"k":"rules/IFRAME_WO_FILLED_TITLE_ATTR/false/index.html#IFRAME_WO_FILLED_TITLE_ATTR","details":[]}
+{"k":"rules/IFRAME_WO_FILLED_TITLE_ATTR/true/1.html#IFRAME_WO_FILLED_TITLE_ATTR","details":[]}
+{"k":"rules/IFRAME_WO_TITLE_ATTR/false/index.html#IFRAME_WO_TITLE_ATTR","details":[]}
+{"k":"rules/IFRAME_WO_TITLE_ATTR/true/1.html#IFRAME_WO_TITLE_ATTR","details":[]}
+{"k":"rules/IFRAME_W_EMPTY_TITLE_ATTR/false/index.html#IFRAME_W_EMPTY_TITLE_ATTR","details":[]}
+{"k":"rules/IFRAME_W_EMPTY_TITLE_ATTR/true/1.html#IFRAME_W_EMPTY_TITLE_ATTR","details":[]}
+{"k":"rules/IFRAME_W_FILLED_AND_UNIQUE_TITLE_ATTR/false/index.html#IFRAME_W_FILLED_AND_UNIQUE_TITLE_ATTR","details":[]}
+{"k":"rules/IFRAME_W_FILLED_AND_UNIQUE_TITLE_ATTR/true/1.html#IFRAME_W_FILLED_AND_UNIQUE_TITLE_ATTR","details":[]}
+{"k":"rules/IFRAME_W_FILLED_AND_UNIQUE_TITLE_ATTR/true/2.html#IFRAME_W_FILLED_AND_UNIQUE_TITLE_ATTR","details":[]}
+{"k":"rules/IFRAME_W_FILLED_TITLE_ATTR/false/index.html#IFRAME_W_FILLED_TITLE_ATTR","details":[]}
+{"k":"rules/IFRAME_W_FILLED_TITLE_ATTR/true/1.html#IFRAME_W_FILLED_TITLE_ATTR","details":[]}
+{"k":"rules/IFRAME_W_UNIQUE_SRC_ATTR_WO_UNIQUE_TITLE_ATTR/false/index.html#IFRAME_W_UNIQUE_SRC_ATTR_WO_UNIQUE_TITLE_ATTR","details":[]}
+{"k":"rules/IFRAME_W_UNIQUE_SRC_ATTR_WO_UNIQUE_TITLE_ATTR/true/1.html#IFRAME_W_UNIQUE_SRC_ATTR_WO_UNIQUE_TITLE_ATTR","details":[]}
+{"k":"rules/IFRAME_W_UNIQUE_SRC_ATTR_WO_UNIQUE_TITLE_ATTR/true/2.html#IFRAME_W_UNIQUE_SRC_ATTR_WO_UNIQUE_TITLE_ATTR","details":[]}

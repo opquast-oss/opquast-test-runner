@@ -1,0 +1,12 @@
+{"k":"rules/RESOURCE_403/false/index.html#RESOURCE_403","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"5a678e94a6194b50"}
+{"k":"rules/RESOURCE_403/true/1.html#RESOURCE_403","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"dbd3d12b5f26287b"}
+{"k":"rules/RESOURCE_403_MORE_THAN_3K/false/index.html#RESOURCE_403_MORE_THAN_3K","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"6c2619735c7d817d"}
+{"k":"rules/RESOURCE_403_MORE_THAN_3K/true/1.html#RESOURCE_403_MORE_THAN_3K","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"29c8c69211ebf834"}
+{"k":"rules/RESOURCE_404/false/index.html#RESOURCE_404","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"f92dc749cbc6bad4"}
+{"k":"rules/RESOURCE_404/true/1.html#RESOURCE_404","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"2528ce5a9de48743"}
+{"k":"rules/RESOURCE_404_MORE_THAN_3K/false/index.html#RESOURCE_404_MORE_THAN_3K","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"b3ce9b17a1d8d301"}
+{"k":"rules/RESOURCE_404_MORE_THAN_3K/true/1.html#RESOURCE_404_MORE_THAN_3K","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"47cbe06ad4e39d71"}
+{"k":"rules/RESOURCE_DOWNLOADABLE/false/index.html#RESOURCE_DOWNLOADABLE","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"1c25e9bbaca9022e"}
+{"k":"rules/RESOURCE_DOWNLOADABLE/true/1.html#RESOURCE_DOWNLOADABLE","r":"i","rl":["i"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"dfdd876910b9b843"}
+{"k":"rules/RESOURCE_PDF/false/index.html#RESOURCE_PDF","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"0fe6db2e8ae636af"}
+{"k":"rules/RESOURCE_PDF/true/1.html#RESOURCE_PDF","r":"i","rl":["i"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"0eb81671546f0fc8"}

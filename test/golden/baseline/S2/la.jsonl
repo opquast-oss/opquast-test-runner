@@ -1,0 +1,17 @@
+{"k":"rules/LABEL/false/index.html#LABEL","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"312ccf3fc7cde35d"}
+{"k":"rules/LABEL/true/1.html#LABEL","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"7217387651f8410d"}
+{"k":"rules/LABEL_EQUALS_TO_ANOTHER_LABEL_IN_FIELDSET/false/index.html#LABEL_EQUALS_TO_ANOTHER_LABEL_IN_FIELDSET","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"38d6413fbea3f323"}
+{"k":"rules/LABEL_EQUALS_TO_ANOTHER_LABEL_IN_FIELDSET/true/1.html#LABEL_EQUALS_TO_ANOTHER_LABEL_IN_FIELDSET","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"54fd82c981fff092"}
+{"k":"rules/LABEL_WO_FOR_ATTR/false/index.html#LABEL_WO_FOR_ATTR","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"e621fb0b1f695a7f"}
+{"k":"rules/LABEL_WO_FOR_ATTR/true/1.html#LABEL_WO_FOR_ATTR","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"8765d6c76dcdd7a1"}
+{"k":"rules/LABEL_W_FOR_ATTR/false/index.html#LABEL_W_FOR_ATTR","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"773e9d0c0b254eba"}
+{"k":"rules/LABEL_W_FOR_ATTR/true/1.html#LABEL_W_FOR_ATTR","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"05035561f5c5f3cd"}
+{"k":"rules/LABEL_W_FOR_ATTR_EMPTY/false/index.html#LABEL_W_FOR_ATTR_EMPTY","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"e05ee8914e6bb0ec"}
+{"k":"rules/LABEL_W_FOR_ATTR_EMPTY/true/1.html#LABEL_W_FOR_ATTR_EMPTY","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"08f79eee56fd63e3"}
+{"k":"rules/LABEL_W_FOR_ATTR_UNKNOWN/false/index.html#LABEL_W_FOR_ATTR_UNKNOWN","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"d294fb21fa2e3d47"}
+{"k":"rules/LABEL_W_FOR_ATTR_UNKNOWN/true/1.html#LABEL_W_FOR_ATTR_UNKNOWN","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"bdd60015e1595017"}
+{"k":"rules/LABEL_W_FOR_ATTR_UNKNOWN/true/2.html#LABEL_W_FOR_ATTR_UNKNOWN","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"f85332ff00fd8db1"}
+{"k":"rules/LANG_ATTR/false/index.html#LANG_ATTR","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"8da318cc25f5969c"}
+{"k":"rules/LANG_ATTR/true/1.html#LANG_ATTR","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"07c3d257fb257d58"}
+{"k":"rules/LANG_W_INVALID_VALUE/false/index.html#LANG_W_INVALID_VALUE","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"f14fc571e424743c"}
+{"k":"rules/LANG_W_INVALID_VALUE/true/1.html#LANG_W_INVALID_VALUE","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"18518d084700b88e"}

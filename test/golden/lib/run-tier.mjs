@@ -52,18 +52,6 @@ export async function runTier({
   const browser = await chromium.launch({ args: ['--no-sandbox', '--disable-dev-shm-usage'] });
   const context = await browser.newContext();
 
-  // Cut the network. 257 fixtures reference an external host (w3.org DTDs, googleapis,
-  // macromedia); letting them through would make the baseline depend on the internet. Recorded in
-  // env.json so the choice is visible rather than assumed.
-  await context.route('**/*', (route) => {
-    let host;
-    try {
-      host = new URL(route.request().url()).hostname;
-    } catch {
-      return route.abort();
-    }
-    return host === '127.0.0.1' ? route.continue() : route.abort();
-  });
   if (!process.env.GOLDEN_NO_EVENT_SHIM) await context.addInitScript(EVENT_SHIM);
 
   const rulesetCache = new Map();
@@ -97,6 +85,38 @@ export async function runTier({
       died = { key: c.key, at: i, error: e.message };
       break;
     }
+
+    // Routing is per-page because one of its two jobs is stateful.
+    //
+    // 1. Cut the network: 257 fixtures reference an external host (w3.org DTDs, googleapis,
+    //    macromedia), and letting those through would make the baseline depend on the internet.
+    // 2. Block any navigation once the document has loaded. This is the legacy harness's
+    //    `accessibility.blockautorefresh`, which it set for exactly the same reason: the
+    //    META_REFRESH_WO_DELAY fixtures carry a zero-delay <meta refresh> and reload out from
+    //    under the engine. Without it they do not merely fail — the reload loop wedges the run
+    //    (observed: 41 minutes of wall clock for 47 seconds of CPU, and orphaned renderers).
+    // Count main-frame navigations rather than flag "loaded": a zero-delay <meta refresh> fires
+    // DURING goto, before any post-goto flag could be raised. The first navigation is the fixture;
+    // every one after it is the page reloading itself.
+    let navigations = 0;
+    await page.route('**/*', (route) => {
+      const req = route.request();
+      let host;
+      try {
+        host = new URL(req.url()).hostname;
+      } catch {
+        return route.abort();
+      }
+      if (host !== '127.0.0.1') return route.abort();
+      try {
+        if (req.isNavigationRequest() && req.frame() === page.mainFrame() && ++navigations > 1) {
+          return route.abort();
+        }
+      } catch {
+        /* a request whose frame is already gone: the host check above stands */
+      }
+      return route.continue();
+    });
 
     let record;
     try {

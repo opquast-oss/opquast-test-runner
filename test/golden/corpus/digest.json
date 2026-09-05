@@ -3,14 +3,18 @@
   "excluded": {
     "zombies": "criterion definitions removed from every ruleset file — nothing to evaluate"
   },
-  "total": 8467,
-  "sha256": "c19980796fc7e81bf24a3ef863d23fdcc270493adc0b781e7804c8b85aa14731",
+  "quarantined": [
+    "rules/META_REFRESH_WO_DELAY/true/1.html#META_REFRESH_WO_DELAY",
+    "rules/META_REFRESH_WO_DELAY/true/2.html#META_REFRESH_WO_DELAY"
+  ],
+  "total": 8465,
+  "sha256": "f6e6bcd57522afc34b8c934b225af35bb567cbbc0e487058ef057effca4af79b",
   "corpora": {
     "rules": {
       "tier": "S2",
       "criteria": 939,
-      "cases": 2388,
-      "withExpectation": 2388,
+      "cases": 2386,
+      "withExpectation": 2386,
       "withOverrides": 81,
       "withHeaders": 3
     },
