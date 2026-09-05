@@ -121,6 +121,49 @@ comparison — it agrees with the legacy add-on and therefore reads "more correc
 there would leave the gate green while production drifted. When DTOOLS-003 is fixed, the anchor
 moves and the baseline is regenerated: a deliberate, reviewed change, visible in its diff.
 
+## Two engines, one measurement
+
+`--adapter legacy` loads `data/lib/*.js` and calls the globals the way the add-on did.
+`--adapter modern` loads the built browser global and goes through `createEngine()`. Same
+fixtures, same fabricated HAR, same criteria — the engine is the only thing that differs.
+
+Measured: **297/297 identical.** Which took a fix to get to. The first comparison returned 75
+regressions, all CSS rules, nearly all `c → nc`: `createEngineContext` destructured `services` and
+read only `dnsResolve`, so `services.xhr` — declared in the public API, typed, documented — was
+never wired. The engine could see nothing beyond what a caller pre-loaded, and `createXhrShim`
+answers `status: 0, data: ''` for everything else. To a rule that is not "not fetched", it is "the
+resource exists and is empty", so every rule reading a stylesheet concluded the page had no CSS.
+
+The harness hands the modern engine the very XHR the legacy path uses, captured before
+`createEngine()` replaces the global. A lookalike reimplementation would make any remaining
+difference unattributable, which is the one thing this comparison cannot afford.
+
+### The M0→M2 audit, and why it cannot be a verdict diff
+
+`--engine-rev <rev>` runs the pilot against the engine as it stood at any commit. Pointed at
+`438f133a`, the state before the modernization, all 297 cases throw the same error:
+
+```
+SyntaxError: Unexpected identifier 'v'
+```
+
+Line 2384 of the pre-M0 `oqs-tests.js`:
+
+```js
+var _res = res.filter(function(v) v !== null);
+```
+
+SpiderMonkey expression closures — a Firefox extension, never standard, long removed. No V8-based
+runtime will parse the file; `node --check` refuses it too. So a verdict-by-verdict comparison
+against pre-M0 is impossible in Chromium **by construction**, and the "0 differences" the plan
+expected was never reachable.
+
+That is a better answer than the one expected. M1's four lines are not a cleanup: they are what
+makes the engine executable outside Firefox at all. The claim that M0–M2 changed no verdict
+therefore rests where it can be settled by inspection — on those four lines being semantically
+identical (`function(v) v !== null` ≡ `function(v) { return v !== null; }`) — and not on a run that
+cannot happen.
+
 ## What the baseline stores
 
 Two levels. Level 1 is one compact line per case:

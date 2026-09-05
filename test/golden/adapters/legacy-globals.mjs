@@ -8,6 +8,7 @@
 // same interface so that record.mjs never knows which engine it is driving.
 
 import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { REPO } from '../lib/sources.mjs';
@@ -60,18 +61,38 @@ function safeExists(p) {
   }
 }
 
-function read(rel) {
-  return readFileSync(rel.startsWith('/') ? rel : join(REPO, rel), 'utf8');
+/**
+ * Read a lib from the working tree, or from a git revision.
+ *
+ * The revision form is what makes the M0→M2 audit possible: `--engine-rev 438f133a` runs the whole
+ * pilot against the engine as it stood before the modernization, through the very same harness.
+ * The claim "M0–M2 changed no verdict" then stops being an argument about a four-line diff and
+ * becomes a measurement.
+ *
+ * A file absent from that revision falls back to the working tree — the pre-M0 layout is not
+ * guaranteed to hold every lib at the same path.
+ */
+function read(rel, rev) {
+  if (!rev) return readFileSync(rel.startsWith('/') ? rel : join(REPO, rel), 'utf8');
+  try {
+    return execFileSync('git', ['show', `${rev}:${rel}`], {
+      cwd: REPO,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    });
+  } catch {
+    return readFileSync(join(REPO, rel), 'utf8');
+  }
 }
 
 /** `{ name, source }` in load order, plus the digest of each file for env.json. */
-export function loadLibs({ jquery } = {}) {
+export function loadLibs({ jquery, rev } = {}) {
   const order = [...resolveJquery(jquery), ...LIB_ORDER.filter(([n]) => n !== 'jquery')];
   return order.map(([name, rel]) => {
-    const source = read(rel);
+    const source = read(rel, rev);
     return {
       name,
-      path: rel,
+      path: rev ? `${rel}@${rev}` : rel,
       source,
       sha256: createHash('sha256').update(source).digest('hex').slice(0, 16),
     };

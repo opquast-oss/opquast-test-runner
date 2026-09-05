@@ -29,6 +29,7 @@ export async function runTier({
   world = 'isolated',
   adapter = 'legacy',
   jquery,
+  rev,
   limit = 0,
   offset = 0,
   onProgress = () => {},
@@ -37,7 +38,7 @@ export async function runTier({
 
   const chosen = ADAPTERS[adapter];
   if (!chosen) throw new Error(`unknown adapter: ${adapter} (${Object.keys(ADAPTERS).join(', ')})`);
-  const libs = chosen.mod.loadLibs({ jquery });
+  const libs = chosen.mod.loadLibs({ jquery, rev });
   const rulesRaw = readFileSync(join(REPO, 'data/rules.json'));
   const rules = JSON.parse(rulesRaw.toString('utf8'));
   const rulesSha = createHash('sha256').update(rulesRaw).digest('hex').slice(0, 16);
@@ -154,6 +155,7 @@ export async function runTier({
     cases: records.length,
     failures: failures.length,
     adapter,
+    engineRev: rev ?? null,
     node: process.version,
     platform: `${process.platform}-${process.arch}`,
     playwright: JSON.parse(readFileSync(join(REPO, 'node_modules/playwright/package.json'), 'utf8'))

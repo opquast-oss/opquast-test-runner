@@ -42,6 +42,7 @@ const { records, env, failures, died, requested } = await runTier({
   world: WORLD,
   adapter: arg('adapter', 'legacy'),
   jquery: arg('jquery', undefined),
+  rev: arg('engine-rev', undefined),
   limit: Number(arg('limit', '0')) || 0,
   offset: Number(arg('offset', '0')) || 0,
   onProgress: (i, n) => {
