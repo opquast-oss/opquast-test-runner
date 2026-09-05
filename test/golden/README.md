@@ -164,6 +164,39 @@ therefore rests where it can be settled by inspection — on those four lines be
 identical (`function(v) v !== null` ≡ `function(v) { return v !== null; }`) — and not on a run that
 cannot happen.
 
+## The jQuery question, answered
+
+The extension shipped jQuery 1.9.1 → 3.7.1 + Migrate on 2026-07-20, on the strength of a golden
+covering 8 criteria on one page. `--jquery <path>` runs any tier under either, so the whole rules
+tier can now answer what that change did.
+
+**15 regressions out of 2 386**, all in one family — form-control labelling
+(`INPUT_W_TYPE_*_WO_FILLED_AND_UNIQUE_LABEL`, `SELECT_…`, `TEXTAREA_…`) — and all `c → i`: the
+rules stop returning a verdict and fall back to "check by hand".
+
+The mechanism, measured rather than surmised. `_htmlSameLabelsTitles` builds a selector by
+concatenation (`data/lib/oqs-tests.js:347` and `:395`):
+
+```js
+var id = $.trim($(this).attr("id")),
+    oLabel = $("label[for=" + id + "]"),
+```
+
+A form control with no `id` yields `label[for=]`:
+
+| | `$('label[for=]')` |
+|---|---|
+| jQuery 1.9.1 | `0 matches`, silent |
+| jQuery 3.7.1 + Migrate 3.5.2 | **throws** `Syntax error, unrecognized expression` |
+
+The throw is caught, `result = false`, and the verdict becomes `i`. So since 2026-07-20, any form
+control without an `id` — which is to say a great many real pages — makes this whole family of
+accessibility rules abandon its verdict, silently, in production.
+
+Two call sites, both in that one function. Note what the first hypothesis was: `.size()`, removed
+in jQuery 3.0, used seven times in the engine. Measured instead of assumed — Migrate 3.5.2 does
+restore `.size()`, so it was never the cause. Two runs of a probe settled it.
+
 ## What the baseline stores
 
 Two levels. Level 1 is one compact line per case:
