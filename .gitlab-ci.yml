@@ -10,6 +10,7 @@
 stages:
   - check
   - build
+  - golden
 
 default:
   image: node:22-bookworm-slim
@@ -66,3 +67,75 @@ unit:
     # test/golden/lib/ is pure Node — no browser, no engine. It is the half of the harness that
     # can be proven here rather than on the Playwright image, so it runs on every pipeline.
     - npm test
+
+# ---------------------------------------------------------------------------
+# The golden-master net. See test/golden/README.md.
+#
+# The image tag pins Chromium, and Chromium is part of the measurement: a browser bump can move a
+# verdict legitimately. Pinning it here is what makes a red run mean "the engine changed" rather
+# than "something changed". The image also carries the shared libraries whose absence kills
+# headless_shell mid-page with a message that names nothing.
+# ---------------------------------------------------------------------------
+
+.golden:
+  stage: golden
+  image: mcr.microsoft.com/playwright:v1.62.1-noble
+  interruptible: true
+  artifacts:
+    when: on_failure
+    paths:
+      - test/golden/.golden-out/
+    expire_in: 1 week
+
+golden:pilot:
+  extends: .golden
+  # 297 cases over the 118 rules that are not plain DOM matching — the ones reading stylesheets,
+  # scripts, HTTP resources, feeds and the doctype. Cheap enough to run on every pipeline, and the
+  # tier most likely to catch a change: the 822 DOM-only rules are the most stable by construction.
+  script:
+    - node test/golden/lib/sources.mjs --verify
+    - node test/golden/check.mjs --tier S1
+
+golden:rules:
+  extends: .golden
+  # 2 386 cases, 949 of 949 rules.
+  script:
+    - node test/golden/check.mjs --tier S2
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+
+golden:criteria:
+  extends: .golden
+  # 3 756 cases, 1 189 real criteria: chaining, `na`, multi-entry results_list.
+  script:
+    - node test/golden/check.mjs --tier S3
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+
+golden:modern:
+  extends: .golden
+  # The same pilot through createEngine(), against the same baseline. This is the tripwire for the
+  # moment M3 moves the libs into a module scope: today both adapters run the same code, so any
+  # difference is a defect in the packaging, not in the engine.
+  needs: [build]
+  script:
+    - node test/golden/check.mjs --tier S1 --adapter modern
+
+golden:record:
+  extends: .golden
+  # Regenerating a baseline is a deliberate act, so it is manual and its output is an artifact to
+  # review — never something a pipeline does on its own.
+  when: manual
+  script:
+    - node test/golden/record.mjs --tier S1 --out baseline/S1
+    - node test/golden/record.mjs --tier S2 --out baseline/S2
+    - node test/golden/record.mjs --tier S3 --out baseline/S3
+  artifacts:
+    when: always
+    paths:
+      - test/golden/baseline/
+    expire_in: 1 month

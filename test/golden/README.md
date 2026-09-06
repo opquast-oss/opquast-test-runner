@@ -71,6 +71,21 @@ The red run reported exactly one regression out of 297 cases —
 `rules/JS_POPUP/true/1.html#JS_POPUP`, `verdict c → nc` — with no false positives, and named the
 cause above it: of the five engine libs, only `oqs-tests.js`'s digest had moved.
 
+### In CI
+
+| job | tier | when |
+|---|---|---|
+| `golden:pilot` | S1, 297 cases | every pipeline |
+| `golden:rules` | S2, 2 386 cases | default branch, MRs, schedules |
+| `golden:criteria` | S3, 3 756 cases | default branch, MRs, schedules |
+| `golden:modern` | S1 through `createEngine()` | every pipeline |
+| `golden:record` | regenerates all three | manual only |
+
+The image tag pins Chromium, and Chromium is part of the measurement: a browser bump can move a
+verdict legitimately. Pinning it is what makes a red run mean "the engine changed" rather than
+"something changed". Regenerating a baseline stays manual and produces an artifact to review —
+never something a pipeline does on its own.
+
 ## Tiers
 
 | tier | content | cases |
