@@ -81,6 +81,15 @@ cause above it: of the five engine libs, only `oqs-tests.js`'s digest had moved.
 | `golden:modern` | S1 through `createEngine()` | every pipeline |
 | `golden:record` | regenerates all three | manual only |
 
+**Reproducibility across machines, as measured so far.** The baselines were recorded in the dev
+container (linux-arm64, Chromium 151.0.7922.34). `golden:pilot` and `golden:modern` then passed on
+CI — x86_64, official Playwright image — against those same files, byte for byte. So the pilot is
+proven on two architectures.
+
+S2 and S3 are not, yet: they only run on merge requests and schedules, so their baselines remain
+single-machine until the first MR. If a verdict does differ there, `env.json` will name what
+changed rather than leaving a puzzle.
+
 The image tag pins Chromium, and Chromium is part of the measurement: a browser bump can move a
 verdict legitimately. Pinning it is what makes a red run mean "the engine changed" rather than
 "something changed". Regenerating a baseline stays manual and produces an artifact to review —
