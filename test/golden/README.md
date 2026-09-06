@@ -93,9 +93,14 @@ container (linux-arm64, Chromium 151.0.7922.34). `golden:pilot` and `golden:mode
 CI — x86_64, official Playwright image — against those same files, byte for byte. So the pilot is
 proven on two architectures.
 
-S2 and S3 are not, yet: they only run on merge requests and schedules, so their baselines remain
-single-machine until the first MR. If a verdict does differ there, `env.json` will name what
-changed rather than leaving a puzzle.
+S2 and S3 followed on the first merge request: 6 142 cases, green. So the whole blocking net is
+reproducible across two architectures, two Node versions and two Chromium builds.
+
+It took two rounds to get there, and both were the harness's fault rather than the engine's — 12
+fixtures duplicated under two spellings, then 14 references whose case did not match their file.
+Neither is visible on a case-insensitive checkout, which is to say neither was visible on the
+machine that recorded the baselines. That is the argument for running the net somewhere else
+before trusting it.
 
 The image tag pins Chromium, and Chromium is part of the measurement: a browser bump can move a
 verdict legitimately. Pinning it is what makes a red run mean "the engine changed" rather than
