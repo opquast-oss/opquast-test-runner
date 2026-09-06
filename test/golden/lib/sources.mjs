@@ -25,6 +25,7 @@
 
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -337,6 +338,32 @@ export function digest() {
   };
 }
 
+/**
+ * Paths in the repository that differ only by case.
+ *
+ * This asks GIT, not the filesystem, and that is the whole point: a case-insensitive checkout
+ * (macOS, Windows) collapses such a pair and shows only one of them, so the machine most likely to
+ * create the problem is the one that cannot see it. Twelve byte-identical duplicates lived in
+ * `sets/` this way — invisible here, enumerated in CI, and the corpus digest disagreed by exactly
+ * those twelve cases between the two.
+ *
+ * Cheap, and it catches a class of defect that is otherwise found only by a red pipeline.
+ */
+export function caseCollisions() {
+  const out = execFileSync('git', ['ls-files', '--', 'test/fixtures'], {
+    cwd: REPO,
+    encoding: 'utf8',
+    maxBuffer: 64 * 1024 * 1024,
+  });
+  const byLower = new Map();
+  for (const p of out.split('\n').filter(Boolean)) {
+    const k = p.toLowerCase();
+    if (!byLower.has(k)) byLower.set(k, []);
+    byLower.get(k).push(p);
+  }
+  return [...byLower.values()].filter((v) => v.length > 1).sort();
+}
+
 // ---- CLI -------------------------------------------------------------------
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
@@ -348,6 +375,16 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   } else if (process.argv.includes('--digest')) {
     process.stdout.write(JSON.stringify(digest(), null, 2) + '\n');
   } else if (process.argv.includes('--verify')) {
+    const collisions = caseCollisions();
+    if (collisions.length) {
+      console.error(`${collisions.length} path(s) in test/fixtures differ only by case:`);
+      for (const group of collisions.slice(0, 20)) console.error(`  ${group.join('  ==  ')}`);
+      console.error(
+        'A case-insensitive checkout sees only one of each, so the corpus differs between machines.\n' +
+          'Remove the redundant spelling.',
+      );
+      process.exit(1);
+    }
     const committed = JSON.parse(readFileSync(join(HERE, '../corpus/digest.json'), 'utf8'));
     const current = digest();
     if (committed.sha256 === current.sha256) {
