@@ -339,29 +339,52 @@ export function digest() {
 }
 
 /**
- * Paths in the repository that differ only by case.
+ * Paths that differ only by case.
  *
- * This asks GIT, not the filesystem, and that is the whole point: a case-insensitive checkout
- * (macOS, Windows) collapses such a pair and shows only one of them, so the machine most likely to
- * create the problem is the one that cannot see it. Twelve byte-identical duplicates lived in
- * `sets/` this way — invisible here, enumerated in CI, and the corpus digest disagreed by exactly
- * those twelve cases between the two.
+ * Two sources, because the two environments have exactly complementary blind spots:
  *
- * Cheap, and it catches a class of defect that is otherwise found only by a red pipeline.
+ *   - a case-INSENSITIVE checkout (macOS, Windows) collapses such a pair and shows only one file,
+ *     so a filesystem walk cannot see the problem — but git can, and a developer machine has it;
+ *   - CI runs on a case-SENSITIVE filesystem where the walk sees both, and its job image
+ *     (node:22-bookworm-slim) has no git at all — the runner clones with a separate helper image.
+ *
+ * So: ask git, and fall back to walking the tree when git is absent. Either way the check runs,
+ * and the machine that can create the collision is never the one deciding there is none.
+ *
+ * Twelve byte-identical duplicates lived in `sets/` this way: invisible on the dev machine,
+ * enumerated in CI, and the corpus digest disagreed by exactly those twelve cases.
  */
 export function caseCollisions() {
-  const out = execFileSync('git', ['ls-files', '--', 'test/fixtures'], {
-    cwd: REPO,
-    encoding: 'utf8',
-    maxBuffer: 64 * 1024 * 1024,
-  });
+  let paths;
+  try {
+    paths = execFileSync('git', ['ls-files', '--', 'test/fixtures'], {
+      cwd: REPO,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
+      .split('\n')
+      .filter(Boolean);
+  } catch {
+    paths = walk(FIXTURES);
+  }
+
   const byLower = new Map();
-  for (const p of out.split('\n').filter(Boolean)) {
+  for (const p of paths) {
     const k = p.toLowerCase();
     if (!byLower.has(k)) byLower.set(k, []);
     byLower.get(k).push(p);
   }
   return [...byLower.values()].filter((v) => v.length > 1).sort();
+}
+
+function walk(dir, acc = []) {
+  for (const name of readdirSync(dir).sort()) {
+    const full = join(dir, name);
+    if (statSync(full).isDirectory()) walk(full, acc);
+    else acc.push(full.slice(REPO.length + 1));
+  }
+  return acc;
 }
 
 // ---- CLI -------------------------------------------------------------------
