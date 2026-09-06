@@ -1,0 +1,21 @@
+{"k":"sets/712/213-712_1.html#712","details":[]}
+{"k":"sets/712/213-712_2.html#712","details":[{"attributes":[{"name":"type","namespace":"","value":"text/javascript"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > head:nth-of-type(1) > script:nth-of-type(1)","tag":"script","text":"&lt;script type=\"text/javascript\"&gt;\n\t\t\tdocument.write('test');\n\t\t&lt;/script&gt;","xpath":"/html/head/script"}]}
+{"k":"sets/712/213-712_3.html#712","details":[]}
+{"k":"sets/712/213-712_4.html#712","details":[]}
+{"k":"sets/714/215-714_1.html#714","details":[]}
+{"k":"sets/714/215-714_2.html#714","details":[{"attributes":[{"name":"type","namespace":"","value":"text/javascript"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > head:nth-of-type(1) > script:nth-of-type(1)","tag":"script","text":"&lt;script type=\"text/javascript\"&gt;\n\t\t\tdocument.write(\"test\");\n\t\t&lt;/script&gt;","xpath":"/html/head/script"}]}
+{"k":"sets/714/215-714_3.html#714","details":[]}
+{"k":"sets/715/216-715_1.html#715","details":[]}
+{"k":"sets/715/216-715_2.html#715","details":[{"attributes":[{"name":"type","namespace":"","value":"text/javascript"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > head:nth-of-type(1) > script:nth-of-type(1)","tag":"script","text":"&lt;script type=\"text/javascript\"&gt;\n            document.write('test');\n            // autre commentaire\n            \n            document.write('test');\n            // autre commentaire\n           ","xpath":"/html/head/script"}]}
+{"k":"sets/715/216-715_3.html#715","details":[]}
+{"k":"sets/715/216-715_4.html#715","details":["http://fixture/216-715_4.js (\t)"]}
+{"k":"sets/715/216-715_5.html#715","details":[]}
+{"k":"sets/716/217-716_1.html#716","details":[]}
+{"k":"sets/716/217-716_2.html#716","details":[{"attributes":[{"name":"type","namespace":"","value":"text/css"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > head:nth-of-type(1) > style:nth-of-type(1)","tag":"style","text":"&lt;style type=\"text/css\"&gt;\n            /* Ceci est un commentaire\n             qui occupe plusieurs lignes ! */\n            body {\n                color:purple;\n                background-color:#d8","xpath":"/html/head/style"}]}
+{"k":"sets/716/217-716_3.html#716","details":[]}
+{"k":"sets/716/217-716_4.html#716","details":["http://fixture/217-716_4.css"]}
+{"k":"sets/716/217-716_5.html#716","details":[]}
+{"k":"sets/716/217-716_6.html#716","details":[{"attributes":[{"name":"rel","namespace":"","value":"stylesheet"},{"name":"type","namespace":"","value":"text/css"},{"name":"href","namespace":"","value":"217-716_6.css"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > head:nth-of-type(1) > link:nth-of-type(1)","tag":"link","text":"&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"217-716_6.css\"&gt;","xpath":"/html/head/link"}]}
+{"k":"sets/716/217-716_7.html#716","details":[]}
+{"k":"sets/716/217-716_8.html#716","details":["http://fixture/217-716_6.css"]}
+{"k":"sets/716/217-716_9.html#716","details":[]}

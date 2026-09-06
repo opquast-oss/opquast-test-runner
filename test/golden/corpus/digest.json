@@ -5,10 +5,12 @@
   },
   "quarantined": [
     "rules/META_REFRESH_WO_DELAY/true/1.html#META_REFRESH_WO_DELAY",
-    "rules/META_REFRESH_WO_DELAY/true/2.html#META_REFRESH_WO_DELAY"
+    "rules/META_REFRESH_WO_DELAY/true/2.html#META_REFRESH_WO_DELAY",
+    "sets-debug/21717/24-21717_2.html#21717",
+    "sets/38766/13-1-2-38766_2.html#38766"
   ],
-  "total": 8465,
-  "sha256": "f6e6bcd57522afc34b8c934b225af35bb567cbbc0e487058ef057effca4af79b",
+  "total": 8463,
+  "sha256": "724b8bccd7208a110587d579155a60d1808c969d277e9dcefb3220790ac5e928",
   "corpora": {
     "rules": {
       "tier": "S2",
@@ -21,8 +23,8 @@
     "sets": {
       "tier": "S3",
       "criteria": 1189,
-      "cases": 3757,
-      "withExpectation": 3757,
+      "cases": 3756,
+      "withExpectation": 3756,
       "withOverrides": 217,
       "withHeaders": 15
     },
@@ -45,8 +47,8 @@
     "sets-debug": {
       "tier": "S4",
       "criteria": 30,
-      "cases": 121,
-      "withExpectation": 121,
+      "cases": 120,
+      "withExpectation": 120,
       "withOverrides": 2,
       "withHeaders": 0
     },

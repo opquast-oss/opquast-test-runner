@@ -1,0 +1,15 @@
+{"k":"sets/620/121-620_1.html#620","details":[]}
+{"k":"sets/620/121-620_2.html#620","details":[]}
+{"k":"sets/620/121-620_3.html#620","details":["interne (ligne 5) : a.plop:hover, a.plop2:hover {font-weight: bold;}","interne (ligne 5) : a.plop:hover, a.plop2:hover {font-weight: bold;}","interne (ligne 9) : a.plop3:hover {font-style: italic;}","interne (ligne 13) : a.plop4:hover {font-size: 110%;}","interne (ligne 17) : a.plop5:hover {font-family: serif;}","interne (ligne 21) : a.plop6:hover {border-top-width: 1px;}","interne (ligne 21) : a.plop6:hover {border-top-style: solid;}","interne (ligne 21) : a.plop6:hover {border-top-color: red;}","interne (ligne 21) : a.plop6:hover {border-right-width: 1px;}","interne (ligne 21) : a.plop6:hover {border-right-style: solid;}","interne (ligne 21) : a.plop6:hover {border-right-color: red;}","interne (ligne 21) : a.plop6:hover {border-bottom-width: 1px;}","interne (ligne 21) : a.plop6:hover {border-bottom-style: solid;}","interne (ligne 21) : a.plop6:hover {border-bottom-color: red;}","interne (ligne 21) : a.plop6:hover {border-left-width: 1px;}","interne (ligne 21) : a.plop6:hover {border-left-style: solid;}","interne (ligne 21) : a.plop6:hover {border-left-color: red;}","interne (ligne 25) : a.plop7:hover {margin-top: .5ex;}","interne (ligne 25) : a.plop7:hover {margin-right: .5ex;}","interne (ligne 25) : a.plop7:hover {margin-bottom: .5ex;}","interne (ligne 25) : a.plop7:hover {margin-left: .5ex;}","interne (ligne 29) : a.plop8:hover {padding-top: .5ex;}","interne (ligne 29) : a.plop8:hover {padding-right: .5ex;}","interne (ligne 29) : a.plop8:hover {padding-bottom: .5ex;}","interne (ligne 29) : a.plop8:hover {padding-left: .5ex;}"]}
+{"k":"sets/622/123-622_1.html#622","details":[]}
+{"k":"sets/622/123-622_2.html#622","details":["http://fixture/test.png"]}
+{"k":"sets/624/125-624_1.html#624","details":[]}
+{"k":"sets/625/126-625_1.html#625","details":[{"attributes":[{"name":"name","namespace":"","value":"description"},{"name":"content","namespace":"","value":"plop"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(4)","tag":"meta","text":"&lt;meta name=\"description\" content=\"plop\"&gt;","xpath":"/html/head/meta[4]"}]}
+{"k":"sets/625/126-625_2.html#625","details":[]}
+{"k":"sets/625/126-625_3.html#625","details":[]}
+{"k":"sets/625/126-625_4.html#625","details":[]}
+{"k":"sets/627/128-627_1.html#627","details":[]}
+{"k":"sets/627/128-627_2.html#627","details":[]}
+{"k":"sets/627/128-627_3.html#627","details":[]}
+{"k":"sets/627/128-627_4.html#627","details":[]}
+{"k":"sets/627/128-627_5.html#627","details":[]}
