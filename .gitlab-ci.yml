@@ -139,3 +139,11 @@ golden:record:
     paths:
       - test/golden/baseline/
     expire_in: 1 month
+
+conformance:
+  stage: check
+  # The second signal, and the only one that is about correctness. It reads the committed baselines
+  # — no browser needed — and fails only on a disagreement that is NOT in the register. The count
+  # can shrink; it cannot silently grow.
+  script:
+    - node test/golden/conformance.mjs

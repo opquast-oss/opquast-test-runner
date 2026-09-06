@@ -249,6 +249,23 @@ rules families, the `X-results` meta for the sets families. They are not recordi
 and nothing proves the suite was ever green.
 
 So: the baseline (what the engine does) is one thing, `x` (what the author expected) is another.
-The blocking gate compares runs to the baseline and has no opinion on correctness. A separate,
-informative pass compares the baseline to `x` and produces a reviewed register of disagreements.
-When the engine contradicts the fixture, we record it; we do not quietly fix either side.
+The blocking gate compares runs to the baseline and has no opinion on correctness.
+`node test/golden/conformance.mjs` compares the baseline to `x` and never blocks on the
+disagreements themselves — only on ones absent from `conformance.json`, so the register is a floor
+that can shrink but not silently grow.
+
+**Measured across the three tiers: 6 142 cases carry an expectation, 5 936 agree — 96.6%.**
+
+For a suite written by hand over fifteen years, never once proven green, and replayed in a
+different browser engine, that is a good deal better than feared. The 206 disagreements are
+attributed to the rule that caused them, since `results_list` is ordered like the criterion's
+rules:
+
+| cases | cause | |
+|---|---|---|
+| 44 | `CSS_CONTENT` | `getPropertyCSSValue()`, removed from Blink and from the CSSOM spec. Throws, the catch returns false, false is `i`. |
+| 38 | `FAVICON`, `HTTP_404` | need a real network fetch the hermetic corpus deliberately cannot serve. |
+| 124 | unclassified | not yet looked at — and left saying so, because guessing a category is worse than admitting nobody has. |
+
+When the engine contradicts the fixture, we record it. We do not quietly fix either side: these
+expectations predate the port, so a disagreement may equally be a fixture that was always wrong.
