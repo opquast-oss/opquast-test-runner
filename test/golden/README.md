@@ -193,6 +193,17 @@ The throw is caught, `result = false`, and the verdict becomes `i`. So since 202
 control without an `id` — which is to say a great many real pages — makes this whole family of
 accessibility rules abandon its verdict, silently, in production.
 
+**Fixed, and proven in both directions** (`oLabel = id ? $("label[for=" + id + "]") : $()`):
+
+| | verdicts |
+|---|---|
+| jQuery 1.9.1 + fix | `✓ no regression` — a non-event, the baseline untouched |
+| jQuery 3.7.1 + fix | `✓ no regression` — 15 → 0 |
+
+Two runs, ten minutes, and the jQuery upgrade is now verdict-neutral across all 949 rules. That
+pair of runs is what the net was built for: a fix is not "it looks right", it is "the baseline held
+where it had to and moved where it had to".
+
 Two call sites, both in that one function. Note what the first hypothesis was: `.size()`, removed
 in jQuery 3.0, used seven times in the engine. Measured instead of assumed — Migrate 3.5.2 does
 restore `.size()`, so it was never the cause. Two runs of a probe settled it.
