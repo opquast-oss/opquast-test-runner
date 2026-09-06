@@ -1,0 +1,37 @@
+{"k":"sets/580/81-580_1.html#580","details":[]}
+{"k":"sets/580/81-580_2.html#580","details":[]}
+{"k":"sets/580/81-580_3.html#580","details":[]}
+{"k":"sets/580/81-580_4.html#580","details":[]}
+{"k":"sets/580/81-580_5.html#580","details":[]}
+{"k":"sets/580/81-580_6.html#580","details":[]}
+{"k":"sets/580/81-580_7.html#580","details":[]}
+{"k":"sets/581/82-581_1.html#581","details":[]}
+{"k":"sets/581/82-581_2.html#581","details":[]}
+{"k":"sets/581/82-581_3.html#581","details":[]}
+{"k":"sets/581/82-581_4.html#581","details":[]}
+{"k":"sets/581/82-581_5.html#581","details":[]}
+{"k":"sets/581/82-581_6.html#581","details":[]}
+{"k":"sets/582/83-582_1.html#582","details":[]}
+{"k":"sets/582/83-582_2.html#582","details":[]}
+{"k":"sets/582/83-582_3.html#582","details":[]}
+{"k":"sets/583/84-583_1.html#583","details":[]}
+{"k":"sets/583/84-583_2.html#583","details":[]}
+{"k":"sets/583/84-583_3.html#583","details":[]}
+{"k":"sets/583/84-583_4.html#583","details":[]}
+{"k":"sets/583/84-583_5.html#583","details":[{"attributes":[{"name":"id","namespace":"","value":"toto"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"th#toto","tag":"th","text":"&lt;th id=\"toto\"&gt;Savings&lt;/th&gt;","xpath":"//th[@id=\"toto\"]"},{"attributes":[{"name":"id","namespace":"","value":" "}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"th# ","tag":"th","text":"&lt;th id=\" \"&gt;Savings&lt;/th&gt;","xpath":"//th[@id=\" \"]"}]}
+{"k":"sets/583/84-583_6.html#583","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(2) > td:nth-of-type(1)","tag":"td","text":"&lt;td&gt;January&lt;/td&gt;","xpath":"/html/body/table/tbody/tr[2]/td"},{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(2) > td:nth-of-type(2)","tag":"td","text":"&lt;td&gt;$100&lt;/td&gt;","xpath":"/html/body/table/tbody/tr[2]/td[2]"},{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(2) > td:nth-of-type(3)","tag":"td","text":"&lt;td&gt;$100&lt;/td&gt;","xpath":"/html/body/table/tbody/tr[2]/td[3]"}]}
+{"k":"sets/583/84-583_7.html#583","details":[]}
+{"k":"sets/583/84-583_8.html#583","details":[{"attributes":[{"name":"headers","namespace":"","value":" "}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(2) > td:nth-of-type(2)","tag":"td","text":"&lt;td headers=\" \"&gt;$100&lt;/td&gt;","xpath":"/html/body/table/tbody/tr[2]/td[2]"}]}
+{"k":"sets/585/86-585_1.html#585","details":[]}
+{"k":"sets/585/86-585_2.html#585","details":[{"attributes":[{"name":"width","namespace":"","value":"550"},{"name":"height","namespace":"","value":"330"},{"name":"code","namespace":"","value":"org._3pq.jgrapht.demo.JGraphAdapterDemo.class"},{"name":"archive","namespace":"","value":"jgrapht-0.5.2.jar"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(3) > applet:nth-of-type(1)","tag":"applet","text":"&lt;applet width=\"550\" height=\"330\" code=\"org._3pq.jgrapht.demo.JGraphAdapterDemo.class\" archive=\"jgrapht-0.5.2.jar\"&gt;\n                &lt;param name=\"bgcolor\" value=\"#ffffff\"&gt;\n                ap","xpath":"/html/body/p[3]/applet"},{"attributes":[{"name":"src","namespace":"","value":"audio.ogg"},{"name":"controls","namespace":"","value":"controls"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(2) > audio:nth-of-type(1)","tag":"audio","text":"&lt;audio src=\"audio.ogg\" controls=\"controls\"&gt;\n                Your browser does not support the audio element.\n            &lt;/audio&gt;","xpath":"/html/body/p[2]/audio"},{"attributes":[{"name":"id","namespace":"","value":"myCanvas"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"canvas#myCanvas","tag":"canvas","text":"&lt;canvas id=\"myCanvas\"&gt;&lt;/canvas&gt;","xpath":"//canvas[@id=\"myCanvas\"]"},{"attributes":[{"name":"width","namespace":"","value":"100%"},{"name":"height","namespace":"","value":"400"},{"name":"quality","namespace":"","value":"high"},{"name":"type","namespace":"","value":"application/x-shockwave-flash"},{"name":"pluginspage","namespace":"","value":"http://www.macromedia.com/shockwave/download/"},{"name":"src","namespace":"","value":"flash.swf"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(4) > object:nth-of-type(1) > embed:nth-of-type(1)","tag":"embed","text":"&lt;embed width=\"100%\" height=\"400\" quality=\"high\" type=\"application/x-shockwave-flash\" pluginspage=\"http://www.macromedia.com/shockwave/download/\" src=\"flash.swf\"&gt;","xpath":"/html/body/p[4]/object/embed"},{"attributes":[{"name":"width","namespace":"","value":"100%"},{"name":"height","namespace":"","value":"400"},{"name":"codebase","namespace":"","value":"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#3,0,0,0"},{"name":"classid","namespace":"","value":"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(4) > object:nth-of-type(1)","tag":"object","text":"&lt;object width=\"100%\" height=\"400\" codebase=\"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#3,0,0,0\" classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\"&gt;\n                &lt","xpath":"/html/body/p[4]/object"},{"attributes":[{"name":"src","namespace":"","value":"video.ogg"},{"name":"controls","namespace":"","value":"controls"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > video:nth-of-type(1)","tag":"video","text":"&lt;video src=\"video.ogg\" controls=\"controls\"&gt;\n                Your browser does not support the video tag\n            &lt;/video&gt;","xpath":"/html/body/p/video"}]}
+{"k":"sets/587/88-587_1.html#587","details":[]}
+{"k":"sets/587/88-587_2.html#587","details":[]}
+{"k":"sets/587/88-587_3.html#587","details":[{"attributes":[{"name":"border","namespace":"","value":"1"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(2) > td:nth-of-type(1) > table:nth-of-type(1)","tag":"table","text":"&lt;table border=\"1\"&gt;\n\t\t\t\t\t\t&lt;tbody&gt;&lt;tr&gt;\n\t\t\t\t\t\t\t&lt;td&gt;az eaz&lt;/td&gt;\n\t\t\t\t\t\t\t&lt;td&gt;azea z&lt;/td&gt;\n\t\t\t\t\t\t\t&lt;td&gt;az eeaz&lt;/td&gt;\n\t\t\t\t\t\t&lt;/tr&gt;\n\t\t\t\t\t&lt;/tbody&gt;&l","xpath":"/html/body/table/tbody/tr[2]/td/table"}]}
+{"k":"sets/588/89-588_1.html#588","details":[]}
+{"k":"sets/588/89-588_2.html#588","details":[]}
+{"k":"sets/588/89-588_3.html#588","details":[]}
+{"k":"sets/588/89-588_4.html#588","details":[]}
+{"k":"sets/588/89-588_5.html#588","details":[]}
+{"k":"sets/588/89-588_6.html#588","details":[]}
+{"k":"sets/588/89-588_7.html#588","details":[]}
+{"k":"sets/588/89-588_8.html#588","details":[]}

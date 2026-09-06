@@ -344,7 +344,7 @@ var regFunction = new RegExp("([^\\s:{}&|]*)\\(", "i"),
                     $("input, select, textarea", $(this)).each(function() {
                         //
                         var id = $.trim($(this).attr("id")),
-                            oLabel = $("label[for=" + id + "]"),
+                            oLabel = id ? $("label[for=" + id + "]") : $(),
                             label = oLabel ? $.trim(oLabel.text()).toLowerCase() : "",
                             title = $.trim($(this).attr("title")).toLowerCase();
 
@@ -392,7 +392,7 @@ var regFunction = new RegExp("([^\\s:{}&|]*)\\(", "i"),
                         $("input, select, textarea", $(this)).each(function() {
                             //
                             var id = $.trim($(this).attr("id")),
-                                oLabel = $("label[for=" + id + "]"),
+                                oLabel = id ? $("label[for=" + id + "]") : $(),
                                 label = oLabel ? $.trim(oLabel.text()).toLowerCase() : "",
                                 title = $.trim($(this).attr("title")).toLowerCase();
 

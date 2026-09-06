@@ -42,7 +42,10 @@ export interface XhrResponseData {
   data: string;
 }
 
-export function createXhrShim(responses: Record<string, XhrResponseData> = {}) {
+export function createXhrShim(
+  responses: Record<string, XhrResponseData> = {},
+  fallback?: (url: string) => Promise<{ status: number; data: string; getHeader(name: string): string | null }>,
+) {
   const makeResponse = (r?: XhrResponseData) => {
     const headers = r?.headers || [];
     return {
@@ -60,9 +63,21 @@ export function createXhrShim(responses: Record<string, XhrResponseData> = {}) {
     };
   };
 
+  // A URL that was not pre-loaded falls through to the caller's fetcher when one is supplied.
+  // Without this the shim answers `status: 0, data: ''` for everything it was not handed, which
+  // reads to the rules as "the resource exists and is empty" rather than "not fetched" — 75 CSS
+  // verdicts flipped from c to nc on that alone, because the stylesheet came back blank.
+  const serve = (url: string) => {
+    const known = responses[url];
+    if (known || !fallback) return Promise.resolve(makeResponse(known));
+    return Promise.resolve(fallback(url)).then((r) =>
+      r && typeof r === 'object' ? r : makeResponse(undefined),
+    );
+  };
+
   return {
-    get: (url: string) => Promise.resolve(makeResponse(responses[url])),
-    query: (url: string) => Promise.resolve(makeResponse(responses[url])),
+    get: (url: string) => serve(url),
+    query: (url: string) => serve(url),
   };
 }
 
@@ -133,7 +148,7 @@ export function createEngineContext(options: CreateContextOptions = {}): EngineC
 
   return {
     Q: createQShim(),
-    XHR: createXhrShim(responses),
+    XHR: createXhrShim(responses, services.xhr),
     dnsLookup: services.dnsResolve ?? (() => Promise.resolve(null)),
     logger: createLoggerShim(logger, config),
 

@@ -162,11 +162,13 @@ export function createEngine(options: CreateEngineOptions): Engine {
         responses = {},
       } = opts;
 
-      // Update XHR shim with provided responses
+      // Update XHR shim with provided responses. The caller's fetcher is carried across: this
+      // used to replace the shim outright, so passing `responses` silently discarded
+      // `services.xhr` and left the engine unable to reach anything it had not been handed.
       if (Object.keys(responses).length > 0) {
         const g = globalThis as Record<string, unknown>;
         const { createXhrShim } = await import('./context.js');
-        g.XHR = createXhrShim(responses);
+        g.XHR = createXhrShim(responses, services?.xhr);
       }
 
       // Build or merge sidecar

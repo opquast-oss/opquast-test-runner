@@ -1,3 +1,6 @@
 node_modules/
 dist/
 *.tsbuildinfo
+
+# golden-master scratch runs (the authoritative baseline is written to test/golden/baseline/)
+test/golden/.golden-out/

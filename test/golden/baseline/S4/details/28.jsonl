@@ -1,0 +1,72 @@
+{"k":"sets-stock/28032/112-28032_1.html#28032","details":[]}
+{"k":"sets-stock/28032/112-28032_2.html#28032","details":["entête HTTP de http://fixture/112-28032_2.html :\ncontent-length: 301"]}
+{"k":"sets-stock/28033/111-28033_1.html#28033","details":[]}
+{"k":"sets-stock/28033/111-28033_2.html#28033","details":["entête HTTP de http://fixture/111-28033_2.html :"]}
+{"k":"sets-stock/28034/110-28034_1.html#28034","details":[]}
+{"k":"sets-stock/28034/110-28034_2.html#28034","details":[]}
+{"k":"sets-stock/28034/110-28034_3.html#28034","details":[]}
+{"k":"sets-stock/28035/109-28035_1.html#28035","details":[]}
+{"k":"sets-stock/28037/107-28037_1.html#28037","details":[]}
+{"k":"sets-stock/28037/107-28037_2.html#28037","details":[]}
+{"k":"sets-stock/28037/107-28037_3.html#28037","details":[{"attributes":[{"name":"width","namespace":"","value":"550"},{"name":"height","namespace":"","value":"330"},{"name":"code","namespace":"","value":"org._3pq.jgrapht.demo.JGraphAdapterDemo.class"},{"name":"archive","namespace":"","value":"jgrapht-0.5.2.jar"},{"name":"alt","namespace":"","value":"plop foobar"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > applet:nth-of-type(1)","tag":"applet","text":"&lt;applet width=\"550\" height=\"330\" code=\"org._3pq.jgrapht.demo.JGraphAdapterDemo.class\" archive=\"jgrapht-0.5.2.jar\" alt=\"plop foobar\"&gt;\n            &lt;param name=\"bgcolor\" value=\"#ffffff\"&gt;\n    ","xpath":"/html/body/applet"},{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/"},{"name":"shape","namespace":"","value":"rect"},{"name":"coords","namespace":"","value":"0,0,20,20"},{"name":"alt","namespace":"","value":"plop foobar"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > map:nth-of-type(1) > area:nth-of-type(1)","tag":"area","text":"&lt;area href=\"http://www.example.com/\" shape=\"rect\" coords=\"0,0,20,20\" alt=\"plop foobar\"&gt;","xpath":"/html/body/map/area"},{"attributes":[{"name":"href","namespace":"","value":"https://www.example.com/"},{"name":"shape","namespace":"","value":"rect"},{"name":"coords","namespace":"","value":"20,20,40,40"},{"name":"alt","namespace":"","value":"plop foobar"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > map:nth-of-type(1) > area:nth-of-type(2)","tag":"area","text":"&lt;area href=\"https://www.example.com/\" shape=\"rect\" coords=\"20,20,40,40\" alt=\"plop foobar\"&gt;","xpath":"/html/body/map/area[2]"},{"attributes":[{"name":"href","namespace":"","value":"./plop"},{"name":"shape","namespace":"","value":"rect"},{"name":"coords","namespace":"","value":"40,40,80,80"},{"name":"alt","namespace":"","value":"plop foobar"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > map:nth-of-type(1) > area:nth-of-type(3)","tag":"area","text":"&lt;area href=\"./plop\" shape=\"rect\" coords=\"40,40,80,80\" alt=\"plop foobar\"&gt;","xpath":"/html/body/map/area[3]"},{"attributes":[{"name":"src","namespace":"","value":"fixe.jpg"},{"name":"usemap","namespace":"","value":"#map1"},{"name":"alt","namespace":"","value":"plop foobar"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > img:nth-of-type(1)","tag":"img","text":"&lt;img src=\"fixe.jpg\" usemap=\"#map1\" alt=\"plop foobar\"&gt;","xpath":"/html/body/p/img"}]}
+{"k":"sets-stock/28037/107-28037_4.html#28037","details":[]}
+{"k":"sets-stock/28039/105-28039_1.html#28039","details":[]}
+{"k":"sets-stock/28039/105-28039_2.html#28039","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > head:nth-of-type(1) > title:nth-of-type(1)","tag":"title","text":"&lt;title&gt;testcase 105 - plop - plop - plop - plop - plop - plop - plop - plop - plop - plo&lt;/title&gt;","xpath":"/html/head/title"}]}
+{"k":"sets-stock/28064/75-28064_1.html#28064","details":[]}
+{"k":"sets-stock/28064/75-28064_2.html#28064","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1)","tag":"p","text":"&lt;p&gt;\n            PLOP\n        &lt;/p&gt;","xpath":"/html/body/p"}]}
+{"k":"sets-stock/28066/73-28066_1.html#28066","details":[]}
+{"k":"sets-stock/28066/73-28066_2.html#28066","details":[]}
+{"k":"sets-stock/28066/73-28066_3.html#28066","details":["interne (ligne 1) : body {font-family: \"arial\";}","interne (ligne 5) : div {font-family: \"times\";}","interne (ligne 9) : p {font-family: arial;}","interne (ligne 13) : div p {font-family: times;}"]}
+{"k":"sets-stock/28068/71-28068_1.html#28068","details":[]}
+{"k":"sets-stock/28068/71-28068_2.html#28068","details":[{"attributes":[{"name":"face","namespace":"","value":"Arial"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > font:nth-of-type(1)","tag":"font","text":"&lt;font face=\"Arial\"&gt;plop&lt;/font&gt;","xpath":"/html/body/p/font"}]}
+{"k":"sets-stock/28076/62-28076_1.html#28076","details":[]}
+{"k":"sets-stock/28076/62-28076_2.html#28076","details":[{"attributes":[{"name":"border","namespace":"","value":"0"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > img:nth-of-type(1)","tag":"img","text":"&lt;img border=\"0\"&gt;","xpath":"/html/body/p/img"}]}
+{"k":"sets-stock/28089/49-28089_1.html#28089","details":[]}
+{"k":"sets-stock/28089/49-28089_2.html#28089","details":[]}
+{"k":"sets-stock/28089/49-28089_3.html#28089","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1)","tag":"p","text":"&lt;p&gt;\n\t\t\t&lt;a href=\"http://www.example.com/\"&gt;plop&lt;/a&gt;\n\t\t&lt;/p&gt;","xpath":"/html/body/p"}]}
+{"k":"sets-stock/28097/41-28097_1.html#28097","details":[]}
+{"k":"sets-stock/28097/41-28097_2.html#28097","details":[{"attributes":[{"name":"type","namespace":"","value":"text/javascript"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > head:nth-of-type(1) > script:nth-of-type(1)","tag":"script","text":"&lt;script type=\"text/javascript\"&gt;\n\t\t\tdocument.write(\"test\");\n\t\t&lt;/script&gt;","xpath":"/html/head/script"}]}
+{"k":"sets-stock/28097/41-28097_3.html#28097","details":[]}
+{"k":"sets-stock/28103/33-28103_1.html#28103","details":[]}
+{"k":"sets-stock/28103/33-28103_2.html#28103","details":[{"attributes":[{"name":"type","namespace":"","value":"text/javascript"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > head:nth-of-type(1) > script:nth-of-type(1)","tag":"script","text":"&lt;script type=\"text/javascript\"&gt;\n\t\t\tdocument.write('test');\n\t\t&lt;/script&gt;","xpath":"/html/head/script"}]}
+{"k":"sets-stock/28103/33-28103_3.html#28103","details":[]}
+{"k":"sets-stock/28103/33-28103_4.html#28103","details":[]}
+{"k":"sets-stock/28105/31-28105_1.html#28105","details":[]}
+{"k":"sets-stock/28105/31-28105_2.html#28105","details":[]}
+{"k":"sets-stock/28105/31-28105_3.html#28105","details":[]}
+{"k":"sets-stock/28105/31-28105_4.html#28105","details":[]}
+{"k":"sets-stock/28105/31-28105_5.html#28105","details":[]}
+{"k":"sets-stock/28111/18-28111_1.html#28111","details":[]}
+{"k":"sets-stock/28111/18-28111_2.html#28111","details":[]}
+{"k":"sets-stock/28111/18-28111_3.html#28111","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > form:nth-of-type(1) > label:nth-of-type(1)","tag":"label","text":"&lt;label&gt;plop\n                &lt;input id=\"foo\"&gt;\n            &lt;/label&gt;","xpath":"/html/body/form/label"}]}
+{"k":"sets-stock/28115/14-28115_1.html#28115","details":[]}
+{"k":"sets-stock/28115/14-28115_2.html#28115","details":[]}
+{"k":"sets-stock/28119/10-28119_1.html#28119","details":[]}
+{"k":"sets-stock/28119/10-28119_2.html#28119","details":[]}
+{"k":"sets-stock/28119/10-28119_3.html#28119","details":[]}
+{"k":"sets-stock/28119/10-28119_4.html#28119","details":[]}
+{"k":"sets-stock/28119/10-28119_5.html#28119","details":[]}
+{"k":"sets-stock/28128/1-28128_1.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_10.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_11.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_12.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_13.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_14.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_15.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_16.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_17.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_2.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_3.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_4.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_5.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_6.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_7.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_8.html#28128","details":[]}
+{"k":"sets-stock/28128/1-28128_9.html#28128","details":[]}
+{"k":"sets-stock/28134/23-28134_1.html#28134","details":[]}
+{"k":"sets-stock/28134/23-28134_2.html#28134","details":[]}
+{"k":"sets-stock/28134/23-28134_3.html#28134","details":[{"attributes":[{"name":"src","namespace":"","value":"fixe.jpg"},{"name":"alt","namespace":"","value":""},{"name":"width","namespace":"","value":"400"},{"name":"height","namespace":"","value":"300"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > img:nth-of-type(1)","tag":"img","text":"&lt;img src=\"fixe.jpg\" alt=\"\" width=\"400\" height=\"300\"&gt;","xpath":"/html/body/p/img"}]}
+{"k":"sets-stock/28140/36-28140_1.html#28140","details":[]}
+{"k":"sets-stock/28140/36-28140_2.html#28140","details":[]}
+{"k":"sets-stock/28144/22-28144_1.html#28144","details":[]}
+{"k":"sets-stock/28144/22-28144_2.html#28144","details":[]}

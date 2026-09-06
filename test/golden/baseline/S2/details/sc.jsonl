@@ -1,0 +1,9 @@
+{"k":"rules/SCRIPT/false/index.html#SCRIPT","details":[]}
+{"k":"rules/SCRIPT/true/1.html#SCRIPT","details":[]}
+{"k":"rules/SCRIPT/true/2.html#SCRIPT","details":[]}
+{"k":"rules/SCRIPT_AT_END/false/index.html#SCRIPT_AT_END","details":[]}
+{"k":"rules/SCRIPT_AT_END/true/1.html#SCRIPT_AT_END","details":[]}
+{"k":"rules/SCRIPT_IN_HEAD/false/index.html#SCRIPT_IN_HEAD","details":[]}
+{"k":"rules/SCRIPT_IN_HEAD/true/1.html#SCRIPT_IN_HEAD","details":[]}
+{"k":"rules/SCRIPT_WO_SRC/false/index.html#SCRIPT_WO_SRC","details":[]}
+{"k":"rules/SCRIPT_WO_SRC/true/1.html#SCRIPT_WO_SRC","details":[]}

@@ -1,0 +1,1933 @@
+{
+  "_why": "Cases where the engine contradicts the fixture author. Reviewed by hand, never generated blind: the expectations predate the port and nothing shows the suite was ever green, so a disagreement may be an engine bug OR a fixture that was always wrong. Categories: browser (Firefox → Chromium), events (nsIEventListenerService is not reproducible), network (needs a real domain or DNS), fixture (the expectation is wrong), engine (a real defect), unclassified (not yet looked at). The count is a floor: it may shrink, never silently grow. An entry may carry `badReference`: the fixture points at a file whose spelling does not match the one on disk, so it 404s under the case-exact server. Where that coexists with another cause, both are recorded — picking one would misinform.",
+  "cases": {
+    "rules/CSS_CONTENT/false/index.html#CSS_CONTENT": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "rules/CSS_CONTENT/true/1.html#CSS_CONTENT": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "rules/HTTP_404/false/index.html#HTTP_404": {
+      "category": "network",
+      "blame": [
+        "HTTP_404"
+      ],
+      "note": "needs a real 404 probe against the origin, which the hermetic corpus cannot serve."
+    },
+    "rules/HTTP_404/true/1.html#HTTP_404": {
+      "category": "network",
+      "blame": [
+        "HTTP_404"
+      ],
+      "note": "needs a real 404 probe against the origin, which the hermetic corpus cannot serve."
+    },
+    "rules/JS_EVENT_ONBLUR_SUBMIT/true/2.html#JS_EVENT_ONBLUR_SUBMIT": {
+      "category": "unclassified",
+      "blame": [
+        "JS_EVENT_ONBLUR_SUBMIT"
+      ],
+      "note": ""
+    },
+    "rules/JS_EVENT_ONCHANGE_LOCATION/true/2.html#JS_EVENT_ONCHANGE_LOCATION": {
+      "category": "unclassified",
+      "blame": [
+        "JS_EVENT_ONCHANGE_LOCATION"
+      ],
+      "note": ""
+    },
+    "rules/JS_EVENT_ONCHANGE_SUBMIT/true/2.html#JS_EVENT_ONCHANGE_SUBMIT": {
+      "category": "unclassified",
+      "blame": [
+        "JS_EVENT_ONCHANGE_SUBMIT"
+      ],
+      "note": ""
+    },
+    "rules/JS_EVENT_ONFOCUS_BLUR/true/2.html#JS_EVENT_ONFOCUS_BLUR": {
+      "category": "unclassified",
+      "blame": [
+        "JS_EVENT_ONFOCUS_BLUR"
+      ],
+      "note": ""
+    },
+    "rules/JS_EVENT_ONFOCUS_SUBMIT/true/2.html#JS_EVENT_ONFOCUS_SUBMIT": {
+      "category": "unclassified",
+      "blame": [
+        "JS_EVENT_ONFOCUS_SUBMIT"
+      ],
+      "note": ""
+    },
+    "rules/JS_EVENT_ONMOUSEOUT_SUBMIT/true/2.html#JS_EVENT_ONMOUSEOUT_SUBMIT": {
+      "category": "unclassified",
+      "blame": [
+        "JS_EVENT_ONMOUSEOUT_SUBMIT"
+      ],
+      "note": ""
+    },
+    "rules/JS_EVENT_ONMOUSEOVER_SUBMIT/true/2.html#JS_EVENT_ONMOUSEOVER_SUBMIT": {
+      "category": "unclassified",
+      "blame": [
+        "JS_EVENT_ONMOUSEOVER_SUBMIT"
+      ],
+      "note": ""
+    },
+    "rules/JS_POPUP/true/2.html#JS_POPUP": {
+      "category": "unclassified",
+      "blame": [
+        "JS_POPUP"
+      ],
+      "note": ""
+    },
+    "rules/JS_RESIZE/true/2.html#JS_RESIZE": {
+      "category": "unclassified",
+      "blame": [
+        "JS_RESIZE"
+      ],
+      "note": ""
+    },
+    "rules/OD_PRESENCE/false/index.html#OD_PRESENCE": {
+      "category": "unclassified",
+      "blame": [
+        "OD_PRESENCE"
+      ],
+      "note": ""
+    },
+    "rules/OD_PRESENCE/true/1.html#OD_PRESENCE": {
+      "category": "unclassified",
+      "blame": [
+        "OD_PRESENCE"
+      ],
+      "note": ""
+    },
+    "rules/RESOURCE_DOWNLOADABLE/true/1.html#RESOURCE_DOWNLOADABLE": {
+      "category": "unclassified",
+      "blame": [
+        "RESOURCE_DOWNLOADABLE"
+      ],
+      "note": ""
+    },
+    "rules/RESOURCE_PDF/true/1.html#RESOURCE_PDF": {
+      "category": "unclassified",
+      "blame": [
+        "RESOURCE_PDF"
+      ],
+      "note": ""
+    },
+    "rules/ROBOTS_W_VALID_SITEMAP/true/1.html#ROBOTS_W_VALID_SITEMAP": {
+      "category": "unclassified",
+      "blame": [
+        "ROBOTS_W_VALID_SITEMAP"
+      ],
+      "note": ""
+    },
+    "rules/RSS_ABSOLUTE_LINKS/true/1.html#RSS_ABSOLUTE_LINKS": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_ABSOLUTE_LINKS"
+      ],
+      "note": ""
+    },
+    "rules/RSS_ABSOLUTE_LINKS/true/2.html#RSS_ABSOLUTE_LINKS": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_ABSOLUTE_LINKS"
+      ],
+      "note": ""
+    },
+    "rules/RSS_CACHE/true/1.html#RSS_CACHE": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_CACHE"
+      ],
+      "note": ""
+    },
+    "rules/RSS_CACHE/true/2.html#RSS_CACHE": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_CACHE"
+      ],
+      "note": ""
+    },
+    "rules/RSS_CACHE/true/3.html#RSS_CACHE": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_CACHE"
+      ],
+      "note": ""
+    },
+    "rules/RSS_SUMMARY/true/1.html#RSS_SUMMARY": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_SUMMARY"
+      ],
+      "note": ""
+    },
+    "rules/RSS_SUMMARY/true/2.html#RSS_SUMMARY": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_SUMMARY"
+      ],
+      "note": ""
+    },
+    "rules/STATIC_ON_MORE_THAN_3_SUBDOMAINS/true/1.html#STATIC_ON_MORE_THAN_3_SUBDOMAINS": {
+      "category": "unclassified",
+      "blame": [
+        "STATIC_ON_MORE_THAN_3_SUBDOMAINS"
+      ],
+      "note": ""
+    },
+    "rules/FAVICON/true/1.html#FAVICON": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "rules/FAVICON/true/2.html#FAVICON": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "rules/IMG_WO_VALID_LONGDESC/false/index.html#IMG_WO_VALID_LONGDESC": {
+      "category": "unclassified",
+      "blame": [
+        "IMG_WO_VALID_LONGDESC"
+      ],
+      "note": ""
+    },
+    "rules/IMPLICIT_SITEMAP/false/index.html#IMPLICIT_SITEMAP": {
+      "category": "unclassified",
+      "blame": [
+        "IMPLICIT_SITEMAP"
+      ],
+      "note": ""
+    },
+    "rules/IMPLICIT_SITEMAP/true/1.html#IMPLICIT_SITEMAP": {
+      "category": "unclassified",
+      "blame": [
+        "IMPLICIT_SITEMAP"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN/true/1.html#KEYGEN": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_WO_TITLE_ATTR/true/1.html#KEYGEN_WO_TITLE_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_WO_TITLE_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_WO_TITLE_ATTR_WO_LABEL/true/1.html#KEYGEN_WO_TITLE_ATTR_WO_LABEL": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_WO_TITLE_ATTR_WO_LABEL"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_WO_TITLE_ATTR_WO_LABEL_WO_ARIA-LABEL_ATTR_WO_ARIA-LABELLEDBY_ATTR/true/1.html#KEYGEN_WO_TITLE_ATTR_WO_LABEL_WO_ARIA-LABEL_ATTR_WO_ARIA-LABELLEDBY_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_WO_TITLE_ATTR_WO_LABEL_WO_ARIA-LABEL_ATTR_WO_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_ARIA-DESCRIBEDBY_ATTR/true/1.html#KEYGEN_W_ARIA-DESCRIBEDBY_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_ARIA-DESCRIBEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR/true/1.html#KEYGEN_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR/true/2.html#KEYGEN_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_ARIA-LABELLEDBY_ATTR/true/1.html#KEYGEN_W_ARIA-LABELLEDBY_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_ARIA-LABEL_ATTR/true/1.html#KEYGEN_W_ARIA-LABEL_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_ARIA-LABEL_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR/true/1.html#KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR/true/2.html#KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR/true/1.html#KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR/true/2.html#KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR/true/3.html#KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_EXPLICIT_LABEL_W_ARIA-LABEL_ATTR_W_ARIA-LABELLEDBY_ATTR/true/1.html#KEYGEN_W_EXPLICIT_LABEL_W_ARIA-LABEL_ATTR_W_ARIA-LABELLEDBY_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_EXPLICIT_LABEL_W_ARIA-LABEL_ATTR_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_EXPLICIT_LABEL_W_ARIA-LABEL_ATTR_W_ARIA-LABELLEDBY_ATTR/true/2.html#KEYGEN_W_EXPLICIT_LABEL_W_ARIA-LABEL_ATTR_W_ARIA-LABELLEDBY_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_EXPLICIT_LABEL_W_ARIA-LABEL_ATTR_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_EXPLICIT_LABEL_W_ARIA-LABEL_ATTR_W_ARIA-LABELLEDBY_ATTR/true/3.html#KEYGEN_W_EXPLICIT_LABEL_W_ARIA-LABEL_ATTR_W_ARIA-LABELLEDBY_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_EXPLICIT_LABEL_W_ARIA-LABEL_ATTR_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_IMPLICIT_LABEL/true/1.html#KEYGEN_W_IMPLICIT_LABEL": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_IMPLICIT_LABEL"
+      ],
+      "note": ""
+    },
+    "rules/KEYGEN_W_TITLE_ATTR/true/1.html#KEYGEN_W_TITLE_ATTR": {
+      "category": "unclassified",
+      "blame": [
+        "KEYGEN_W_TITLE_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/10064/ima-07-10064_4.html#10064": {
+      "category": "unclassified",
+      "blame": [
+        "IMG"
+      ],
+      "note": ""
+    },
+    "sets/10119/pre-01-10119_1.html#10119": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/10119/pre-01-10119_2.html#10119": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/10119/pre-01-10119_3.html#10119": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue(). — SECOND CAUSE: this fixture also references a file whose spelling does not match the one on disk, so its stylesheet 404s. Both causes apply; neither alone explains the case.",
+      "badReference": [
+        "PRE-01-10119_3.css"
+      ]
+    },
+    "sets/10119/pre-01-10119_4.html#10119": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/10119/pre-01-10119_5.html#10119": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue(). — SECOND CAUSE: this fixture also references a file whose spelling does not match the one on disk, so its stylesheet 404s. Both causes apply; neither alone explains the case.",
+      "badReference": [
+        "PRE-01-10119_5.css"
+      ]
+    },
+    "sets/10119/pre-01-10119_6.html#10119": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/10119/pre-01-10119_8.html#10119": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue(). — SECOND CAUSE: this fixture also references a file whose spelling does not match the one on disk, so its stylesheet 404s. Both causes apply; neither alone explains the case.",
+      "badReference": [
+        "PRE-01-10119_8.css"
+      ]
+    },
+    "sets/10119/pre-01-10119_9.html#10119": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/10239/pre-14-10239_2.html#10239": {
+      "category": "fixture",
+      "blame": [
+        "CSS_FONT_SIZE_W_ABSOLUTE_VALUE_IN_FORM"
+      ],
+      "note": "the fixture references a stylesheet whose spelling does not match the file on disk (e.g. PRE-14-…css against pre-14-…css). It only ever \"worked\" on a case-insensitive checkout; the legacy harness served fixtures from a zip, where it would have 404ed too. The expectation describes what the page would do WITH its stylesheet, so the fixture is broken, not the engine. Fixing the reference would restore a test that has never run as intended — a deliberate change to historical test data, not made here.",
+      "badReference": [
+        "PRE-14-10239_2.css"
+      ]
+    },
+    "sets/10242/nav-09-10242_4.html#10242": {
+      "category": "unclassified",
+      "blame": [
+        "APPLET",
+        "EMBED",
+        "OBJECT"
+      ],
+      "note": ""
+    },
+    "sets/10242/nav-09-10242_5.html#10242": {
+      "category": "unclassified",
+      "blame": [
+        "APPLET",
+        "EMBED",
+        "OBJECT"
+      ],
+      "note": ""
+    },
+    "sets/16184/38-16184_1.html#16184": {
+      "category": "unclassified",
+      "blame": [
+        "MORE_EXT_THEN_INT_LINKS"
+      ],
+      "note": ""
+    },
+    "sets/16229/23-16229_2.html#16229": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/16240/71-16240_1.html#16240": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/16240/71-16240_2.html#16240": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/16240/71-16240_3.html#16240": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/16240/71-16240_4.html#16240": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/16240/71-16240_5.html#16240": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/16240/71-16240_6.html#16240": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/16259/69-16259_1.html#16259": {
+      "category": "unclassified",
+      "blame": [
+        "ROBOTS_W_VALID_SITEMAP"
+      ],
+      "note": ""
+    },
+    "sets/16267/76-16267_1.html#16267": {
+      "category": "network",
+      "blame": [
+        "HTTP_404"
+      ],
+      "note": "needs a real 404 probe against the origin, which the hermetic corpus cannot serve."
+    },
+    "sets/19057/32-19057_1.html#19057": {
+      "category": "unclassified",
+      "blame": [
+        "STATIC_ON_MORE_THAN_3_SUBDOMAINS"
+      ],
+      "note": ""
+    },
+    "sets/19061/40-19061_1.html#19061": {
+      "category": "unclassified",
+      "blame": [
+        "HTTP_CDN_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/19061/40-19061_2.html#19061": {
+      "category": "unclassified",
+      "blame": [
+        "HTTP_CDN_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/19266/45-19266_2.html#19266": {
+      "category": "unclassified",
+      "blame": [
+        "IMG_W_LONGDESC_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/19266/45-19266_3.html#19266": {
+      "category": "unclassified",
+      "blame": [
+        "IMG_W_LONGDESC_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/19368/9-19368_2.html#19368": {
+      "category": "unclassified",
+      "blame": [
+        "IMG_W_LONGDESC_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/19368/9-19368_3.html#19368": {
+      "category": "unclassified",
+      "blame": [
+        "IMG_W_LONGDESC_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/19380/21-19380_1.html#19380": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/19380/21-19380_3.html#19380": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/19380/21-19380_5.html#19380": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/19390/31-19390_2.html#19390": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/19390/31-19390_3.html#19390": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/19390/31-19390_4.html#19390": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/19390/31-19390_5.html#19390": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/19394/35-19394_3.html#19394": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/19394/35-19394_5.html#19394": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/19394/35-19394_7.html#19394": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/19467/108-19467_1.html#19467": {
+      "category": "network",
+      "blame": [
+        "HTTP_404"
+      ],
+      "note": "needs a real 404 probe against the origin, which the hermetic corpus cannot serve."
+    },
+    "sets/21630/10-2-21630_7.html#21630": {
+      "category": "unclassified",
+      "blame": [
+        "LINK_STYLESHEET"
+      ],
+      "note": ""
+    },
+    "sets/21630/10-2-21630_8.html#21630": {
+      "category": "unclassified",
+      "blame": [
+        "LINK_STYLESHEET"
+      ],
+      "note": ""
+    },
+    "sets/21630/10-2-21630_9.html#21630": {
+      "category": "unclassified",
+      "blame": [
+        "LINK_STYLESHEET"
+      ],
+      "note": ""
+    },
+    "sets/29441/ch-36-29441_3.html#29441": {
+      "category": "fixture",
+      "blame": [
+        "CSS_UNDERLINE"
+      ],
+      "note": "the fixture references a stylesheet whose spelling does not match the file on disk (e.g. PRE-14-…css against pre-14-…css). It only ever \"worked\" on a case-insensitive checkout; the legacy harness served fixtures from a zip, where it would have 404ed too. The expectation describes what the page would do WITH its stylesheet, so the fixture is broken, not the engine. Fixing the reference would restore a test that has never run as intended — a deliberate change to historical test data, not made here.",
+      "badReference": [
+        "CH-36-29441_3.css"
+      ]
+    },
+    "sets/29525/81-29525_3.html#29525": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/29525/81-29525_5.html#29525": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/29525/81-29525_7.html#29525": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/29609/79-29609_1.html#29609": {
+      "category": "network",
+      "blame": [
+        "HTTP_404"
+      ],
+      "note": "needs a real 404 probe against the origin, which the hermetic corpus cannot serve."
+    },
+    "sets/29632/82-29632_1.html#29632": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/29632/82-29632_3.html#29632": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/29632/82-29632_5.html#29632": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/29636/128-29636_2.html#29636": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/29636/128-29636_3.html#29636": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/29636/128-29636_4.html#29636": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/29636/128-29636_5.html#29636": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/29714/63-29714_3.html#29714": {
+      "category": "unclassified",
+      "blame": [
+        "JS_RESIZE"
+      ],
+      "note": ""
+    },
+    "sets/29775/pre-14-29775_2.html#29775": {
+      "category": "fixture",
+      "blame": [
+        "CSS_FONT_SIZE_W_ABSOLUTE_VALUE_IN_FORM"
+      ],
+      "note": "the fixture references a stylesheet whose spelling does not match the file on disk (e.g. PRE-14-…css against pre-14-…css). It only ever \"worked\" on a case-insensitive checkout; the legacy harness served fixtures from a zip, where it would have 404ed too. The expectation describes what the page would do WITH its stylesheet, so the fixture is broken, not the engine. Fixing the reference would restore a test that has never run as intended — a deliberate change to historical test data, not made here.",
+      "badReference": [
+        "PRE-14-29775_2.css"
+      ]
+    },
+    "sets/29785/PRE-01-29785_1.html#29785": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/29785/PRE-01-29785_2.html#29785": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/29785/PRE-01-29785_3.html#29785": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/29785/PRE-01-29785_4.html#29785": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/29785/PRE-01-29785_5.html#29785": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/29785/PRE-01-29785_6.html#29785": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/29824/ima-07-29824_4.html#29824": {
+      "category": "unclassified",
+      "blame": [
+        "IMG"
+      ],
+      "note": ""
+    },
+    "sets/29883/nav-09-29883_4.html#29883": {
+      "category": "unclassified",
+      "blame": [
+        "APPLET",
+        "EMBED",
+        "OBJECT"
+      ],
+      "note": ""
+    },
+    "sets/29883/nav-09-29883_5.html#29883": {
+      "category": "unclassified",
+      "blame": [
+        "APPLET",
+        "EMBED",
+        "OBJECT"
+      ],
+      "note": ""
+    },
+    "sets/31315/128-31315_2.html#31315": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/31315/128-31315_3.html#31315": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/31315/128-31315_4.html#31315": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/31315/128-31315_5.html#31315": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/31357/60-31357_3.html#31357": {
+      "category": "unclassified",
+      "blame": [
+        "JS_POPUP"
+      ],
+      "note": ""
+    },
+    "sets/38221/128-38221_2.html#38221": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/38221/128-38221_3.html#38221": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/38221/128-38221_4.html#38221": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/38221/128-38221_5.html#38221": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/38231/60-38231_3.html#38231": {
+      "category": "unclassified",
+      "blame": [
+        "JS_POPUP"
+      ],
+      "note": ""
+    },
+    "sets/38247/4-38247_2.html#38247": {
+      "category": "unclassified",
+      "blame": [
+        "APPLET",
+        "EMBED",
+        "HTTP_REFRESH",
+        "JS_REFRESH",
+        "META_REFRESH_SHORT",
+        "OBJECT"
+      ],
+      "note": ""
+    },
+    "sets/38248/5-38248_1.html#38248": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/38248/5-38248_2.html#38248": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/38248/5-38248_3.html#38248": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/38248/5-38248_4.html#38248": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/38248/5-38248_5.html#38248": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/38248/5-38248_6.html#38248": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/38698/11-1-3-38698_2.html#38698": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-LABELLEDBY_ATTR",
+        "METER_W_ARIA-LABELLEDBY_ATTR",
+        "OPTGROUP_W_ARIA-LABELLEDBY_ATTR",
+        "OPTION_W_ARIA-LABELLEDBY_ATTR",
+        "OUTPUT_W_ARIA-LABELLEDBY_ATTR",
+        "PROGRESS_W_ARIA-LABELLEDBY_ATTR",
+        "SELECT_W_ARIA-LABELLEDBY_ATTR",
+        "TEXTAREA_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38700/11-2-2-38700_2.html#38700": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_TITLE_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_TITLE_ATTR",
+        "INPUT_W_TYPE_COLOR_W_TITLE_ATTR",
+        "INPUT_W_TYPE_DATE_W_TITLE_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_TITLE_ATTR",
+        "INPUT_W_TYPE_FILE_W_TITLE_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_TITLE_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_TITLE_ATTR",
+        "INPUT_W_TYPE_RADIO_W_TITLE_ATTR",
+        "INPUT_W_TYPE_RANGE_W_TITLE_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_TITLE_ATTR",
+        "INPUT_W_TYPE_TEL_W_TITLE_ATTR",
+        "INPUT_W_TYPE_TEXT_W_TITLE_ATTR",
+        "INPUT_W_TYPE_TIME_W_TITLE_ATTR",
+        "INPUT_W_TYPE_URL_W_TITLE_ATTR",
+        "METER_W_TITLE_ATTR",
+        "OPTGROUP_W_TITLE_ATTR",
+        "OPTION_W_TITLE_ATTR",
+        "OUTPUT_W_TITLE_ATTR",
+        "PROGRESS_W_TITLE_ATTR",
+        "SELECT_W_TITLE_ATTR",
+        "TEXTAREA_W_TITLE_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38701/11-2-3-38701_2.html#38701": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-LABEL_ATTR",
+        "METER_W_ARIA-LABEL_ATTR",
+        "OPTGROUP_W_ARIA-LABEL_ATTR",
+        "OPTION_W_ARIA-LABEL_ATTR",
+        "OUTPUT_W_ARIA-LABEL_ATTR",
+        "PROGRESS_W_ARIA-LABEL_ATTR",
+        "SELECT_W_ARIA-LABEL_ATTR",
+        "TEXTAREA_W_ARIA-LABEL_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38702/11-2-4-38702_2.html#38702": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-LABELLEDBY_ATTR",
+        "METER_W_ARIA-LABELLEDBY_ATTR",
+        "OPTGROUP_W_ARIA-LABELLEDBY_ATTR",
+        "OPTION_W_ARIA-LABELLEDBY_ATTR",
+        "OUTPUT_W_ARIA-LABELLEDBY_ATTR",
+        "PROGRESS_W_ARIA-LABELLEDBY_ATTR",
+        "SELECT_W_ARIA-LABELLEDBY_ATTR",
+        "TEXTAREA_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38715/11-10-2-38715_2.html#38715": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "METER_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "OPTGROUP_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "OPTION_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "OUTPUT_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "PROGRESS_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "SELECT_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "TEXTAREA_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38715/11-10-2-38715_3.html#38715": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "METER_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "OPTGROUP_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "OPTION_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "OUTPUT_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "PROGRESS_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "SELECT_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "TEXTAREA_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38715/11-10-2-38715_4.html#38715": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "METER_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "OPTGROUP_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "OPTION_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "OUTPUT_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "PROGRESS_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "SELECT_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR",
+        "TEXTAREA_W_ARIA-LABEL_ATTR_W_ARIA-REQUIRED_ATTR_W_REQUIRED_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38716/11-10-3-38716_2.html#38716": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "METER_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OPTGROUP_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OPTION_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OUTPUT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "PROGRESS_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "SELECT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "TEXTAREA_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38716/11-10-3-38716_3.html#38716": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "METER_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OPTGROUP_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OPTION_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OUTPUT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "PROGRESS_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "SELECT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "TEXTAREA_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38718/11-10-5-38718_2.html#38718": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "METER_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "OPTGROUP_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "OPTION_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "OUTPUT_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "PROGRESS_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "SELECT_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "TEXTAREA_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38718/11-10-5-38718_3.html#38718": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "METER_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "OPTGROUP_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "OPTION_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "OUTPUT_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "PROGRESS_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "SELECT_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR",
+        "TEXTAREA_W_ARIA-LABEL_ATTR_W_ARIA-INVALID_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38719/11-10-6-38719_2.html#38719": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "METER_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OPTGROUP_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OPTION_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OUTPUT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "PROGRESS_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "SELECT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "TEXTAREA_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38719/11-10-6-38719_3.html#38719": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "METER_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OPTGROUP_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OPTION_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OUTPUT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "PROGRESS_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "SELECT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "TEXTAREA_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38721/11-10-8-38721_2.html#38721": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-LABEL_ATTR",
+        "METER_W_ARIA-LABEL_ATTR",
+        "OPTGROUP_W_ARIA-LABEL_ATTR",
+        "OPTION_W_ARIA-LABEL_ATTR",
+        "OUTPUT_W_ARIA-LABEL_ATTR",
+        "PROGRESS_W_ARIA-LABEL_ATTR",
+        "SELECT_W_ARIA-LABEL_ATTR",
+        "TEXTAREA_W_ARIA-LABEL_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38722/11-10-9-38722_2.html#38722": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "METER_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OPTGROUP_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OPTION_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OUTPUT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "PROGRESS_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "SELECT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "TEXTAREA_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38722/11-10-9-38722_3.html#38722": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "METER_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OPTGROUP_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OPTION_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "OUTPUT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "PROGRESS_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "SELECT_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR",
+        "TEXTAREA_W_ARIA-DESCRIBEDBY_ATTR_W_ARIA-LABELLEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38730/11-14-2-38730_2.html#38730": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-LABEL_ATTR",
+        "METER_W_ARIA-LABEL_ATTR",
+        "OPTGROUP_W_ARIA-LABEL_ATTR",
+        "OPTION_W_ARIA-LABEL_ATTR",
+        "OUTPUT_W_ARIA-LABEL_ATTR",
+        "PROGRESS_W_ARIA-LABEL_ATTR",
+        "SELECT_W_ARIA-LABEL_ATTR",
+        "TEXTAREA_W_ARIA-LABEL_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38731/11-14-3-38731_2.html#38731": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-DESCRIBEDBY_ATTR",
+        "METER_W_ARIA-DESCRIBEDBY_ATTR",
+        "OPTGROUP_W_ARIA-DESCRIBEDBY_ATTR",
+        "OPTION_W_ARIA-DESCRIBEDBY_ATTR",
+        "OUTPUT_W_ARIA-DESCRIBEDBY_ATTR",
+        "PROGRESS_W_ARIA-DESCRIBEDBY_ATTR",
+        "SELECT_W_ARIA-DESCRIBEDBY_ATTR",
+        "TEXTAREA_W_ARIA-DESCRIBEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38733/11-14-5-38733_2.html#38733": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-LABEL_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-LABEL_ATTR",
+        "METER_W_ARIA-LABEL_ATTR",
+        "OPTGROUP_W_ARIA-LABEL_ATTR",
+        "OPTION_W_ARIA-LABEL_ATTR",
+        "OUTPUT_W_ARIA-LABEL_ATTR",
+        "PROGRESS_W_ARIA-LABEL_ATTR",
+        "SELECT_W_ARIA-LABEL_ATTR",
+        "TEXTAREA_W_ARIA-LABEL_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38734/11-14-6-38734_2.html#38734": {
+      "category": "unclassified",
+      "blame": [
+        "DATALIST_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_CHECKBOX_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_COLOR_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_DATE_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_EMAIL_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_FILE_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_NUMBER_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_PASSWORD_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_RADIO_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_RANGE_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_SEARCH_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_TEL_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_TEXT_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_TIME_W_ARIA-DESCRIBEDBY_ATTR",
+        "INPUT_W_TYPE_URL_W_ARIA-DESCRIBEDBY_ATTR",
+        "METER_W_ARIA-DESCRIBEDBY_ATTR",
+        "OPTGROUP_W_ARIA-DESCRIBEDBY_ATTR",
+        "OPTION_W_ARIA-DESCRIBEDBY_ATTR",
+        "OUTPUT_W_ARIA-DESCRIBEDBY_ATTR",
+        "PROGRESS_W_ARIA-DESCRIBEDBY_ATTR",
+        "SELECT_W_ARIA-DESCRIBEDBY_ATTR",
+        "TEXTAREA_W_ARIA-DESCRIBEDBY_ATTR"
+      ],
+      "note": ""
+    },
+    "sets/38756/12-10-4-38756_7.html#38756": {
+      "category": "unclassified",
+      "blame": [
+        "STRUCTURE_NOT_HEADER_NAV_MAIN_FOOTER"
+      ],
+      "note": ""
+    },
+    "sets/38773/13-3-1-38773_3.html#38773": {
+      "category": "unclassified",
+      "blame": [
+        "JS_POPUP"
+      ],
+      "note": ""
+    },
+    "sets/39820/IMA-07-39820_2.html#39820": {
+      "category": "unclassified",
+      "blame": [
+        "IMG"
+      ],
+      "note": ""
+    },
+    "sets/39929/PRE-01-39929_1.html#39929": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/39929/PRE-01-39929_2.html#39929": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/39929/PRE-01-39929_3.html#39929": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/39929/PRE-01-39929_4.html#39929": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/39929/PRE-01-39929_5.html#39929": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/39929/PRE-01-39929_6.html#39929": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/40043/79-40043_1.html#40043": {
+      "category": "network",
+      "blame": [
+        "HTTP_404"
+      ],
+      "note": "needs a real 404 probe against the origin, which the hermetic corpus cannot serve."
+    },
+    "sets/40045/81-40045_3.html#40045": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/40045/81-40045_5.html#40045": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/40045/81-40045_7.html#40045": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/40046/82-40046_1.html#40046": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/40046/82-40046_3.html#40046": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/40046/82-40046_5.html#40046": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/40075/128-40075_2.html#40075": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/40075/128-40075_3.html#40075": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/40075/128-40075_4.html#40075": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/40075/128-40075_5.html#40075": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/40144/63-40144_3.html#40144": {
+      "category": "unclassified",
+      "blame": [
+        "JS_RESIZE"
+      ],
+      "note": ""
+    },
+    "sets/41330/50024-41330_2.html#41330": {
+      "category": "unclassified",
+      "blame": [
+        "IMG"
+      ],
+      "note": ""
+    },
+    "sets/41439/INT-004-41439_1.html#41439": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/41439/INT-004-41439_2.html#41439": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/41439/INT-004-41439_3.html#41439": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/41439/INT-004-41439_4.html#41439": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/41439/INT-004-41439_5.html#41439": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/41439/INT-004-41439_6.html#41439": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/41553/MUL-001-41553_1.html#41553": {
+      "category": "network",
+      "blame": [
+        "HTTP_404"
+      ],
+      "note": "needs a real 404 probe against the origin, which the hermetic corpus cannot serve."
+    },
+    "sets/41555/NAV-025-41555_3.html#41555": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/41555/NAV-025-41555_5.html#41555": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/41555/NAV-025-41555_7.html#41555": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/41556/IMG-001-41556_1.html#41556": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/41556/IMG-001-41556_3.html#41556": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/41556/IMG-001-41556_5.html#41556": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/41585/140-41585_2.html#41585": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/41585/140-41585_3.html#41585": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/41585/140-41585_4.html#41585": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/41585/140-41585_5.html#41585": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/504/5-504_1.html#504": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/504/5-504_2.html#504": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/504/5-504_3.html#504": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/504/5-504_4.html#504": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/504/5-504_5.html#504": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/504/5-504_6.html#504": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/559/60-559_3.html#559": {
+      "category": "unclassified",
+      "blame": [
+        "JS_POPUP"
+      ],
+      "note": ""
+    },
+    "sets/562/63-562_3.html#562": {
+      "category": "unclassified",
+      "blame": [
+        "JS_RESIZE"
+      ],
+      "note": ""
+    },
+    "sets/578/79-578_1.html#578": {
+      "category": "network",
+      "blame": [
+        "HTTP_404"
+      ],
+      "note": "needs a real 404 probe against the origin, which the hermetic corpus cannot serve."
+    },
+    "sets/580/81-580_3.html#580": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/580/81-580_5.html#580": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/580/81-580_7.html#580": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/581/82-581_1.html#581": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/581/82-581_3.html#581": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/581/82-581_5.html#581": {
+      "category": "unclassified",
+      "blame": [
+        "RSS_PRESENCE"
+      ],
+      "note": ""
+    },
+    "sets/627/128-627_2.html#627": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/627/128-627_3.html#627": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/627/128-627_4.html#627": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    },
+    "sets/627/128-627_5.html#627": {
+      "category": "network",
+      "blame": [
+        "FAVICON"
+      ],
+      "note": "needs a real fetch of /favicon.ico, which the hermetic corpus deliberately cannot serve."
+    }
+  }
+}

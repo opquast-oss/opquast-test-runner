@@ -1,0 +1,171 @@
+# CI du moteur Opquast (@opquast/test-runner).
+#
+# Premier pipeline de ce dépôt. Volontairement minimal : il établit un socle vert avant que le
+# filet golden-master (M3) ne vienne s'y greffer — voir docs/engine-modernization-plan.md §5 dans
+# le dépôt opquast-devtools.
+#
+# Les jobs golden viendront dans un stage `golden`, sur l'image officielle Playwright (le tag de
+# l'image épingle la version de Chromium, ce qui conditionne la reproductibilité des baselines).
+
+stages:
+  - check
+  - build
+  - golden
+  - publish
+
+default:
+  image: node:22-bookworm-slim
+  interruptible: true
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  before_script:
+    - npm ci --cache .npm --prefer-offline --no-audit --no-fund
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH
+
+lint:
+  stage: check
+  script:
+    # Types de l'API publique (src/). tsconfig exclut data/ et test/.
+    - npx tsc --noEmit
+    # Les libs du moteur sont chargées telles quelles comme scripts de page : une erreur de
+    # syntaxe ne se verrait qu'à l'exécution, dans le navigateur. C'est ce garde-fou qui a
+    # rattrapé les expression closures SpiderMonkey corrigées en M1.
+    - node --check data/lib/cssParser.js
+    - node --check data/lib/jquery-1.9.1.min.js
+    - node --check data/lib/oqs-tests.js
+    - node --check data/lib/oqs-utils.js
+    - node --check data/lib/oqs-validator.js
+
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+
+corpus:
+  stage: check
+  script:
+    # The golden corpus is derived from test/fixtures/, never hand-maintained. Only its digest is
+    # committed (the full manifest is 4 MB, in a 5 MiB repository). This job fails if the fixture
+    # tree drifts from the committed digest, so a fixture added, emptied or removed is a reviewed
+    # change rather than a silent one.
+    - node test/golden/lib/sources.mjs --verify
+
+unit:
+  stage: check
+  script:
+    # test/golden/lib/ is pure Node — no browser, no engine. It is the half of the harness that
+    # can be proven here rather than on the Playwright image, so it runs on every pipeline.
+    - npm test
+
+# ---------------------------------------------------------------------------
+# The golden-master net. See test/golden/README.md.
+#
+# The image tag pins Chromium, and Chromium is part of the measurement: a browser bump can move a
+# verdict legitimately. Pinning it here is what makes a red run mean "the engine changed" rather
+# than "something changed". The image also carries the shared libraries whose absence kills
+# headless_shell mid-page with a message that names nothing.
+# ---------------------------------------------------------------------------
+
+.golden:
+  stage: golden
+  image: mcr.microsoft.com/playwright:v1.62.1-noble
+  interruptible: true
+  artifacts:
+    when: on_failure
+    paths:
+      - test/golden/.golden-out/
+    expire_in: 1 week
+
+golden:pilot:
+  extends: .golden
+  # 297 cases over the 118 rules that are not plain DOM matching — the ones reading stylesheets,
+  # scripts, HTTP resources, feeds and the doctype. Cheap enough to run on every pipeline, and the
+  # tier most likely to catch a change: the 822 DOM-only rules are the most stable by construction.
+  script:
+    - node test/golden/lib/sources.mjs --verify
+    - node test/golden/check.mjs --tier S1
+
+golden:rules:
+  extends: .golden
+  # 2 386 cases, 949 of 949 rules.
+  script:
+    - node test/golden/check.mjs --tier S2
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+
+golden:criteria:
+  extends: .golden
+  # 3 756 cases, 1 189 real criteria: chaining, `na`, multi-entry results_list.
+  script:
+    - node test/golden/check.mjs --tier S3
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+
+golden:modern:
+  extends: .golden
+  # The same pilot through createEngine(), against the same baseline. This is the tripwire for the
+  # moment M3 moves the libs into a module scope: today both adapters run the same code, so any
+  # difference is a defect in the packaging, not in the engine.
+  needs: [build]
+  script:
+    - node test/golden/check.mjs --tier S1 --adapter modern
+
+golden:record:
+  extends: .golden
+  # Regenerating a baseline is a deliberate act, so it is manual and its output is an artifact to
+  # review — never something a pipeline does on its own.
+  when: manual
+  script:
+    - node test/golden/record.mjs --tier S1 --out baseline/S1
+    - node test/golden/record.mjs --tier S2 --out baseline/S2
+    - node test/golden/record.mjs --tier S3 --out baseline/S3
+  artifacts:
+    when: always
+    paths:
+      - test/golden/baseline/
+    expire_in: 1 month
+
+conformance:
+  stage: check
+  # The second signal, and the only one that is about correctness. It reads the committed baselines
+  # — no browser needed — and fails only on a disagreement that is NOT in the register. The count
+  # can shrink; it cannot silently grow.
+  script:
+    - node test/golden/conformance.mjs
+
+golden:periphery:
+  extends: .golden
+  # 2 321 cases: retired checklists, debug leftovers, and the fixtures whose verdict needs a real
+  # domain or DNS. Recorded and watched, never blocking — a canary, at no marginal cost.
+  allow_failure: true
+  script:
+    - node test/golden/check.mjs --tier S4
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+
+publish:
+  stage: publish
+  # Tags only. The registry path matches package.json's publishConfig, so the auth line has to name
+  # the same URL. `npm publish` runs prepublishOnly, which type-checks and rebuilds — the tarball
+  # can only be cut from a tree that compiles and from a dist just made from it.
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - echo "//gitlab.com/api/v4/projects/opquast%2Ftest-runner/packages/npm/:_authToken=${CI_JOB_TOKEN}" > .npmrc
+    - npm publish

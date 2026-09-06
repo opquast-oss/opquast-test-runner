@@ -29,7 +29,11 @@
   "scripts": {
     "build": "tsup",
     "check": "tsc --noEmit",
-    "test": "node --test"
+    "corpus": "node test/golden/lib/sources.mjs",
+    "golden:record": "node test/golden/record.mjs",
+    "golden:check": "node test/golden/check.mjs",
+    "test": "node --test \"test/golden/**/*.test.mjs\"",
+    "prepublishOnly": "npm run check && npm run build"
   },
   "author": "Temesis SAS (https://www.temesis.com/)",
   "contributors": [
@@ -55,6 +59,7 @@
     "testing"
   ],
   "devDependencies": {
+    "playwright": "^1.60.0",
     "tsup": "^8.0.0",
     "typescript": "^5.4.0"
   }

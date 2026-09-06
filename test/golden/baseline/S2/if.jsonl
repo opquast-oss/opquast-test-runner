@@ -1,0 +1,16 @@
+{"k":"rules/IFRAME/false/index.html#IFRAME","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"2d5af39e855c36a1"}
+{"k":"rules/IFRAME/true/1.html#IFRAME","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"687f1b390f8a7025"}
+{"k":"rules/IFRAME_WO_FILLED_TITLE_ATTR/false/index.html#IFRAME_WO_FILLED_TITLE_ATTR","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"5d315c5fd3fb4de4"}
+{"k":"rules/IFRAME_WO_FILLED_TITLE_ATTR/true/1.html#IFRAME_WO_FILLED_TITLE_ATTR","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"0dd116e76027408e"}
+{"k":"rules/IFRAME_WO_TITLE_ATTR/false/index.html#IFRAME_WO_TITLE_ATTR","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"d301b21936d20e7a"}
+{"k":"rules/IFRAME_WO_TITLE_ATTR/true/1.html#IFRAME_WO_TITLE_ATTR","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"6e2041cec5bb14fc"}
+{"k":"rules/IFRAME_W_EMPTY_TITLE_ATTR/false/index.html#IFRAME_W_EMPTY_TITLE_ATTR","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"747e8d8e7885e82d"}
+{"k":"rules/IFRAME_W_EMPTY_TITLE_ATTR/true/1.html#IFRAME_W_EMPTY_TITLE_ATTR","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"71cc6569ac864b3d"}
+{"k":"rules/IFRAME_W_FILLED_AND_UNIQUE_TITLE_ATTR/false/index.html#IFRAME_W_FILLED_AND_UNIQUE_TITLE_ATTR","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"d15086ecae0e74fc"}
+{"k":"rules/IFRAME_W_FILLED_AND_UNIQUE_TITLE_ATTR/true/1.html#IFRAME_W_FILLED_AND_UNIQUE_TITLE_ATTR","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"69142e1a90bad2e2"}
+{"k":"rules/IFRAME_W_FILLED_AND_UNIQUE_TITLE_ATTR/true/2.html#IFRAME_W_FILLED_AND_UNIQUE_TITLE_ATTR","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"6f688433c45f2dcc"}
+{"k":"rules/IFRAME_W_FILLED_TITLE_ATTR/false/index.html#IFRAME_W_FILLED_TITLE_ATTR","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"3ca33aba48db88a8"}
+{"k":"rules/IFRAME_W_FILLED_TITLE_ATTR/true/1.html#IFRAME_W_FILLED_TITLE_ATTR","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"fd6afe30c527e559"}
+{"k":"rules/IFRAME_W_UNIQUE_SRC_ATTR_WO_UNIQUE_TITLE_ATTR/false/index.html#IFRAME_W_UNIQUE_SRC_ATTR_WO_UNIQUE_TITLE_ATTR","r":"nc","rl":["nc"],"n":0,"d":"4f53cda18c2baa0c","x":"nc","in":"f5ede7c23a921e77"}
+{"k":"rules/IFRAME_W_UNIQUE_SRC_ATTR_WO_UNIQUE_TITLE_ATTR/true/1.html#IFRAME_W_UNIQUE_SRC_ATTR_WO_UNIQUE_TITLE_ATTR","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"b25fe34f90a565b1"}
+{"k":"rules/IFRAME_W_UNIQUE_SRC_ATTR_WO_UNIQUE_TITLE_ATTR/true/2.html#IFRAME_W_UNIQUE_SRC_ATTR_WO_UNIQUE_TITLE_ATTR","r":"c","rl":["c"],"n":0,"d":"4f53cda18c2baa0c","x":"c","in":"744199995638eebf"}

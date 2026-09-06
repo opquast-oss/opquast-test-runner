@@ -1,0 +1,164 @@
+{"k":"sets-stock/23216/TBL-002-23216_1.html#23216","details":[]}
+{"k":"sets-stock/23216/TBL-002-23216_2.html#23216","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > table:nth-of-type(1)","tag":"table","text":"&lt;table&gt;\n            &lt;tbody&gt;\n                &lt;tr&gt;\n                    &lt;td&gt;plop&lt;/td&gt;\n                &lt;/tr&gt;\n            &lt;/tbody&gt;\n        &lt;/table&gt;","xpath":"/html/body/table"}]}
+{"k":"sets-stock/23216/TBL-002-23216_3.html#23216","details":[]}
+{"k":"sets-stock/23265/PRE-034-23265_1.html#23265","details":[]}
+{"k":"sets-stock/23265/PRE-034-23265_2.html#23265","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1)","tag":"body","text":"&lt;body&gt;\n        &lt;p&gt;\n            plop\n        &lt;/p&gt;\n    \n\n&lt;/body&gt;","xpath":"/html/body"}]}
+{"k":"sets-stock/23266/PRE-033-23266_1.html#23266","details":[]}
+{"k":"sets-stock/23266/PRE-033-23266_2.html#23266","details":[]}
+{"k":"sets-stock/23266/PRE-033-23266_3.html#23266","details":["interne (ligne 1) : body {font-size: 16px;}"]}
+{"k":"sets-stock/23267/PRE-032-23267_1.html#23267","details":[]}
+{"k":"sets-stock/23267/PRE-032-23267_2.html#23267","details":["arial","helvetica","times","courier new"]}
+{"k":"sets-stock/23269/PRE-031-23269_1.html#23269","details":[]}
+{"k":"sets-stock/23269/PRE-031-23269_2.html#23269","details":[]}
+{"k":"sets-stock/23306/NAV-038-23306_1.html#23306","details":[]}
+{"k":"sets-stock/23306/NAV-038-23306_2.html#23306","details":[]}
+{"k":"sets-stock/23306/NAV-038-23306_3.html#23306","details":[{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/"},{"name":"target","namespace":"","value":"_self"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://www.example.com/\" target=\"_self\"&gt;plop&lt;/a&gt;","xpath":"/html/body/p/a"}]}
+{"k":"sets-stock/23308/COD-002-23308_1.html#23308","details":[]}
+{"k":"sets-stock/23308/COD-002-23308_2.html#23308","details":[]}
+{"k":"sets-stock/23309/cod-003-23309_1.html#23309","details":[]}
+{"k":"sets-stock/23309/cod-003-23309_2.html#23309","details":[{"attributes":[{"name":"src","namespace":"","value":"52-551_1.html"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > frameset:nth-of-type(1) > frame:nth-of-type(1)","tag":"frame","text":"&lt;frame src=\"52-551_1.html\"&gt;","xpath":"/html/frameset/frame"},{"attributes":[{"name":"src","namespace":"","value":"52-551_1.html"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > frameset:nth-of-type(1) > frame:nth-of-type(2)","tag":"frame","text":"&lt;frame src=\"52-551_1.html\"&gt;","xpath":"/html/frameset/frame[2]"},{"attributes":[{"name":"cols","namespace":"","value":"50%,50%"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > frameset:nth-of-type(1)","tag":"frameset","text":"&lt;frameset cols=\"50%,50%\"&gt;\n        &lt;frame src=\"52-551_1.html\"&gt;\n        &lt;frame src=\"52-551_1.html\"&gt;\n    &lt;/frameset&gt;","xpath":"/html/frameset"},{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > noframes:nth-of-type(1)","tag":"noframes","text":"&lt;noframes&gt;\n        &lt;body&gt;\n            &lt;p&gt;\n                plop\n            &lt;/p&gt;\n        &lt;/body&gt;\n    &lt;/noframes&gt;","xpath":"/html/noframes"}]}
+{"k":"sets-stock/23314/COD-008-23314_1.html#23314","details":[]}
+{"k":"sets-stock/23314/COD-008-23314_2.html#23314","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > h3:nth-of-type(3)","tag":"h3","text":"&lt;h3&gt;plop&lt;/h3&gt;","xpath":"/html/body/h3[3]"}]}
+{"k":"sets-stock/23315/COD-009-23315_1.html#23315","details":[]}
+{"k":"sets-stock/23315/COD-009-23315_2.html#23315","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#contentBody > h1:nth-of-type(2)","tag":"h1","text":"&lt;h1&gt;plop&lt;/h1&gt;","xpath":"//div[@id=\"contentBody\"]/h1[2]"},{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#contentBody > h6:nth-of-type(1)","tag":"h6","text":"&lt;h6&gt;plop&lt;/h6&gt;","xpath":"//div[@id=\"contentBody\"]/h6"}]}
+{"k":"sets-stock/23361/CNT-044-23361_1.html#23361","details":[]}
+{"k":"sets-stock/23361/CNT-044-23361_2.html#23361","details":[]}
+{"k":"sets-stock/23361/CNT-044-23361_3.html#23361","details":[]}
+{"k":"sets-stock/23363/CNT-046-23363_1.html#23363","details":[]}
+{"k":"sets-stock/23363/CNT-046-23363_2.html#23363","details":[]}
+{"k":"sets-stock/23363/CNT-046-23363_3.html#23363","details":[]}
+{"k":"sets-stock/23428/ide-007-23428_1.html#23428","details":[]}
+{"k":"sets-stock/23428/ide-007-23428_2.html#23428","details":[{"attributes":[{"name":"href","namespace":"","value":"Bla"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"Bla\"&gt;bla&lt;/a&gt;","xpath":"/html/body/p/a"}]}
+{"k":"sets-stock/23428/ide-007-23428_3.html#23428","details":[{"attributes":[{"name":"href","namespace":"","value":"bla_bla"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"bla_bla\"&gt;bla&lt;/a&gt;","xpath":"/html/body/p/a"}]}
+{"k":"sets-stock/23428/ide-007-23428_4.html#23428","details":[{"attributes":[{"name":"href","namespace":"","value":"bla%20bla"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"bla%20bla\"&gt;bla&lt;/a&gt;","xpath":"/html/body/p/a"}]}
+{"k":"sets-stock/23428/ide-007-23428_5.html#23428","details":[{"attributes":[{"name":"href","namespace":"","value":"bla bla"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"bla bla\"&gt;bla&lt;/a&gt;","xpath":"/html/body/p/a"}]}
+{"k":"sets-stock/23456/NAV-004-23456_1.html#23456","details":[]}
+{"k":"sets-stock/23456/NAV-004-23456_2.html#23456","details":[]}
+{"k":"sets-stock/23456/NAV-004-23456_3.html#23456","details":[]}
+{"k":"sets-stock/23456/NAV-004-23456_4.html#23456","details":[{"attributes":[{"name":"class","namespace":"","value":"pathnav"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(6)","tag":"a","text":"&lt;a class=\"pathnav\"&gt;plop&lt;/a&gt;","xpath":"/html/body/p/a[6]"}]}
+{"k":"sets-stock/23456/NAV-004-23456_5.html#23456","details":[{"attributes":[{"name":"class","namespace":"","value":"breadcrumb"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(6)","tag":"a","text":"&lt;a class=\"breadcrumb\"&gt;plop&lt;/a&gt;","xpath":"/html/body/p/a[6]"}]}
+{"k":"sets-stock/23457/NAV-005-23457_1.html#23457","details":[]}
+{"k":"sets-stock/23457/NAV-005-23457_2.html#23457","details":[]}
+{"k":"sets-stock/23457/NAV-005-23457_3.html#23457","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#transversalNav > ul:nth-of-type(1) > li:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(2) > ul:nth-of-type(1)","tag":"ul","text":"&lt;ul&gt;\n                                        &lt;li&gt;\n                                            plop\n                                        &lt;/li&gt;\n                                    &","xpath":"//div[@id=\"transversalNav\"]/ul/li/ul/li[2]/ul/li[2]/ul"}]}
+{"k":"sets-stock/23463/NAV-011-23463_1.html#23463","details":[]}
+{"k":"sets-stock/23463/NAV-011-23463_2.html#23463","details":[]}
+{"k":"sets-stock/23463/NAV-011-23463_3.html#23463","details":[]}
+{"k":"sets-stock/23463/NAV-011-23463_4.html#23463","details":[]}
+{"k":"sets-stock/23465/NAV-013-23465_1.html#23465","details":[]}
+{"k":"sets-stock/23465/NAV-013-23465_2.html#23465","details":[]}
+{"k":"sets-stock/23465/NAV-013-23465_3.html#23465","details":[]}
+{"k":"sets-stock/23465/NAV-013-23465_4.html#23465","details":[{"attributes":[{"name":"href","namespace":"","value":"test.pdf"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#contentBody > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"test.pdf\"&gt;plop&lt;/a&gt;","xpath":"//div[@id=\"contentBody\"]/a"},{"attributes":[{"name":"href","namespace":"","value":"test.doc"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#contentBody > a:nth-of-type(2)","tag":"a","text":"&lt;a href=\"test.doc\"&gt;plop&lt;/a&gt;","xpath":"//div[@id=\"contentBody\"]/a[2]"}]}
+{"k":"sets-stock/23483/NAV-031-23483_1.html#23483","details":[{"attributes":[{"name":"href","namespace":"","value":"http://localhost:9000/"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#navTools > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://localhost:9000/\"&gt;plop&lt;/a&gt;","xpath":"//div[@id=\"navTools\"]/a"}]}
+{"k":"sets-stock/23483/NAV-031-23483_2.html#23483","details":[{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#navTools > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://www.example.com/\"&gt;plop&lt;/a&gt;","xpath":"//div[@id=\"navTools\"]/a"}]}
+{"k":"sets-stock/23484/nav-032-23484_1.html#23484","details":[]}
+{"k":"sets-stock/23484/nav-032-23484_2.html#23484","details":[]}
+{"k":"sets-stock/23484/nav-032-23484_3.html#23484","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > head:nth-of-type(1) > title:nth-of-type(1)","tag":"title","text":"&lt;title&gt;testcase NAV.032&lt;/title&gt;","xpath":"/html/head/title"}]}
+{"k":"sets-stock/23486/NAV-034-23486_1.html#23486","details":[]}
+{"k":"sets-stock/23486/NAV-034-23486_2.html#23486","details":[]}
+{"k":"sets-stock/23487/NAV-035-23487_1.html#23487","details":[]}
+{"k":"sets-stock/23487/NAV-035-23487_2.html#23487","details":[{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://www.example.com/\"&gt;foo bar&lt;/a&gt;","xpath":"/html/body/p/a"},{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/test"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(2)","tag":"a","text":"&lt;a href=\"http://www.example.com/test\"&gt;&lt;img alt=\"foo\"&gt;bar&lt;/a&gt;","xpath":"/html/body/p/a[2]"}]}
+{"k":"sets-stock/23487/NAV-035-23487_3.html#23487","details":[{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://www.example.com/\"&gt;foo bar&lt;/a&gt;","xpath":"/html/body/p/a"},{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/test"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(2)","tag":"a","text":"&lt;a href=\"http://www.example.com/test\"&gt;foo&lt;img alt=\"bar\"&gt;&lt;/a&gt;","xpath":"/html/body/p/a[2]"}]}
+{"k":"sets-stock/23487/NAV-035-23487_4.html#23487","details":[{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/test"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://www.example.com/test\"&gt;&lt;img alt=\"foo\"&gt;bar&lt;/a&gt;","xpath":"/html/body/p/a"},{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(2)","tag":"a","text":"&lt;a href=\"http://www.example.com/\"&gt;foo&lt;img alt=\"bar\"&gt;&lt;/a&gt;","xpath":"/html/body/p/a[2]"}]}
+{"k":"sets-stock/23489/NAV-037-23489_1.html#23489","details":[]}
+{"k":"sets-stock/23489/NAV-037-23489_2.html#23489","details":[]}
+{"k":"sets-stock/23490/TBL-003-23490_1.html#23490","details":[]}
+{"k":"sets-stock/23490/TBL-003-23490_2.html#23490","details":[]}
+{"k":"sets-stock/23490/TBL-003-23490_3.html#23490","details":[]}
+{"k":"sets-stock/23490/TBL-003-23490_4.html#23490","details":[]}
+{"k":"sets-stock/23494/TBL-007-23494_1.html#23494","details":[]}
+{"k":"sets-stock/23494/TBL-007-23494_2.html#23494","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > table:nth-of-type(1)","tag":"table","text":"&lt;table&gt;\n            &lt;tbody&gt;\n                &lt;tr&gt;\n                    &lt;td&gt;plop&lt;/td&gt;\n                &lt;/tr&gt;\n            &lt;/tbody&gt;\n        &lt;/table&gt;","xpath":"/html/body/table"}]}
+{"k":"sets-stock/23494/TBL-007-23494_3.html#23494","details":[]}
+{"k":"sets-stock/23505/NAV-038-23505_1.html#23505","details":[]}
+{"k":"sets-stock/23505/NAV-038-23505_2.html#23505","details":[]}
+{"k":"sets-stock/23505/NAV-038-23505_3.html#23505","details":[{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/"},{"name":"target","namespace":"","value":"_self"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://www.example.com/\" target=\"_self\"&gt;plop&lt;/a&gt;","xpath":"/html/body/p/a"}]}
+{"k":"sets-stock/23520/TBL-002-23520_1.html#23520","details":[]}
+{"k":"sets-stock/23520/TBL-002-23520_2.html#23520","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > table:nth-of-type(1)","tag":"table","text":"&lt;table&gt;\n            &lt;tbody&gt;\n                &lt;tr&gt;\n                    &lt;td&gt;plop&lt;/td&gt;\n                &lt;/tr&gt;\n            &lt;/tbody&gt;\n        &lt;/table&gt;","xpath":"/html/body/table"}]}
+{"k":"sets-stock/23520/TBL-002-23520_3.html#23520","details":[]}
+{"k":"sets-stock/23569/PRE-034-23569_1.html#23569","details":[]}
+{"k":"sets-stock/23569/PRE-034-23569_2.html#23569","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1)","tag":"body","text":"&lt;body&gt;\n        &lt;p&gt;\n            plop\n        &lt;/p&gt;\n    \n\n&lt;/body&gt;","xpath":"/html/body"}]}
+{"k":"sets-stock/23570/PRE-033-23570_1.html#23570","details":[]}
+{"k":"sets-stock/23570/PRE-033-23570_2.html#23570","details":[]}
+{"k":"sets-stock/23570/PRE-033-23570_3.html#23570","details":["interne (ligne 1) : body {font-size: 16px;}"]}
+{"k":"sets-stock/23571/PRE-032-23571_1.html#23571","details":[]}
+{"k":"sets-stock/23571/PRE-032-23571_2.html#23571","details":["arial","helvetica","times","courier new"]}
+{"k":"sets-stock/23573/PRE-031-23573_1.html#23573","details":[]}
+{"k":"sets-stock/23573/PRE-031-23573_2.html#23573","details":[]}
+{"k":"sets-stock/23610/NAV-038-23610_1.html#23610","details":[]}
+{"k":"sets-stock/23610/NAV-038-23610_2.html#23610","details":[]}
+{"k":"sets-stock/23610/NAV-038-23610_3.html#23610","details":[{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/"},{"name":"target","namespace":"","value":"_self"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://www.example.com/\" target=\"_self\"&gt;plop&lt;/a&gt;","xpath":"/html/body/p/a"}]}
+{"k":"sets-stock/23612/COD-002-23612_1.html#23612","details":[]}
+{"k":"sets-stock/23612/COD-002-23612_2.html#23612","details":[]}
+{"k":"sets-stock/23613/cod-003-23613_1.html#23613","details":[]}
+{"k":"sets-stock/23613/cod-003-23613_2.html#23613","details":[{"attributes":[{"name":"src","namespace":"","value":"52-551_1.html"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > frameset:nth-of-type(1) > frame:nth-of-type(1)","tag":"frame","text":"&lt;frame src=\"52-551_1.html\"&gt;","xpath":"/html/frameset/frame"},{"attributes":[{"name":"src","namespace":"","value":"52-551_1.html"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > frameset:nth-of-type(1) > frame:nth-of-type(2)","tag":"frame","text":"&lt;frame src=\"52-551_1.html\"&gt;","xpath":"/html/frameset/frame[2]"},{"attributes":[{"name":"cols","namespace":"","value":"50%,50%"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > frameset:nth-of-type(1)","tag":"frameset","text":"&lt;frameset cols=\"50%,50%\"&gt;\n        &lt;frame src=\"52-551_1.html\"&gt;\n        &lt;frame src=\"52-551_1.html\"&gt;\n    &lt;/frameset&gt;","xpath":"/html/frameset"},{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > noframes:nth-of-type(1)","tag":"noframes","text":"&lt;noframes&gt;\n        &lt;body&gt;\n            &lt;p&gt;\n                plop\n            &lt;/p&gt;\n        &lt;/body&gt;\n    &lt;/noframes&gt;","xpath":"/html/noframes"}]}
+{"k":"sets-stock/23618/COD-008-23618_1.html#23618","details":[]}
+{"k":"sets-stock/23618/COD-008-23618_2.html#23618","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > h3:nth-of-type(3)","tag":"h3","text":"&lt;h3&gt;plop&lt;/h3&gt;","xpath":"/html/body/h3[3]"}]}
+{"k":"sets-stock/23619/COD-009-23619_1.html#23619","details":[]}
+{"k":"sets-stock/23619/COD-009-23619_2.html#23619","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#contentBody > h1:nth-of-type(2)","tag":"h1","text":"&lt;h1&gt;plop&lt;/h1&gt;","xpath":"//div[@id=\"contentBody\"]/h1[2]"},{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#contentBody > h6:nth-of-type(1)","tag":"h6","text":"&lt;h6&gt;plop&lt;/h6&gt;","xpath":"//div[@id=\"contentBody\"]/h6"}]}
+{"k":"sets-stock/23665/CNT-044-23665_1.html#23665","details":[]}
+{"k":"sets-stock/23665/CNT-044-23665_2.html#23665","details":[]}
+{"k":"sets-stock/23665/CNT-044-23665_3.html#23665","details":[]}
+{"k":"sets-stock/23667/CNT-046-23667_1.html#23667","details":[]}
+{"k":"sets-stock/23667/CNT-046-23667_2.html#23667","details":[]}
+{"k":"sets-stock/23667/CNT-046-23667_3.html#23667","details":[]}
+{"k":"sets-stock/23732/ide-007-23732_1.html#23732","details":[]}
+{"k":"sets-stock/23732/ide-007-23732_2.html#23732","details":[{"attributes":[{"name":"href","namespace":"","value":"Bla"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"Bla\"&gt;bla&lt;/a&gt;","xpath":"/html/body/p/a"}]}
+{"k":"sets-stock/23732/ide-007-23732_3.html#23732","details":[{"attributes":[{"name":"href","namespace":"","value":"bla_bla"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"bla_bla\"&gt;bla&lt;/a&gt;","xpath":"/html/body/p/a"}]}
+{"k":"sets-stock/23732/ide-007-23732_4.html#23732","details":[{"attributes":[{"name":"href","namespace":"","value":"bla%20bla"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"bla%20bla\"&gt;bla&lt;/a&gt;","xpath":"/html/body/p/a"}]}
+{"k":"sets-stock/23732/ide-007-23732_5.html#23732","details":[{"attributes":[{"name":"href","namespace":"","value":"bla bla"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"bla bla\"&gt;bla&lt;/a&gt;","xpath":"/html/body/p/a"}]}
+{"k":"sets-stock/23760/NAV-004-23760_1.html#23760","details":[]}
+{"k":"sets-stock/23760/NAV-004-23760_2.html#23760","details":[]}
+{"k":"sets-stock/23760/NAV-004-23760_3.html#23760","details":[]}
+{"k":"sets-stock/23760/NAV-004-23760_4.html#23760","details":[{"attributes":[{"name":"class","namespace":"","value":"pathnav"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(6)","tag":"a","text":"&lt;a class=\"pathnav\"&gt;plop&lt;/a&gt;","xpath":"/html/body/p/a[6]"}]}
+{"k":"sets-stock/23760/NAV-004-23760_5.html#23760","details":[{"attributes":[{"name":"class","namespace":"","value":"breadcrumb"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(6)","tag":"a","text":"&lt;a class=\"breadcrumb\"&gt;plop&lt;/a&gt;","xpath":"/html/body/p/a[6]"}]}
+{"k":"sets-stock/23761/NAV-005-23761_1.html#23761","details":[]}
+{"k":"sets-stock/23761/NAV-005-23761_2.html#23761","details":[]}
+{"k":"sets-stock/23761/NAV-005-23761_3.html#23761","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#transversalNav > ul:nth-of-type(1) > li:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(2) > ul:nth-of-type(1)","tag":"ul","text":"&lt;ul&gt;\n                                        &lt;li&gt;\n                                            plop\n                                        &lt;/li&gt;\n                                    &","xpath":"//div[@id=\"transversalNav\"]/ul/li/ul/li[2]/ul/li[2]/ul"}]}
+{"k":"sets-stock/23767/NAV-011-23767_1.html#23767","details":[]}
+{"k":"sets-stock/23767/NAV-011-23767_2.html#23767","details":[]}
+{"k":"sets-stock/23767/NAV-011-23767_3.html#23767","details":[]}
+{"k":"sets-stock/23767/NAV-011-23767_4.html#23767","details":[]}
+{"k":"sets-stock/23769/NAV-013-23769_1.html#23769","details":[]}
+{"k":"sets-stock/23769/NAV-013-23769_2.html#23769","details":[]}
+{"k":"sets-stock/23769/NAV-013-23769_3.html#23769","details":[]}
+{"k":"sets-stock/23769/NAV-013-23769_4.html#23769","details":[{"attributes":[{"name":"href","namespace":"","value":"test.pdf"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#contentBody > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"test.pdf\"&gt;plop&lt;/a&gt;","xpath":"//div[@id=\"contentBody\"]/a"},{"attributes":[{"name":"href","namespace":"","value":"test.doc"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#contentBody > a:nth-of-type(2)","tag":"a","text":"&lt;a href=\"test.doc\"&gt;plop&lt;/a&gt;","xpath":"//div[@id=\"contentBody\"]/a[2]"}]}
+{"k":"sets-stock/23787/NAV-031-23787_1.html#23787","details":[{"attributes":[{"name":"href","namespace":"","value":"http://localhost:9000/"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#navTools > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://localhost:9000/\"&gt;plop&lt;/a&gt;","xpath":"//div[@id=\"navTools\"]/a"}]}
+{"k":"sets-stock/23787/NAV-031-23787_2.html#23787","details":[{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#navTools > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://www.example.com/\"&gt;plop&lt;/a&gt;","xpath":"//div[@id=\"navTools\"]/a"}]}
+{"k":"sets-stock/23788/nav-032-23788_1.html#23788","details":[]}
+{"k":"sets-stock/23788/nav-032-23788_2.html#23788","details":[]}
+{"k":"sets-stock/23788/nav-032-23788_3.html#23788","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > head:nth-of-type(1) > title:nth-of-type(1)","tag":"title","text":"&lt;title&gt;testcase NAV.032&lt;/title&gt;","xpath":"/html/head/title"}]}
+{"k":"sets-stock/23790/NAV-034-23790_1.html#23790","details":[]}
+{"k":"sets-stock/23790/NAV-034-23790_2.html#23790","details":[]}
+{"k":"sets-stock/23791/NAV-035-23791_1.html#23791","details":[]}
+{"k":"sets-stock/23791/NAV-035-23791_2.html#23791","details":[{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://www.example.com/\"&gt;foo bar&lt;/a&gt;","xpath":"/html/body/p/a"},{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/test"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(2)","tag":"a","text":"&lt;a href=\"http://www.example.com/test\"&gt;&lt;img alt=\"foo\"&gt;bar&lt;/a&gt;","xpath":"/html/body/p/a[2]"}]}
+{"k":"sets-stock/23791/NAV-035-23791_3.html#23791","details":[{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://www.example.com/\"&gt;foo bar&lt;/a&gt;","xpath":"/html/body/p/a"},{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/test"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(2)","tag":"a","text":"&lt;a href=\"http://www.example.com/test\"&gt;foo&lt;img alt=\"bar\"&gt;&lt;/a&gt;","xpath":"/html/body/p/a[2]"}]}
+{"k":"sets-stock/23791/NAV-035-23791_4.html#23791","details":[{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/test"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://www.example.com/test\"&gt;&lt;img alt=\"foo\"&gt;bar&lt;/a&gt;","xpath":"/html/body/p/a"},{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(2)","tag":"a","text":"&lt;a href=\"http://www.example.com/\"&gt;foo&lt;img alt=\"bar\"&gt;&lt;/a&gt;","xpath":"/html/body/p/a[2]"}]}
+{"k":"sets-stock/23793/NAV-037-23793_1.html#23793","details":[]}
+{"k":"sets-stock/23793/NAV-037-23793_2.html#23793","details":[]}
+{"k":"sets-stock/23794/tbl-003-23794_1.html#23794","details":[]}
+{"k":"sets-stock/23794/tbl-003-23794_2.html#23794","details":[]}
+{"k":"sets-stock/23794/tbl-003-23794_3.html#23794","details":[]}
+{"k":"sets-stock/23794/tbl-003-23794_4.html#23794","details":[]}
+{"k":"sets-stock/23798/TBL-007-23798_1.html#23798","details":[]}
+{"k":"sets-stock/23798/TBL-007-23798_2.html#23798","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > table:nth-of-type(1)","tag":"table","text":"&lt;table&gt;\n            &lt;tbody&gt;\n                &lt;tr&gt;\n                    &lt;td&gt;plop&lt;/td&gt;\n                &lt;/tr&gt;\n            &lt;/tbody&gt;\n        &lt;/table&gt;","xpath":"/html/body/table"}]}
+{"k":"sets-stock/23798/TBL-007-23798_3.html#23798","details":[]}
+{"k":"sets-stock/23864/TBL-002-23864_1.html#23864","details":[]}
+{"k":"sets-stock/23864/TBL-002-23864_2.html#23864","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > table:nth-of-type(1)","tag":"table","text":"&lt;table&gt;\n            &lt;tbody&gt;\n                &lt;tr&gt;\n                    &lt;td&gt;plop&lt;/td&gt;\n                &lt;/tr&gt;\n            &lt;/tbody&gt;\n        &lt;/table&gt;","xpath":"/html/body/table"}]}
+{"k":"sets-stock/23864/TBL-002-23864_3.html#23864","details":[]}
+{"k":"sets-stock/23909/PRE-034-23909_1.html#23909","details":[]}
+{"k":"sets-stock/23909/PRE-034-23909_2.html#23909","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1)","tag":"body","text":"&lt;body&gt;\n        &lt;p&gt;\n            plop\n        &lt;/p&gt;\n    \n\n&lt;/body&gt;","xpath":"/html/body"}]}
+{"k":"sets-stock/23910/PRE-033-23910_1.html#23910","details":[]}
+{"k":"sets-stock/23910/PRE-033-23910_2.html#23910","details":[]}
+{"k":"sets-stock/23910/PRE-033-23910_3.html#23910","details":["interne (ligne 1) : body {font-size: 16px;}"]}
+{"k":"sets-stock/23912/PRE-031-23912_1.html#23912","details":[]}
+{"k":"sets-stock/23912/PRE-031-23912_2.html#23912","details":[]}
+{"k":"sets-stock/23947/NAV-038-23947_1.html#23947","details":[]}
+{"k":"sets-stock/23947/NAV-038-23947_2.html#23947","details":[]}
+{"k":"sets-stock/23947/NAV-038-23947_3.html#23947","details":[{"attributes":[{"name":"href","namespace":"","value":"http://www.example.com/"},{"name":"target","namespace":"","value":"_self"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"http://www.example.com/\" target=\"_self\"&gt;plop&lt;/a&gt;","xpath":"/html/body/p/a"}]}
+{"k":"sets-stock/23949/COD-002-23949_1.html#23949","details":[]}
+{"k":"sets-stock/23949/COD-002-23949_2.html#23949","details":[]}
+{"k":"sets-stock/23950/cod-003-23950_1.html#23950","details":[]}
+{"k":"sets-stock/23950/cod-003-23950_2.html#23950","details":[{"attributes":[{"name":"src","namespace":"","value":"52-551_1.html"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > frameset:nth-of-type(1) > frame:nth-of-type(1)","tag":"frame","text":"&lt;frame src=\"52-551_1.html\"&gt;","xpath":"/html/frameset/frame"},{"attributes":[{"name":"src","namespace":"","value":"52-551_1.html"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > frameset:nth-of-type(1) > frame:nth-of-type(2)","tag":"frame","text":"&lt;frame src=\"52-551_1.html\"&gt;","xpath":"/html/frameset/frame[2]"},{"attributes":[{"name":"cols","namespace":"","value":"50%,50%"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > frameset:nth-of-type(1)","tag":"frameset","text":"&lt;frameset cols=\"50%,50%\"&gt;\n        &lt;frame src=\"52-551_1.html\"&gt;\n        &lt;frame src=\"52-551_1.html\"&gt;\n    &lt;/frameset&gt;","xpath":"/html/frameset"},{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > noframes:nth-of-type(1)","tag":"noframes","text":"&lt;noframes&gt;\n        &lt;body&gt;\n            &lt;p&gt;\n                plop\n            &lt;/p&gt;\n        &lt;/body&gt;\n    &lt;/noframes&gt;","xpath":"/html/noframes"}]}
+{"k":"sets-stock/23955/COD-008-23955_1.html#23955","details":[]}
+{"k":"sets-stock/23955/COD-008-23955_2.html#23955","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > h3:nth-of-type(3)","tag":"h3","text":"&lt;h3&gt;plop&lt;/h3&gt;","xpath":"/html/body/h3[3]"}]}
+{"k":"sets-stock/23956/COD-009-23956_1.html#23956","details":[]}
+{"k":"sets-stock/23956/COD-009-23956_2.html#23956","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#contentBody > h1:nth-of-type(2)","tag":"h1","text":"&lt;h1&gt;plop&lt;/h1&gt;","xpath":"//div[@id=\"contentBody\"]/h1[2]"},{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"div#contentBody > h6:nth-of-type(1)","tag":"h6","text":"&lt;h6&gt;plop&lt;/h6&gt;","xpath":"//div[@id=\"contentBody\"]/h6"}]}
