@@ -72,3 +72,13 @@ test('a real fixture directory serves its page and its neighbours', async () => 
   assert.equal((await fetch(server.url('script.js'))).status, 200);
   server.setRoot(dir);
 });
+
+test('the case of a request must match the file exactly', async () => {
+  // Faithful, not strict: the legacy harness served fixtures out of a zip through nsIZipReader,
+  // and zip entries are case-sensitive. Relying on the host filesystem instead makes a verdict
+  // depend on the machine — several fixtures reference PRE-14-…css while the file is pre-14-…css,
+  // which resolves on a macOS checkout and 404s on Linux.
+  assert.equal((await fetch(server.url('page.html'))).status, 200);
+  assert.equal((await fetch(server.url('PAGE.html'))).status, 404);
+  assert.equal((await fetch(server.url('Style.css'))).status, 404);
+});

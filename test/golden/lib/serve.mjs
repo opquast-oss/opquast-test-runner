@@ -14,7 +14,7 @@
 // neighbours and frames resolve without any path rewriting.
 
 import { createServer } from 'node:http';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join, resolve, sep } from 'node:path';
 
 /** The legacy MIME table, verbatim. Anything not listed falls back to plain text. */
@@ -32,6 +32,30 @@ export const MIME_TYPES = {
 };
 
 const DEFAULT_MIME = 'text/plain; charset=UTF-8';
+
+/**
+ * Does `rel` exist under `root` with exactly this spelling?
+ *
+ * Walks the segments and checks each against the real directory listing, because
+ * existsSync/readFileSync answer yes to the wrong case on a case-insensitive filesystem. The
+ * listings are cached per directory: a run opens thousands of pages out of a few hundred folders.
+ */
+const listings = new Map();
+function existsExact(root, rel) {
+  let dir = root;
+  for (const seg of rel.split('/')) {
+    if (!listings.has(dir)) {
+      try {
+        listings.set(dir, new Set(readdirSync(dir)));
+      } catch {
+        return false;
+      }
+    }
+    if (!listings.get(dir).has(seg)) return false;
+    dir = `${dir}/${seg}`;
+  }
+  return true;
+}
 
 function notFound(res) {
   res.writeHead(404, { 'Content-Type': DEFAULT_MIME });
@@ -67,6 +91,16 @@ export async function startServer({ host = '127.0.0.1', port = 0 } = {}) {
     // would silently serve a file outside the fixture and poison a baseline.
     const file = resolve(root, rel);
     if (file !== resolve(root) && !file.startsWith(resolve(root) + sep)) return notFound(res);
+
+    // Case must match EXACTLY, whatever the host filesystem thinks.
+    //
+    // The legacy harness served fixtures out of the installed XPI through nsIZipReader, and zip
+    // entries are case-sensitive — so being case-exact is faithful, not strict. Relying on the
+    // host instead makes a verdict depend on the machine: several fixtures reference
+    // `PRE-14-10239_2.css` while the file on disk is `pre-14-10239_2.css`, which resolves on a
+    // macOS checkout and 404s on Linux. Five S3 verdicts differed between this container and CI
+    // for exactly that reason.
+    if (!existsExact(root, rel)) return notFound(res);
 
     let body;
     try {

@@ -1,5 +1,5 @@
 {
-  "_why": "Cases where the engine contradicts the fixture author. Reviewed by hand, never generated blind: the expectations predate the port and nothing shows the suite was ever green, so a disagreement may be an engine bug OR a fixture that was always wrong. Categories: browser (Firefox → Chromium), events (nsIEventListenerService is not reproducible), network (needs a real domain or DNS), fixture (the expectation is wrong), engine (a real defect), unclassified (not yet looked at). The count is a floor: it may shrink, never silently grow.",
+  "_why": "Cases where the engine contradicts the fixture author. Reviewed by hand, never generated blind: the expectations predate the port and nothing shows the suite was ever green, so a disagreement may be an engine bug OR a fixture that was always wrong. Categories: browser (Firefox → Chromium), events (nsIEventListenerService is not reproducible), network (needs a real domain or DNS), fixture (the expectation is wrong), engine (a real defect), unclassified (not yet looked at). The count is a floor: it may shrink, never silently grow. An entry may carry `badReference`: the fixture points at a file whose spelling does not match the one on disk, so it 404s under the case-exact server. Where that coexists with another cause, both are recorded — picking one would misinform.",
   "cases": {
     "rules/CSS_CONTENT/false/index.html#CSS_CONTENT": {
       "category": "browser",
@@ -377,7 +377,10 @@
       "blame": [
         "CSS_CONTENT"
       ],
-      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue(). — SECOND CAUSE: this fixture also references a file whose spelling does not match the one on disk, so its stylesheet 404s. Both causes apply; neither alone explains the case.",
+      "badReference": [
+        "PRE-01-10119_3.css"
+      ]
     },
     "sets/10119/pre-01-10119_4.html#10119": {
       "category": "browser",
@@ -391,7 +394,10 @@
       "blame": [
         "CSS_CONTENT"
       ],
-      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue(). — SECOND CAUSE: this fixture also references a file whose spelling does not match the one on disk, so its stylesheet 404s. Both causes apply; neither alone explains the case.",
+      "badReference": [
+        "PRE-01-10119_5.css"
+      ]
     },
     "sets/10119/pre-01-10119_6.html#10119": {
       "category": "browser",
@@ -399,6 +405,33 @@
         "CSS_CONTENT"
       ],
       "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/10119/pre-01-10119_8.html#10119": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue(). — SECOND CAUSE: this fixture also references a file whose spelling does not match the one on disk, so its stylesheet 404s. Both causes apply; neither alone explains the case.",
+      "badReference": [
+        "PRE-01-10119_8.css"
+      ]
+    },
+    "sets/10119/pre-01-10119_9.html#10119": {
+      "category": "browser",
+      "blame": [
+        "CSS_CONTENT"
+      ],
+      "note": "getComputedStyle(el, \":before\").getPropertyCSSValue() — removed from Blink and from the CSSOM spec. The call throws, the catch returns false, and false is `i`. Firefox-only API; nothing to fix in the engine short of rewriting the rule against getPropertyValue()."
+    },
+    "sets/10239/pre-14-10239_2.html#10239": {
+      "category": "fixture",
+      "blame": [
+        "CSS_FONT_SIZE_W_ABSOLUTE_VALUE_IN_FORM"
+      ],
+      "note": "the fixture references a stylesheet whose spelling does not match the file on disk (e.g. PRE-14-…css against pre-14-…css). It only ever \"worked\" on a case-insensitive checkout; the legacy harness served fixtures from a zip, where it would have 404ed too. The expectation describes what the page would do WITH its stylesheet, so the fixture is broken, not the engine. Fixing the reference would restore a test that has never run as intended — a deliberate change to historical test data, not made here.",
+      "badReference": [
+        "PRE-14-10239_2.css"
+      ]
     },
     "sets/10242/nav-09-10242_4.html#10242": {
       "category": "unclassified",
@@ -635,6 +668,16 @@
       ],
       "note": ""
     },
+    "sets/29441/ch-36-29441_3.html#29441": {
+      "category": "fixture",
+      "blame": [
+        "CSS_UNDERLINE"
+      ],
+      "note": "the fixture references a stylesheet whose spelling does not match the file on disk (e.g. PRE-14-…css against pre-14-…css). It only ever \"worked\" on a case-insensitive checkout; the legacy harness served fixtures from a zip, where it would have 404ed too. The expectation describes what the page would do WITH its stylesheet, so the fixture is broken, not the engine. Fixing the reference would restore a test that has never run as intended — a deliberate change to historical test data, not made here.",
+      "badReference": [
+        "CH-36-29441_3.css"
+      ]
+    },
     "sets/29525/81-29525_3.html#29525": {
       "category": "unclassified",
       "blame": [
@@ -718,6 +761,16 @@
         "JS_RESIZE"
       ],
       "note": ""
+    },
+    "sets/29775/pre-14-29775_2.html#29775": {
+      "category": "fixture",
+      "blame": [
+        "CSS_FONT_SIZE_W_ABSOLUTE_VALUE_IN_FORM"
+      ],
+      "note": "the fixture references a stylesheet whose spelling does not match the file on disk (e.g. PRE-14-…css against pre-14-…css). It only ever \"worked\" on a case-insensitive checkout; the legacy harness served fixtures from a zip, where it would have 404ed too. The expectation describes what the page would do WITH its stylesheet, so the fixture is broken, not the engine. Fixing the reference would restore a test that has never run as intended — a deliberate change to historical test data, not made here.",
+      "badReference": [
+        "PRE-14-29775_2.css"
+      ]
     },
     "sets/29785/PRE-01-29785_1.html#29785": {
       "category": "browser",

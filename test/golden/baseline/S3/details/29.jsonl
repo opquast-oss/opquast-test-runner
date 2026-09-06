@@ -19,7 +19,7 @@
 {"k":"sets/29439/ch-34-2-29439_2.html#29439","details":["arial","helvetica","times","palatino","courier new"]}
 {"k":"sets/29441/ch-36-29441_1.html#29441","details":[]}
 {"k":"sets/29441/ch-36-29441_2.html#29441","details":[]}
-{"k":"sets/29441/ch-36-29441_3.html#29441","details":[{"attributes":[],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1)","tag":"p","text":"&lt;p&gt;\n\t\t\t&lt;a href=\"http://www.example.com/\"&gt;plop&lt;/a&gt;\n\t\t&lt;/p&gt;","xpath":"/html/body/p"}]}
+{"k":"sets/29441/ch-36-29441_3.html#29441","details":[]}
 {"k":"sets/29524/GR-62-29524_1.html#29524","details":[]}
 {"k":"sets/29524/GR-62-29524_2.html#29524","details":["entête HTTP de http://fixture/GR-62-29524_2.html :"]}
 {"k":"sets/29525/81-29525_1.html#29525","details":[]}
@@ -89,7 +89,7 @@
 {"k":"sets/29730/IMA-02-29730_1.html#29730","details":[]}
 {"k":"sets/29730/IMA-02-29730_2.html#29730","details":[{"attributes":[{"name":"src","namespace":"","value":"fixe.jpg"},{"name":"alt","namespace":"","value":""}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)","tag":"img","text":"&lt;img src=\"fixe.jpg\" alt=\"\"&gt;","xpath":"/html/body/a/img"},{"attributes":[{"name":"src","namespace":"","value":"fixe.jpg"},{"name":"alt","namespace":"","value":" "}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > button:nth-of-type(1) > img:nth-of-type(1)","tag":"img","text":"&lt;img src=\"fixe.jpg\" alt=\" \"&gt;","xpath":"/html/body/button/img"}]}
 {"k":"sets/29775/pre-14-29775_1.html#29775","details":[]}
-{"k":"sets/29775/pre-14-29775_2.html#29775","details":["http://fixture/PRE-14-29775_2.css (ligne 1) : select {font-size: 16px;}"]}
+{"k":"sets/29775/pre-14-29775_2.html#29775","details":[]}
 {"k":"sets/29785/PRE-01-29785_1.html#29785","details":[]}
 {"k":"sets/29785/PRE-01-29785_2.html#29785","details":[]}
 {"k":"sets/29785/PRE-01-29785_3.html#29785","details":[]}

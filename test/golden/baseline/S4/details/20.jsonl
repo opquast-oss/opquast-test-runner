@@ -8,8 +8,8 @@
 {"k":"sets-stock/20163/PRE-033-20163_1.html#20163","details":[]}
 {"k":"sets-stock/20163/PRE-033-20163_2.html#20163","details":[]}
 {"k":"sets-stock/20163/PRE-033-20163_3.html#20163","details":["interne (ligne 1) : body {font-size: 16px;}"]}
-{"k":"sets-stock/20165/PRE-031-20165_1.html#20165","details":["http://fixture/pre-031-20165_1.css (ligne 5) : p {font-family: Test;}"]}
-{"k":"sets-stock/20165/PRE-031-20165_2.html#20165","details":["http://fixture/pre-031-20165_2.css (ligne 1) : div {font-family: Machin, Lucida;}"]}
+{"k":"sets-stock/20165/PRE-031-20165_1.html#20165","details":[]}
+{"k":"sets-stock/20165/PRE-031-20165_2.html#20165","details":[]}
 {"k":"sets-stock/20170/PRE-025-20170_1.html#20170","details":[]}
 {"k":"sets-stock/20170/PRE-025-20170_2.html#20170","details":[{"attributes":[{"name":"href","namespace":"","value":"test.doc"},{"name":"target","namespace":"","value":"_self"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(1)","tag":"a","text":"&lt;a href=\"test.doc\" target=\"_self\"&gt;plop (Word - New Window - 250 Ko)&lt;/a&gt;","xpath":"/html/body/p/a"},{"attributes":[{"name":"href","namespace":"","value":"test.pdf"},{"name":"target","namespace":"","value":"_blank"},{"name":"title","namespace":"","value":"PDF (250 Ko)"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(2)","tag":"a","text":"&lt;a href=\"test.pdf\" target=\"_blank\" title=\"PDF (250 Ko)\"&gt;plop&lt;/a&gt;","xpath":"/html/body/p/a[2]"},{"attributes":[{"name":"href","namespace":"","value":"//www.example.com/"},{"name":"target","namespace":"","value":"_blank"}],"extra":"","namespace":"http://www.w3.org/1999/xhtml","selector":"html:nth-of-type(1) > body:nth-of-type(1) > p:nth-of-type(1) > a:nth-of-type(3)","tag":"a","text":"&lt;a href=\"//www.example.com/\" target=\"_blank\"&gt;plop - nouvel onglet&lt;/a&gt;","xpath":"/html/body/p/a[3]"}]}
 {"k":"sets-stock/20178/PRE-016-20178_1.html#20178","details":[]}

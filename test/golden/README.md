@@ -81,6 +81,13 @@ cause above it: of the five engine libs, only `oqs-tests.js`'s digest had moved.
 | `golden:modern` | S1 through `createEngine()` | every pipeline |
 | `golden:record` | regenerates all three | manual only |
 
+**The fixture server is case-exact**, whatever the host filesystem thinks. That is faithful rather
+than strict: the legacy harness served fixtures out of the installed XPI through `nsIZipReader`,
+and zip entries are case-sensitive. Relying on the host instead makes a verdict depend on the
+machine — 14 fixtures reference a stylesheet whose spelling does not match the file (`PRE-14-…css`
+against `pre-14-…css`), which resolves on a macOS checkout and 404s on Linux. CI caught exactly
+that: five S3 verdicts differed between the container and the runner, and CI was right.
+
 **Reproducibility across machines, as measured so far.** The baselines were recorded in the dev
 container (linux-arm64, Chromium 151.0.7922.34). `golden:pilot` and `golden:modern` then passed on
 CI — x86_64, official Playwright image — against those same files, byte for byte. So the pilot is
