@@ -281,7 +281,12 @@ export function selectTier(tier) {
     case 'S3':
       return enumerate('sets');
     case 'S4':
-      return enumerateAll();
+      // The periphery ONLY — not "everything". S4 recorded as a superset would duplicate every S2
+      // and S3 record, doubling the committed baselines to re-state what two other tiers already
+      // hold. Disjoint tiers keep each baseline meaning one thing.
+      return Object.keys(CORPORA)
+        .filter((n) => n !== 'rules' && n !== 'sets')
+        .flatMap(enumerate);
     default:
       throw new Error(`unknown tier: ${tier} (S1, S2, S3, S4)`);
   }

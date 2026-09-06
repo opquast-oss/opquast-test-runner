@@ -147,3 +147,13 @@ conformance:
   # can shrink; it cannot silently grow.
   script:
     - node test/golden/conformance.mjs
+
+golden:periphery:
+  extends: .golden
+  # 2 321 cases: retired checklists, debug leftovers, and the fixtures whose verdict needs a real
+  # domain or DNS. Recorded and watched, never blocking — a canary, at no marginal cost.
+  allow_failure: true
+  script:
+    - node test/golden/check.mjs --tier S4
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
